@@ -27,7 +27,7 @@
       #   "${pkgs.Spotify}/Applications/Spotify.app"
       # ];
       show-recents = false;
-      tilesize = 50;
+      tilesize = 64;
       orientation = "bottom";
       mineffect = "scale";
       launchanim = false;
