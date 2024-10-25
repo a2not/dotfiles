@@ -2,20 +2,7 @@
   security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults = {
-    NSGlobalDomain.AppleICUForce24HourTime = true;
-    NSGlobalDomain.AppleInterfaceStyle = "Dark";
-    NSGlobalDomain.KeyRepeat = 2;
-
-    # TODO: check
-    # https://mynixos.com/nix-darwin/options/system.defaults
-    # https://daiderd.com/nix-darwin/manual/index.html
-    finder = {
-      AppleShowAllExtensions = true;
-      AppleShowAllFiles = true;
-      ShowPathbar = true;
-      ShowStatusBar = true;
-    };
-
+    # NOTE: https://mynixos.com/nix-darwin/options/system.defaults
     dock = {
       autohide = true;
       # persistent-apps = [
@@ -31,6 +18,19 @@
       orientation = "bottom";
       mineffect = "scale";
       launchanim = false;
+    };
+
+    finder = {
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      ShowPathbar = true;
+      ShowStatusBar = true;
+    };
+
+    NSGlobalDomain = {
+      AppleICUForce24HourTime = true;
+      AppleInterfaceStyle = "Dark";
+      KeyRepeat = 2;
     };
 
     screencapture.location = "~/Pictures/screenshots";
