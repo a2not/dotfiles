@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults = {
@@ -19,6 +19,14 @@
       FXPreferredViewStyle = "clmv";
       ShowPathbar = true;
       ShowStatusBar = true;
+    };
+
+    menuExtraClock = {
+      Show24Hour = true;
+      ShowDate = 1; # always
+      ShowDayOfMonth = true;
+      ShowDayOfWeek = true;
+      ShowSeconds = true;
     };
 
     NSGlobalDomain = {
