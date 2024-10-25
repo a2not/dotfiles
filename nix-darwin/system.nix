@@ -1,8 +1,8 @@
 {...}: {
   security.pam.enableSudoTouchIdAuth = true;
 
+  # NOTE: https://mynixos.com/nix-darwin/options/system.defaults
   system.defaults = {
-    # NOTE: https://mynixos.com/nix-darwin/options/system.defaults
     dock = {
       autohide = true;
       # persistent-apps = [
