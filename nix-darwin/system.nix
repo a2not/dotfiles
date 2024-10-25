@@ -35,6 +35,10 @@
       KeyRepeat = 2;
     };
 
+    trackpad.Clicking = true;
+
+    universalaccess.reduceMotion = true;
+
     screencapture.location = "~/Pictures/screenshots";
   };
 }
