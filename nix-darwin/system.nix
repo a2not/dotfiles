@@ -10,14 +10,7 @@
       #   "${pkgs.WezTerm}/Applications/WezTerm.app"
       #   "${pkgs.Slack}/Applications/Slack.app"
       #   "${pkgs.Zoom}/Applications/zoom.us.app"
-      #   "${pkgs.OnePassword}/Applications/1Password.app"
-      #   "${pkgs.Spotify}/Applications/Spotify.app"
       # ];
-      show-recents = false;
-      tilesize = 64;
-      orientation = "bottom";
-      mineffect = "scale";
-      launchanim = false;
     };
 
     finder = {
