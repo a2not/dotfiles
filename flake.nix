@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,19 +16,26 @@
 
   outputs = inputs @ {
     self,
-    nix-darwin,
     nixpkgs,
+    home-manager,
+    nix-darwin,
     nix-homebrew,
-  }: let
-    configuration = {
-      nixpkgs.hostPlatform = "aarch64-darwin";
+  }: {
+    homeConfigurations = {
+      aarch64-linux = self.lib.mkHomeManager {system = "aarch64-linux";};
+      aarch64-darwin = self.lib.mkHomeManager {system = "aarch64-darwin";};
+      x86_64-linux = self.lib.mkHomeManager {system = "x86_64-linux";};
+      x86_64-darwin = self.lib.mkHomeManager {system = "x86_64-darwin";};
     };
-  in {
+
     # nix-darwin
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
         ./configuration.nix
-        configuration
+        {
+          # TODO: support multiple systems with flake-parts
+          nixpkgs.hostPlatform = "aarch64-darwin";
+        }
 
         ./nix-darwin
 
