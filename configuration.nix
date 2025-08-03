@@ -20,6 +20,7 @@
     stow
     htop
     starship
+    zoxide
   ];
 
   programs.zsh.enable = true;
@@ -30,12 +31,14 @@
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
+      max-jobs = 8;
     };
+    optimise.automatic = true;
     gc = {
       automatic = true;
       interval = {
         Weekday = 0;
-        Hour = 0;
+        Hour = 9;
         Minute = 0;
       };
       options = "--delete-older-than 7d";
