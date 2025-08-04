@@ -77,9 +77,9 @@
       git_status = {
         style = "fg:#e0af68 bg:prev_bg";
         format = "[$state($all_status$ahead_behind )]($style)";
-        ahead = "⇡${count}";
-        diverged = "⇕⇡${ahead_count}⇣${behind_count}";
-        behind = "⇣${count}";
+        ahead = "⇡$count";
+        diverged = "⇕⇡$ahead_count⇣$behind_count";
+        behind = "⇣$count";
       };
 
       git_metrics = {
@@ -95,9 +95,9 @@
 
       python = {
         style = "fg:#9ece6a bg:prev_bg";
-        format = "[${symbol}${version}\(${virtualenv}\)]($style)";
+        format = "[$symbol$version\($virtualenv\)]($style)";
         symbol = "🐍";
-        version_format = "${major}.${minor}";
+        version_format = "$major.$minor";
       };
 
       cmd_duration = {
