@@ -1,8 +1,10 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     eza
-    zoxide
     starship
+    # TODO:
+    # zoxide
+    # ripgrep
   ];
 
   programs.zsh = {
