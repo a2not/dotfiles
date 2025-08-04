@@ -5,14 +5,10 @@
 
   programs.git = {
     enable = true;
-    includes = [
-      {
-        path = "./.gitconfig";
-      }
-      {
-        path = "./.gitconfig_work";
-        condition = "gitdir:~/go/src/github.sakura.codes";
-      }
-    ];
+  };
+
+  home.file = {
+    ".gitconfig".source = ./.gitconfig;
+    ".gitconfig_work".source = ./.gitconfig_work;
   };
 }

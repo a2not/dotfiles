@@ -1,7 +1,10 @@
 [user]
   name = a2not
-  email = 31874975+a2not@users.noreply.github.com
+  email = a2not.dev@gmail.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z
+
+[includeIf "gitdir:~/go/src/github.sakura.codes/"]
+  path = ~/.gitconfig_work
 
 [core]
   pager = delta
