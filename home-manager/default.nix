@@ -8,7 +8,7 @@
     userName = "a2not";
   };
 
-  homeManagerConfig = import ./home-manager.nix {inherit inputs;};
+  homeManagerConfig = import ./main.nix {inherit inputs;};
 in {
   mkHomeManager = {system}:
     inputs.home-manager.lib.homeManagerConfiguration {
