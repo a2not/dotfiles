@@ -20,9 +20,7 @@
     };
     history.size = 100000;
     initContent = ''
-      eval "$(${pkgs.zoxide} init zsh)"
-      eval "$(${pkgs.starship} init zsh)"
-      eval "$(${pkgs.mise} activate zsh)"
+      eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
     '';
   };
 
