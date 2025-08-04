@@ -43,6 +43,7 @@ in {
 
   imports = [
     ./zsh
+    ./git
   ];
 
   # Let Home Manager install and manage itself.

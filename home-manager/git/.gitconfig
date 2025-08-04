@@ -1,0 +1,36 @@
+[user]
+  name = a2not
+  email = 31874975+a2not@users.noreply.github.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z
+
+[core]
+  pager = delta
+  editor = nvim
+  quotepath = false
+[init]
+  defaultBranch = main
+[color]
+  ui = auto
+[pull]
+  rebase = false
+[rerere]
+  enabled = True
+
+[commit]
+  gpgsign = True
+[gpg]
+  format = ssh
+[tag]
+  gpgsign = true
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
+
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  nagivate = True
+  side-by-side = False
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
