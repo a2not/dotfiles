@@ -28,7 +28,7 @@
     settings = pkgs.lib.importTOML ./starship.toml;
   };
 
-  program.mise = {
+  programs.mise = {
     enable = true;
     enableZshIntegration = true;
     globalConfig = {
