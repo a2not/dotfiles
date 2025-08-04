@@ -29,8 +29,6 @@ in {
     nixVersions.latest
     just
     neovim
-
-    eza
   ];
 
   home.sessionVariables = {
