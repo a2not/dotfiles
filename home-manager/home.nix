@@ -29,9 +29,6 @@ in {
     nixVersions.latest
     just
     neovim
-
-    # TODO:
-    # mise
   ];
 
   home.sessionVariables = {

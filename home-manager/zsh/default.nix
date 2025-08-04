@@ -5,6 +5,8 @@
     # TODO:
     # zoxide
     # ripgrep
+
+    mise
   ];
 
   programs.zsh = {
@@ -24,5 +26,16 @@
     enable = true;
     enableZshIntegration = true;
     settings = pkgs.lib.importTOML ./starship.toml;
+  };
+
+  program.mise = {
+    enable = true;
+    enableZshIntegration = true;
+    globalConfig = {
+      tools = {
+        node = "lts";
+        python = "latest";
+      };
+    };
   };
 }
