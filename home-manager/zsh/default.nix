@@ -2,9 +2,8 @@
   home.packages = with pkgs; [
     eza
     starship
-    # TODO:
-    # zoxide
-    # ripgrep
+    zoxide
+    ripgrep
 
     mise
   ];
@@ -26,6 +25,11 @@
     enable = true;
     enableZshIntegration = true;
     settings = pkgs.lib.importTOML ./starship.toml;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.mise = {
