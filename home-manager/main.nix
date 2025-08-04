@@ -29,6 +29,8 @@ in {
     nixVersions.latest
     just
     neovim
+
+    eza
   ];
 
   home.sessionVariables = {
@@ -37,7 +39,13 @@ in {
     XDG_DATA_HOME = "${homeDirectory}/.local/share";
     XDG_STATE_HOME = "${homeDirectory}/.local/state";
     EDITOR = "nvim";
+    VISUAL = "nvim";
+    MANPAGER = "nvim +Man!";
   };
+
+  imports = [
+    ./zsh
+  ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
