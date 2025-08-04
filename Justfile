@@ -14,7 +14,7 @@ home-manager-build profile="aarch64-linux":
     just build "homeConfigurations.{{ profile }}.activationPackage"
 
 home-manager-switch profile="aarch64-linux":
-    nix run nixpkgs#home-manager switch --flake ".#{{ profile }}"
+    nix run nixpkgs#home-manager -- switch --flake ".#{{ profile }}" --impure
 
 apply:
   darwin-rebuild switch --flake .#mac
