@@ -1,5 +1,4 @@
 {inputs}: {
-  git,
   homeDirectory,
   username,
 }: {pkgs, ...}: let
