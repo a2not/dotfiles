@@ -19,9 +19,6 @@
       ls = "eza --icons";
     };
     history.size = 100000;
-    initContent = ''
-      eval "$(${pkgs.zoxide}/bin/zoxide init zsh)"
-    '';
   };
 
   programs.starship = {
