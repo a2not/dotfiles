@@ -5,12 +5,15 @@
 }: {pkgs, ...}: let
   # system = pkgs.system;
   # isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
-  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  # isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
 in {
   home.stateVersion = "25.05";
 
   home.username = username;
   home.homeDirectory = homeDirectory;
+
+  targets.genericLinux.enable = isLinux;
 
   # TODO: only on darwin
   # home.file.".config/ghostty/config".text = ''
