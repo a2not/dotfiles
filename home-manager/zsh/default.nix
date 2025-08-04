@@ -19,6 +19,10 @@
       ls = "eza --icons";
     };
     history.size = 100000;
+    initExtra = ''
+      # https://discourse.nixos.org/t/programs-neovim-defaulteditor-true-kills-bindkey-for-autosuggest-accept-in-zsh/48844
+      bindkey -e
+    '';
   };
 
   programs.starship = {
