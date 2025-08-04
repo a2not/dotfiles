@@ -11,7 +11,7 @@ build profile:
   nix build --json --no-link --print-build-logs ".#{{ profile }}"
 
 # NOTE: to use env vars like USER and HOME, use `--impure`
-home-manager-switch profile="aarch64-linux":
+home profile="aarch64-linux":
   nix run nixpkgs#home-manager -- switch --flake ".#{{ profile }}" --impure
 
 darwin-rebuild:
