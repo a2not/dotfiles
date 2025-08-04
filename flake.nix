@@ -20,7 +20,10 @@
     home-manager,
     nix-darwin,
     nix-homebrew,
+    ...
   }: {
+    lib = import ./lib {inherit inputs;};
+
     homeConfigurations = {
       aarch64-linux = self.lib.mkHomeManager {system = "aarch64-linux";};
       aarch64-darwin = self.lib.mkHomeManager {system = "aarch64-darwin";};
