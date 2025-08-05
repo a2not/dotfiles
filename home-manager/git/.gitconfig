@@ -10,30 +10,35 @@
   pager = delta
   editor = nvim
   quotepath = false
-[init]
-  defaultBranch = main
 [color]
   ui = auto
+
+[init]
+  defaultBranch = main
+[fetch]
+  prune = true
 [pull]
   rebase = false
+[push]
+  autoSetupRemote = true
+[merge]
+  conflictstyle = diff3
 [rerere]
   enabled = True
 
 [commit]
   gpgsign = True
-[gpg]
-  format = ssh
 [tag]
   gpgsign = true
+[gpg]
+  format = ssh
 [gpg "ssh"]
   allowedSignersFile = ~/.ssh/allowed_signers
 
-[interactive]
-  diffFilter = delta --color-only
 [delta]
   nagivate = True
   side-by-side = False
-[merge]
-  conflictstyle = diff3
 [diff]
   colorMoved = default
+[interactive]
+  diffFilter = delta --color-only
