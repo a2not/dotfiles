@@ -31,10 +31,6 @@ in {
   ];
 
   home.sessionVariables = {
-    XDG_CONFIG_HOME = "${homeDirectory}/.config";
-    XDG_CACHE_HOME = "${homeDirectory}/.cache";
-    XDG_DATA_HOME = "${homeDirectory}/.local/share";
-    XDG_STATE_HOME = "${homeDirectory}/.local/state";
     EDITOR = "nvim";
     VISUAL = "nvim";
     MANPAGER = "nvim +Man!";
@@ -44,6 +40,10 @@ in {
     ./zsh
     ./git
   ];
+
+  home.shell.enableZshIntegration = true;
+
+  xdg.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
