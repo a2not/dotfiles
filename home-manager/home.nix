@@ -2,10 +2,10 @@
   homeDirectory,
   username,
 }: {pkgs, ...}: let
-  # system = pkgs.system;
   # isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
   # isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   isLinux = pkgs.stdenv.hostPlatform.isLinux;
+  system = pkgs.system;
 in {
   home.stateVersion = "25.05";
 
@@ -35,6 +35,7 @@ in {
     VISUAL = "nvim";
     MANPAGER = "nvim +Man!";
   };
+  programs.neovim = inputs.a2not-nvim.lib.mkHomeManager {inherit system;};
 
   imports = [
     ./zsh
