@@ -27,7 +27,6 @@ in {
   home.packages = with pkgs; [
     nixVersions.latest
     just
-    neovim
   ];
 
   home.sessionVariables = {
