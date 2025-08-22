@@ -41,6 +41,7 @@
       tools = {
         node = "lts";
         python = "latest";
+        uv = "latest";
       };
     };
   };
