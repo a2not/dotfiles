@@ -13,6 +13,9 @@
       nodejs
       nodePackages.neovim
       fzf
+      zig
+      go
+      golangci-lint
 
       lua-language-server
       nodePackages.typescript-language-server
