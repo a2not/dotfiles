@@ -34,11 +34,11 @@ in {
     VISUAL = "nvim";
     MANPAGER = "nvim +Man!";
   };
-  programs.neovim = inputs.a2not-nvim.lib.mkHomeManager {inherit system;};
 
   imports = [
     ./zsh
     ./git
+    ./neovim
   ];
 
   home.shell.enableZshIntegration = true;

@@ -1,25 +1,5 @@
 {
   "nodes": {
-    "a2not-nvim": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1754469226,
-        "narHash": "sha256-x84EJTCKbs5qVE/Pk2eDI2LWGEoiaXZFRIT+0Kzuqpk=",
-        "owner": "a2not",
-        "repo": "nvim",
-        "rev": "9ff3ba194a2c3595b0597d615cdee9cf27d7a150",
-        "type": "github"
-      },
-      "original": {
-        "owner": "a2not",
-        "repo": "nvim",
-        "type": "github"
-      }
-    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -44,11 +24,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1758085625,
-        "narHash": "sha256-D0KVKNgWSDVjYFgPLEtSQvSKchTBT0YqSbNlH7OQ+bo=",
+        "lastModified": 1758111822,
+        "narHash": "sha256-Cpfyjkaft6yI5Ktvy2WTKDZehdU4sqKWs9EGaB2JFjs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "fb928abb67bd4df99040721ed48c3b42e24b1d08",
+        "rev": "b035546241d842053c7f19c517e330d79d1dc801",
         "type": "github"
       },
       "original": {
@@ -113,7 +93,6 @@
     },
     "root": {
       "inputs": {
-        "a2not-nvim": "a2not-nvim",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
