@@ -20,6 +20,6 @@
   };
 
   xdg.configFile."nvim" = {
-    source = "${config.home.homeDirectory}/nix-config/home-manager/neovim/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home-manager/neovim/nvim";
   };
 }
