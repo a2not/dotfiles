@@ -25,6 +25,8 @@
       gcc
       cmake
       gnumake
+      unzip
+
       zig
       go
       cargo
