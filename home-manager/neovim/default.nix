@@ -13,6 +13,8 @@
     withPython3 = true;
     withNodeJs = true;
 
+    package = pkgs.neovim-unwrapped;
+
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       lazy-nvim
@@ -21,6 +23,7 @@
 
     extraPackages = with pkgs; [
       gcc
+      cmake
       gnumake
       zig
       go
