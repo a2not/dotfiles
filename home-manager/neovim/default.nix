@@ -25,7 +25,6 @@
       gnumake
       unzip
 
-      zig
       go
       cargo
       python3
@@ -33,13 +32,6 @@
       fd
       fzf
       ripgrep
-
-      golangci-lint
-      lua-language-server
-      gopls
-      nil
-      alejandra
-      stylua
     ];
   };
 
