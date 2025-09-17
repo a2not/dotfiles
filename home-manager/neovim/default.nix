@@ -20,11 +20,14 @@
     ];
 
     extraPackages = with pkgs; [
-      zig
       gcc
       gnumake
+      zig
       go
+      cargo
+      python3
 
+      fd
       fzf
       ripgrep
 
@@ -32,18 +35,13 @@
       lua-language-server
       gopls
       nil
+      alejandra
       stylua
     ];
   };
 
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home-manager/neovim/nvim";
+    recursive = true;
   };
-  # TODO: migrate lazy.nvim setup to nix
-  # xdg.configFile = {
-  #   "nvim" = {
-  #     source = ./nvim;
-  #     recursive = true;
-  #   };
-  # };
 }
