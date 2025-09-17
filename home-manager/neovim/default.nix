@@ -10,23 +10,26 @@
     vimAlias = true;
     vimdiffAlias = true;
 
+    withPython3 = true;
+    withNodeJs = true;
+
     plugins = with pkgs.vimPlugins; [
+      nvim-treesitter.withAllGrammars
       lazy-nvim
       telescope-fzf-native-nvim
     ];
 
     extraPackages = with pkgs; [
-      nodejs
-      nodePackages.neovim
-      fzf
       zig
       gcc
       gnumake
       go
-      golangci-lint
 
+      fzf
+      ripgrep
+
+      golangci-lint
       lua-language-server
-      nodePackages.typescript-language-server
       gopls
       nil
       stylua
@@ -36,4 +39,11 @@
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home-manager/neovim/nvim";
   };
+  # TODO: migrate lazy.nvim setup to nix
+  # xdg.configFile = {
+  #   "nvim" = {
+  #     source = ./nvim;
+  #     recursive = true;
+  #   };
+  # };
 }
