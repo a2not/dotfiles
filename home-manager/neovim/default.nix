@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -16,6 +20,6 @@
   };
 
   xdg.configFile."nvim" = {
-    source = "./nvim";
+    source = "${config.home.homeDirectory}/nix-config/home-manager/neovim/nvim";
   };
 }
