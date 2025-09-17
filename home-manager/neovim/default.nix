@@ -15,15 +15,11 @@
       gopls
       nil
       stylua
+      fzf
     ];
   };
 
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home-manager/neovim/nvim";
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
   };
 }
