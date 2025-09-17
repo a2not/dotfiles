@@ -10,12 +10,15 @@
     vimAlias = true;
     vimdiffAlias = true;
     extraPackages = with pkgs; [
+      nodejs
+      nodePackages.neovim
+      fzf
+
       lua-language-server
       nodePackages.typescript-language-server
       gopls
       nil
       stylua
-      fzf
     ];
   };
 
