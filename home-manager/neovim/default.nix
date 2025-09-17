@@ -9,11 +9,19 @@
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
+
+    plugins = with pkgs.vimPlugins; [
+      lazy-nvim
+      telescope-fzf-native-nvim
+    ];
+
     extraPackages = with pkgs; [
       nodejs
       nodePackages.neovim
       fzf
       zig
+      gcc
+      gnumake
       go
       golangci-lint
 
