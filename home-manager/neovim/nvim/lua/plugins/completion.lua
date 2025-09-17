@@ -21,7 +21,6 @@ return {
       'folke/lazydev.nvim',
       'fang2hou/blink-copilot',
       'Kaiser-Yang/blink-cmp-avante',
-      'olimorris/codecompanion.nvim',
     },
 
     --- @module 'blink.cmp'
@@ -66,7 +65,7 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'copilot', 'avante', 'codecompanion' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'copilot', 'avante' },
         providers = {
           lazydev = {
             name = 'lazydev',
