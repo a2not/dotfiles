@@ -1,6 +1,6 @@
 # nix-config
 
-## setup
+## home-manager setup
 
 ```sh
 # install nix
@@ -12,4 +12,8 @@ mkdir -p ~/.config/nix && \
 
 # voila
 make home
+
+# change default shell to zsh
+sudo sed --in-place -e '/auth.*required.*pam_shells.so/s/required/sufficient/g' /etc/pam.d/chsh
+chsh -s $(which zsh)
 ```
