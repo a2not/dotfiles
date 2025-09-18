@@ -38,6 +38,7 @@ in {
   imports = [
     ./zsh
     ./git
+    ./tmux
     ./neovim
   ];
 
