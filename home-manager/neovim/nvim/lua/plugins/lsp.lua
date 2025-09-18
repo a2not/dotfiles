@@ -78,6 +78,7 @@ return {
           'templ',
           'rust_analyzer',
           'nil_ls',
+          'alejandra',
           'terraformls',
           'tflint',
           'phpactor',
