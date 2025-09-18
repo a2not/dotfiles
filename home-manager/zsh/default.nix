@@ -13,6 +13,14 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "zsh-autosuggestions"
+        "zsh-syntax-highlighting"
+      ];
+    };
     shellAliases = {
       l = "eza -lah --icons";
       ll = "eza -lah --icons";
@@ -22,12 +30,7 @@
     # https://discourse.nixos.org/t/programs-neovim-defaulteditor-true-kills-bindkey-for-autosuggest-accept-in-zsh/48844
     defaultKeymap = "emacs";
 
-    # TODO: Existing file '$HOME/.zshrc' would be clobbered
-    # # Lima BEGIN
-    # # Make sure iptables and mount.fuse3 are available
-    # PATH="$PATH:/usr/sbin:/sbin"
-    # export PATH
-    # # Lima END
+    initExtra = builtins.readFile ./.zshrc;
   };
 
   programs.starship = {

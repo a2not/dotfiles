@@ -1,79 +1,65 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+# NOTE: hand-picked from color palette
+# https://github.com/morhetz/gruvbox?tab=readme-ov-file#dark-mode-1
+format = """
+$os\
+[](fg:#665c54 bg:#504945)\
+$directory\
+[](fg:#504945 bg:#3c3836)\
+$git_branch\
+$git_status\
+[](fg:#3c3836 bg:#1d2021)\
+$git_metrics\
+[](fg:#1d2021)"""
+
+right_format = """
+[](fg:#1d2021)\
+$cmd_duration\
+[](fg:#3c3836 bg:#1d2021)\
+$time
+"""
 
 # Disable the blank line at the start of the prompt
 add_newline = false
 
-# NOTE: hand-picked from color palette
-# https://github.com/enkia/tokyo-night-vscode-theme?tab=readme-ov-file#tokyo-night-and-tokyo-night-storm
-format = """
-$os\
-[](fg:prev_bg bg:#414868)\
-$directory\
-[](fg:prev_bg bg:#343b58)\
-$git_branch\
-$git_status\
-[](fg:prev_bg bg:#24283b)\
-$git_metrics\
-[](fg:prev_bg bg:#1a1b26)\
-$nix_shell\
-[](fg:prev_bg)\
-"""
-
-right_format = """
-[](fg:#24283b)\
-$cmd_duration\
-[](fg:#343b58 bg:#24283b)\
-$time
-"""
-
 [os]
-style = 'fg:#cfc9c2 bg:#565f89'
+style = 'fg:#ebdbb2 bg:#665c54'
 format = '[ $symbol]($style)'
 disabled = false
 
 [directory]
-style = 'fg:#b4f9f8 bg:prev_bg'
+style = 'fg:#83a598 bg:#504945'
 format = '[ $path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
 
 [git_branch]
 symbol = ''
-style = 'fg:#e0af68 bg:prev_bg'
+style = 'fg:#b8bb26 bg:#3c3836'
 format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = 'fg:#e0af68 bg:prev_bg'
+style = 'fg:#b8bb26 bg:#3c3836'
 format = '[$state($all_status$ahead_behind )]($style)'
 ahead = '⇡${count}'
 diverged = '⇕⇡${ahead_count}⇣${behind_count}'
 behind = '⇣${count}'
 
 [git_metrics]
-added_style = 'fg:#9ece6a bg:prev_bg'
-deleted_style = 'fg:#f7768e bg:prev_bg'
+added_style = 'fg:#8ec07c bg:#1d2021'
+deleted_style = 'fg:#fe8019 bg:#1d2021'
 format = '([ +$added ]($added_style))([-$deleted ]($deleted_style))'
 disabled = false
 
-[nix_shell]
-style = 'fg:#b4f9f8 bg:prev_bg'
-
-[python]
-style = 'fg:#9ece6a bg:prev_bg'
-format = '[${symbol}${version}\(${virtualenv}\)]($style)'
-symbol = '🐍'
-version_format = '${major}.${minor}'
-
 [cmd_duration]
 disabled = false
-min_time = 500
-style = 'fg:#b4f9f8 bg:#24283b'
+min_time = 5_000
+style = 'fg:#fabd2f bg:#1d2021'
 format = '[ $duration ]($style)'
 
 [time]
 disabled = false
 time_format = '%R'
-style = 'fg:#a9b1d6 bg:#343b58'
+style = 'fg:#83a598 bg:#3c3836'
 format = '[  $time ]($style)'
 
 [os.symbols]
@@ -113,3 +99,9 @@ SUSE = ' '
 Ubuntu = ' '
 Unknown = ' '
 Windows = ' '
+
+[docker_context]
+symbol = ' '
+
+[elixir]
+symbol = ' '
