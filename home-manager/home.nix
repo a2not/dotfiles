@@ -38,7 +38,10 @@ in {
   imports = [
     ./zsh
     ./git
+    ./tmux
     ./neovim
+
+    ./rust
   ];
 
   home.shell.enableZshIntegration = true;
