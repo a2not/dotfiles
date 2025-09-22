@@ -3,7 +3,9 @@
     enable = true;
     enableDefaultConfig = false;
     includes = [
-      "${config.sops.secrets.ssh_config.path}"
+      "${config.sops.secrets."ssh_config/cloud".path}"
+      # "${config.sops.secrets."ssh_config/is".path}" # NOTE: is/rs
+      # "${config.sops.secrets."ssh_config/macos".path}" # NOTE: macos specific
     ];
   };
 
