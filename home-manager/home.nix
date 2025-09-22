@@ -55,6 +55,9 @@ in {
     age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt"; # set keys on new host
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
+
+    secrets."aider/envrc" = {};
+
     secrets."ssh_config/cloud" = {};
     secrets."ssh_config/is" = {};
     secrets."ssh_config/macos" = {};

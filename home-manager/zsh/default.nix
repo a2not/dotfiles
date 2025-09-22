@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     eza
     starship
@@ -6,6 +10,7 @@
     ripgrep
 
     mise
+    aider-chat
   ];
 
   # NOTE: for the conditionals in .zshrc
@@ -32,12 +37,17 @@
       ls = "eza --icons";
       ll = "eza -lah --icons";
       update = "sudo apt update && sudo apt upgrade -y && sudo snap refresh"; # ubunbu update
+      aider = "aider --no-show-model-warnings --no-auto-commits";
     };
     history.size = 100000;
     # https://discourse.nixos.org/t/programs-neovim-defaulteditor-true-kills-bindkey-for-autosuggest-accept-in-zsh/48844
     defaultKeymap = "emacs";
 
-    initContent = builtins.readFile ./.zshrc;
+    initContent = ''
+      ${builtins.readFile ./.zshrc}
+
+      source ${config.sops.secrets."aider/envrc".path}
+    '';
   };
 
   programs.starship = {
