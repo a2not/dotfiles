@@ -1,8 +1,9 @@
 {
-  description = "Darwin system flake";
+  description = "a2not NixOS/Ubuntu/Darwin configs with home-manager";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -35,6 +41,7 @@
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
         ./configuration.nix
+        inputs.sops-nix.darwinModules.sops
         {
           # TODO: support multiple systems with flake-parts
           nixpkgs.hostPlatform = "aarch64-darwin";

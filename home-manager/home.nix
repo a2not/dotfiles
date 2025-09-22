@@ -27,6 +27,8 @@ in {
   home.packages = with pkgs; [
     nixVersions.latest
     just
+
+    sops
   ];
 
   home.sessionVariables = {

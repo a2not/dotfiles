@@ -8,6 +8,8 @@ in {
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
         (homeManagerConfig {inherit username homeDirectory;})
+
+        inputs.sops-nix.homeManagerModules.sops
       ];
 
       pkgs = inputs.nixpkgs.legacyPackages.${system};

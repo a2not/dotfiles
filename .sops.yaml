@@ -1,0 +1,7 @@
+keys:
+  - &a2not age1gr77s5gnn6633zets699ggfgsn23m3rxpas57ftvza6hft4q9ytqadcupl
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *a2not
