@@ -10,6 +10,9 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 mkdir -p ~/.config/nix && \
   echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 
+# prepare age key to decrypt sops-nix. it's in the password manager.
+touch ~/.config/sops/age/keys.txt
+
 # voila
 make home
 
