@@ -56,7 +56,8 @@ in {
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
-    secrets."aider/envrc" = {};
+    secrets."work/zshrc" = {};
+    secrets."aider/zshrc" = {};
 
     secrets."ssh_config/cloud" = {};
     secrets."ssh_config/is" = {};

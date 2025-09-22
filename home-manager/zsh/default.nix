@@ -46,7 +46,8 @@
     initContent = ''
       ${builtins.readFile ./.zshrc}
 
-      source ${config.sops.secrets."aider/envrc".path}
+      source ${config.sops.secrets."aider/zshrc".path}
+      source ${config.sops.secrets."work/zshrc".path}
     '';
   };
 
