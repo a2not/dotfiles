@@ -10,6 +10,7 @@ alias update="sudo apt update && sudo apt upgrade -y && sudo snap refresh" # ubu
 # omz
 export ZSH=$HOME/.oh-my-zsh
 plugins=(
+  git
   zsh-autosuggestions
   zsh-syntax-highlighting
 )

@@ -20,6 +20,9 @@
     syntaxHighlighting.enable = true; # plugin "zsh-syntax-highlighting"
     oh-my-zsh = {
       enable = true;
+      plugins = [
+        "git"
+      ];
       extraConfig = ''
         zstyle ':omz:update' mode auto
         zstyle ':omz:update' verbose minimal
