@@ -40,6 +40,7 @@ in {
   imports = [
     ./zsh
     ./git
+    ./ssh
     ./tmux
     ./neovim
 
@@ -49,6 +50,13 @@ in {
   home.shell.enableZshIntegration = true;
 
   xdg.enable = true;
+
+  sops = {
+    age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt"; # set keys on new host
+    defaultSopsFile = ../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    secrets.ssh_config = {};
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
