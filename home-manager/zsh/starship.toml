@@ -11,6 +11,7 @@ $os\
 $directory\
 [](fg:prev_bg bg:#343b58)\
 $git_branch\
+$git_state\
 $git_status\
 [](fg:prev_bg bg:#24283b)\
 $git_metrics\
@@ -38,9 +39,13 @@ truncation_length = 3
 truncation_symbol = '…/'
 
 [git_branch]
-symbol = ''
+symbol = '🌱 '
 style = 'fg:#e0af68 bg:prev_bg'
-format = '[ $symbol $branch ]($style)'
+format = '[$symbol$branch ]($style)'
+
+[git_state]
+style = 'fg:#e0af68 bg:prev_bg'
+format = '[🚨$state( $progress_current/$progress_total)🚨]($style)'
 
 [git_status]
 style = 'fg:#e0af68 bg:prev_bg'
@@ -83,20 +88,11 @@ Android = ' '
 Arch = ' '
 CentOS = ' '
 Debian = ' '
-DragonFly = ' '
-Emscripten = ' '
-EndeavourOS = ' '
 Fedora = ' '
 FreeBSD = ' '
-Garuda = ' '
 Gentoo = ' '
-HardenedBSD = 'ﲊ '
-Illumos = ' '
 Linux = ' '
 Macos = ' '
-Manjaro = ' '
-Mariner = ' '
-MidnightBSD = ' '
 Mint = ' '
 NetBSD = ' '
 NixOS = ' '
