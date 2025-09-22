@@ -50,4 +50,10 @@ in {
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    persistent = true;
+  };
 }
