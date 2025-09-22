@@ -16,15 +16,10 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    autosuggestion.enable = true; # plugin "zsh-autosuggestions"
+    syntaxHighlighting.enable = true; # plugin "zsh-syntax-highlighting"
     oh-my-zsh = {
       enable = true;
-      plugins = [
-        "git"
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
-      ];
       extraConfig = ''
         zstyle ':omz:update' mode auto
         zstyle ':omz:update' verbose minimal

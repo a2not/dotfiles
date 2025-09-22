@@ -26,7 +26,6 @@ if [[ "$IS_NIX_HOME_MANAGED" != "heck yeah!" ]]; then
   # omz
   export ZSH=$HOME/.oh-my-zsh
   plugins=(
-    git
     zsh-autosuggestions
     zsh-syntax-highlighting
   )
