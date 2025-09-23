@@ -25,6 +25,7 @@
       gnumake
       unzip
 
+      nixd
       go
       cargo
       python3
