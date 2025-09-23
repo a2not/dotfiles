@@ -1,7 +1,13 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  nixpkgs,
+  ...
+}: {
   services.nix-daemon.enable = true;
+
   nix = {
     package = pkgs.nix;
+    nixPath = ["nixpkgs=${nixpkgs}"];
     settings = {
       experimental-features = [
         "nix-command"
@@ -18,6 +24,7 @@
     gc = {
       automatic = true;
       dates = "daily";
+      persistent = true;
       options = "--delete-older-than 7d";
     };
   };

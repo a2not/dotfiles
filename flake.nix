@@ -12,7 +12,7 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
 
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -22,8 +22,6 @@
 
   outputs = inputs @ {
     self,
-    nixpkgs,
-    home-manager,
     nix-darwin,
     nix-homebrew,
     ...
@@ -37,20 +35,24 @@
       x86_64-darwin = self.hm.mkHomeManager {system = "x86_64-darwin";};
     };
 
-    # nix-darwin
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
-        ./configuration.nix
         inputs.sops-nix.darwinModules.sops
+        ./nix-darwin
         {
           # TODO: support multiple systems with flake-parts
           nixpkgs.hostPlatform = "aarch64-darwin";
         }
 
-        ./nix-darwin
-
         nix-homebrew.darwinModules.nix-homebrew
-        ./nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = builtins.getEnv "USER";
+            autoMigrate = true;
+          };
+        }
       ];
       specialArgs = {inherit inputs;};
     };
