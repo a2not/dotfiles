@@ -29,6 +29,8 @@ in {
     just
 
     sops
+
+    go
   ];
 
   home.sessionVariables = {
