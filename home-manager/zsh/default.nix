@@ -46,9 +46,29 @@
     initContent = ''
       ${builtins.readFile ./.zshrc}
 
-      source ${config.sops.secrets."aider/zshrc".path}
+      source ${config.xdg.configHome}/zsh/.zshrc_aider
       source ${config.sops.secrets."work/zshrc".path}
     '';
+  };
+
+  sops = {
+    secrets = {
+      "aider/model" = {};
+      "aider/openai/api_base" = {};
+      "aider/openai/api_key" = {};
+
+      "work/zshrc" = {};
+    };
+    templates = {
+      "aider" = {
+        content = ''
+          export AIDER_MODEL=${config.sops.placeholder."aider/model"}
+          export OPENAI_API_BASE=${config.sops.placeholder."aider/openai/api_base"}
+          export OPENAI_API_KEY=${config.sops.placeholder."aider/openai/api_key"}
+        '';
+        path = "${config.xdg.configHome}/zsh/.zshrc_aider";
+      };
+    };
   };
 
   programs.starship = {
