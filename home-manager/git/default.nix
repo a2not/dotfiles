@@ -2,6 +2,9 @@
   programs.git = {
     enable = true;
     delta.enable = true;
+    ignores = [
+      ".aider*"
+    ];
   };
 
   home.file = {
