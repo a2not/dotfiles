@@ -1,15 +1,27 @@
 # nix-config
 
-## home-manager setup
+## install Nix
+
+Determinate is preferable, but the official is fine as well.
+
+### Determinate
 
 ```sh
-# install nix
-sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
+```
 
+### official
+
+```sh
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 # enable flakes
 mkdir -p ~/.config/nix && \
   echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+```
 
+## home-manager setup
+
+```sh
 # prepare age key to decrypt sops-nix. it's in the password manager.
 touch ~/.config/sops/age/keys.txt
 
