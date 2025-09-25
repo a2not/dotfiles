@@ -16,6 +16,18 @@
 
     "1password-gui"
     "1password"
+
+    # TODO: migrate them. They're in brew for now
+    # age
+    # qemu
+    # awscli
+    # ripgrep
+    # docker
+    # exiftool
+    # lima
+    # pipx
+    # zig
+    # raycast # TODO: installed manually for now;
   ];
 
   # TODO: install actual zen itself; https://github.com/a2not/nix-config/issues/3
