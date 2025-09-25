@@ -3,7 +3,7 @@
 
   fonts.packages = with pkgs; [
     udev-gothic-nf
-    moralerspace-nf
+    moralerspace
     nerd-fonts.meslo-lg
   ];
 
@@ -11,11 +11,10 @@
     alejandra
 
     # TODO: config files for these
-    ghostty
     wezterm
 
-    "1password-gui"
-    "1password"
+    _1password-gui
+    _1password-cli
 
     # TODO: migrate them. They're in brew for now
     # age
@@ -28,15 +27,17 @@
     # pipx
     # zig
     # raycast # TODO: installed manually for now;
+
+    # ghostty # NOTE: not supported on darwin
   ];
 
   # TODO: install actual zen itself; https://github.com/a2not/nix-config/issues/3
-  environment.etc = {
-    "1password/custom_allowed_browsers" = {
-      text = ''
-        .zen-wrapped
-      '';
-      mode = "0755";
-    };
-  };
+  # environment.etc = {
+  #   "1password/custom_allowed_browsers" = {
+  #     text = ''
+  #       .zen-wrapped
+  #     '';
+  #     mode = "0755";
+  #   };
+  # };
 }

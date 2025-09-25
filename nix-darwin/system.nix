@@ -1,5 +1,9 @@
-{...}: {
-  security.pam.enableSudoTouchIdAuth = true;
+{...}: let
+  username = builtins.getEnv "USER";
+in {
+  security.pam.services.sudo_local.touchIdAuth = true;
+
+  system.primaryUser = username;
 
   # NOTE: https://mynixos.com/nix-darwin/options/system.defaults
   system.defaults = {
