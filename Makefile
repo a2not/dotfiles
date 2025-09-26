@@ -13,5 +13,5 @@ update:
 
 .PHONY: darwin-rebuild
 darwin-rebuild:
-	darwin-rebuild switch --flake .#mac
+	darwin-rebuild switch --flake .#mac --impure
 
