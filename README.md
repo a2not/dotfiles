@@ -23,6 +23,7 @@ mkdir -p ~/.config/nix && \
 
 ```sh
 # prepare age key to decrypt sops-nix. it's in the password manager.
+mkdir -p ~/.config/sops/age/
 touch ~/.config/sops/age/keys.txt
 
 # voila
