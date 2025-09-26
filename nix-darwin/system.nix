@@ -1,6 +1,4 @@
-{...}: let
-  username = builtins.getEnv "USER";
-in {
+{username, ...}: {
   security.pam.services.sudo_local.touchIdAuth = true;
 
   system.primaryUser = username;

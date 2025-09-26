@@ -1,6 +1,7 @@
-{inputs}: {
-  homeDirectory,
+{
+  inputs,
   username,
+  homeDirectory,
 }: {pkgs, ...}: let
   # isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
   # isDarwin = pkgs.stdenv.hostPlatform.isDarwin;

@@ -4,13 +4,13 @@
   ...
 }: {
   imports = [
-    ./system.nix
+    # ./system.nix
     ./packages.nix
-    ./homebrew.nix
+    ./homebrew.nix # NOTE: sudo prohibited but system.nix needs sudo
   ];
 
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-  system.stateVersion = 5; # nix-darwin specific
+  system.stateVersion = 6; # nix-darwin specific
 
   nix = {
     package = pkgs.nix;

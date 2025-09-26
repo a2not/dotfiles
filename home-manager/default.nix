@@ -1,13 +1,10 @@
-{inputs}: let
-  username = builtins.getEnv "USER";
-  homeDirectory = builtins.getEnv "HOME";
-
-  homeManagerConfig = import ./home.nix {inherit inputs;};
+{inputs, username, homeDirectory}: let
+  homeManagerConfig = import ./home.nix {inherit inputs username homeDirectory;};
 in {
   mkHomeManager = {system}:
     inputs.home-manager.lib.homeManagerConfiguration {
       modules = [
-        (homeManagerConfig {inherit username homeDirectory;})
+        homeManagerConfig
 
         inputs.sops-nix.homeManagerModules.sops
       ];
