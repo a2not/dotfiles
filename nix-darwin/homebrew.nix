@@ -4,27 +4,31 @@
     enable = true;
 
     onActivation = {
-      autoUpdate = false;
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "none";
     };
 
-    taps = [
-      "homebrew/cask-fonts"
-      "homebrew/services"
-      "homebrew/cask-versions"
-    ];
-
-    # `brew install`
     brews = [
       "lima"
       "qemu"
     ];
 
-    # `brew install --cask`
     casks = [
-      "mos"
+      "1password"
+      "1password-cli"
+      "discord"
       "ghostty"
-      "raycast"
+      "gitify"
       "google-chrome"
+      "karabiner-elements"
+      "mos"
+      "notion"
+      "raycast"
+      "spotify"
+      "vial"
+      "wezterm"
+      "zen"
     ];
   };
 }
