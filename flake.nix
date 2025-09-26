@@ -42,7 +42,7 @@
       modules = [
         ./nix-darwin
         inputs.home-manager.darwinModules.home-manager
-        inputs.sops-nix.homeManagerModules.sops # TODO: debug
+        inputs.sops-nix.darwinModules.sops # TODO: debug
         {
           home-manager.users.${username} = import ./home-manager/home.nix {inherit inputs username homeDirectory;};
           home-manager.useGlobalPkgs = true;
