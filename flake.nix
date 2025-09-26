@@ -38,20 +38,11 @@
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
         inputs.sops-nix.darwinModules.sops
+        nix-homebrew.darwinModules.nix-homebrew
         ./nix-darwin
         {
           # TODO: support multiple systems with flake-parts
           nixpkgs.hostPlatform = "aarch64-darwin";
-        }
-
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            enable = true;
-            enableRosetta = true;
-            user = builtins.getEnv "USER";
-            autoMigrate = true;
-          };
         }
       ];
       specialArgs = {inherit inputs;};

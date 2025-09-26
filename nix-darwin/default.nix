@@ -6,6 +6,7 @@
   imports = [
     ./system.nix
     ./packages.nix
+    ./homebrew.nix
   ];
 
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
