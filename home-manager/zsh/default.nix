@@ -8,6 +8,7 @@
     starship
     zoxide
     ripgrep
+    fastfetch
 
     mise
     aider-chat
