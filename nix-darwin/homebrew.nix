@@ -1,12 +1,4 @@
 {...}: {
-  # TODO: we might not need nix-homebrew...
-  nix-homebrew = {
-    enable = true;
-    enableRosetta = true;
-    user = builtins.getEnv "USER";
-    autoMigrate = true;
-  };
-
   # NOTE: install homebrew beforehand
   homebrew = {
     enable = true;
