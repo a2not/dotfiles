@@ -8,7 +8,3 @@ export PATH=$HOME/go/src/bin:$PATH
 PATH="$PATH:/usr/sbin:/sbin"
 export PATH
 # Lima END
-
-if [[ "$IS_NIX_HOME_MANAGED" != "heck yeah!" ]]; then
-  [ -f "$HOME/.zshrc_without_nix" ] && source $HOME/.zshrc_without_nix
-fi

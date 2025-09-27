@@ -16,11 +16,6 @@ in {
     aider-chat
   ];
 
-  # NOTE: for the conditionals in .zshrc
-  home.sessionVariables = {
-    IS_NIX_HOME_MANAGED = "heck yeah!";
-  };
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;
