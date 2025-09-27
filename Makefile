@@ -13,5 +13,6 @@ update:
 
 .PHONY: darwin-rebuild
 darwin-rebuild:
-	darwin-rebuild switch --flake .#mac --impure
+	sudo darwin-rebuild switch --flake .#mac --impure
+	# sudo nix run nix-darwin -- switch --flake .#mac --impure
 

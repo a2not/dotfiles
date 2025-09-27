@@ -2,7 +2,7 @@
   inputs,
   username,
   homeDirectory,
-}: {pkgs, ...}: let
+}: {pkgs,config, ...}: let
   # isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
   # isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   isLinux = pkgs.stdenv.hostPlatform.isLinux;
@@ -45,7 +45,7 @@ in {
   xdg.enable = true;
 
   sops = {
-    age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt"; # set keys on new host
+    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt"; # set keys on new host
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
   };

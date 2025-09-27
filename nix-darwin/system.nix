@@ -1,7 +1,5 @@
-{username, ...}: {
+{...}: {
   security.pam.services.sudo_local.touchIdAuth = true;
-
-  system.primaryUser = username;
 
   # NOTE: https://mynixos.com/nix-darwin/options/system.defaults
   system.defaults = {
