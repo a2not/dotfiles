@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  username,
   ...
 }: {
   imports = [
@@ -9,6 +10,7 @@
     ./homebrew.nix # NOTE: sudo prohibited but system.nix needs sudo
   ];
 
+  system.primaryUser = username;
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
   system.stateVersion = 6; # nix-darwin specific
 
