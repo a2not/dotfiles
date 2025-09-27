@@ -6,7 +6,7 @@
 [includeIf "gitdir:~/go/src/github.sakura.codes/"]
   path = ~/.gitconfig_work
 
-[includeIf "gitdir:/User/"]
+[includeIf "gitdir:/Users/"]
   path = ~/.gitconfig_mac
 
 [core]
