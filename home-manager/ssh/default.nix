@@ -28,4 +28,12 @@ in {
     secrets."ssh_config/is" = {};
     secrets."ssh_config/macos" = {};
   };
+
+  # NOTE: this is needed only on host but no harm having inside VM so keeping this unconditionally
+  xdg.configFile."1Password/ssh/agent.toml" = {
+    text = ''
+      [[ssh-keys]]
+      vault = "Private"
+    '';
+  };
 }
