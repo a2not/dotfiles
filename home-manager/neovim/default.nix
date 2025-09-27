@@ -26,6 +26,7 @@
       unzip
 
       nixd
+      alejandra
       go
       cargo
       python3
