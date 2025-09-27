@@ -41,6 +41,8 @@ in {
     ./neovim
 
     ./rust
+
+    ./terminal-emulator
   ];
 
   home.shell.enableZshIntegration = true;
