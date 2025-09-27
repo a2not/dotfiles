@@ -1,4 +1,6 @@
-# nix-config
+# dotfiles
+
+Managed by nix.
 
 ## install Nix
 
