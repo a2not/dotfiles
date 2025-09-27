@@ -2,7 +2,9 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+in {
   home.packages = with pkgs; [
     eza
     starship
@@ -32,6 +34,17 @@
       extraConfig = ''
         zstyle ':omz:update' mode auto
         zstyle ':omz:update' verbose minimal
+        ${
+          if isDarwin
+          then ''
+            # NOTE: MacOS specific
+            export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+            if [[ $(uname -m) == 'arm64' ]]; then
+              eval "$(/opt/homebrew/bin/brew shellenv)"
+            fi
+          ''
+          else ""
+        }
       '';
     };
     shellAliases = {
