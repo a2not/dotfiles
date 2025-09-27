@@ -2,11 +2,14 @@
   inputs,
   username,
   homeDirectory,
-}: {pkgs,config, ...}: let
+}: {
+  pkgs,
+  config,
+  ...
+}: let
+  # system = pkgs.system;
   # isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
-  # isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
   isLinux = pkgs.stdenv.hostPlatform.isLinux;
-  system = pkgs.system;
 in {
   home.stateVersion = "25.05";
 
