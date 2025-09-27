@@ -41,9 +41,18 @@
       specialArgs = {inherit inputs username homeDirectory;};
       modules = [
         ./nix-darwin
-        inputs.home-manager.darwinModules.home-manager
-        inputs.sops-nix.darwinModules.sops # TODO: debug
         {
+	  # TODO: some of the stuffs probably not needed. remnants from the debugging stuffs
+          nixpkgs.hostPlatform = "aarch64-darwin";
+          nix.settings.extra-platforms = [ "x86_64-darwin" "aarch64-darwin" ];
+          nixpkgs.config.allowUnsupportedSystem = true;
+        }
+        inputs.home-manager.darwinModules.home-manager
+        {
+          home-manager.sharedModules = [
+            inputs.sops-nix.homeManagerModules.sops
+          ];
+          users.users.${username}.home = "/Users/${username}";
           home-manager.users.${username} = import ./home-manager/home.nix {inherit inputs username homeDirectory;};
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

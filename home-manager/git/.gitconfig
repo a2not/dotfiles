@@ -6,6 +6,9 @@
 [includeIf "gitdir:~/go/src/github.sakura.codes/"]
   path = ~/.gitconfig_work
 
+[includeIf "gitdir:/User/"]
+  path = ~/.gitconfig_mac
+
 [core]
   pager = delta
   editor = nvim
