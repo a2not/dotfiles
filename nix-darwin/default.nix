@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    # ./system.nix
+    ./system.nix
     ./packages.nix
     ./homebrew.nix # NOTE: sudo prohibited but system.nix needs sudo
   ];
