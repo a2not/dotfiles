@@ -88,21 +88,6 @@ return {
       })
 
       require('mason-lspconfig').setup()
-
-      -- injected outside of lazy.nvim
-      require('lspconfig').nixd.setup({
-        ---@type vim.lsp.Config
-        settings = {
-          nixd = {
-            nixpkgs = {
-              expr = 'import <nixpkgs> {}',
-            },
-            formatting = {
-              command = { 'alejandra' },
-            },
-          },
-        },
-      })
     end,
   },
 }
