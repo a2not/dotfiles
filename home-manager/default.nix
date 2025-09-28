@@ -1,4 +1,8 @@
-{inputs, username, homeDirectory}: let
+{
+  inputs,
+  username,
+  homeDirectory,
+}: let
   homeManagerConfig = import ./home.nix {inherit inputs username homeDirectory;};
 in {
   mkHomeManager = {system}:
@@ -7,6 +11,9 @@ in {
         homeManagerConfig
 
         inputs.sops-nix.homeManagerModules.sops
+        {
+          nixpkgs.overlays = [inputs.rust-overlay.overlays.default];
+        }
       ];
 
       pkgs = inputs.nixpkgs.legacyPackages.${system};

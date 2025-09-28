@@ -40,8 +40,6 @@ in {
     ./tmux
     ./neovim
 
-    ./rust
-
     ./terminal-emulator
   ];
 
