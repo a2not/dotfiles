@@ -41,12 +41,6 @@
       specialArgs = {inherit inputs username homeDirectory;};
       modules = [
         ./nix-darwin
-        {
-          # TODO: some of the stuffs probably not needed. remnants from the debugging stuffs
-          nixpkgs.hostPlatform = "aarch64-darwin";
-          nix.settings.extra-platforms = ["x86_64-darwin" "aarch64-darwin"];
-          nixpkgs.config.allowUnsupportedSystem = true;
-        }
       ];
     };
   };
