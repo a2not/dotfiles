@@ -1,7 +1,7 @@
 # Env
 export TZ="Asia/Tokyo"
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/go/src/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 
 # Lima BEGIN
 # Make sure iptables and mount.fuse3 are available
