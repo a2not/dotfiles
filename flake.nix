@@ -55,7 +55,7 @@
       system = "aarch64-linux";
       specialArgs = {inherit nixos-lima;};
       modules = [
-        ./nixos/lima/configuration.nix
+        ./hardware/nixos/lima/configuration.nix
       ];
     };
   };
