@@ -17,11 +17,18 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-lima = {
+      url = "github:nixos-lima/nixos-lima/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
     self,
+    nixpkgs,
     nix-darwin,
+    nixos-lima,
     ...
   }: let
     username = builtins.getEnv "USER";
@@ -41,6 +48,14 @@
       specialArgs = {inherit inputs;};
       modules = [
         ./nix-darwin
+      ];
+    };
+
+    nixosConfigurations."lima" = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      specialArgs = {inherit nixos-lima;};
+      modules = [
+        ./hardware/nixos/lima/configuration.nix
       ];
     };
   };
