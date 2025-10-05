@@ -23,7 +23,7 @@ darwin-rebuild:
 lima:
 	# TODO: create VM somehow; hopefully by building it on darwin;
 	# limactl start https://raw.githubusercontent.com/nixos-lima/nixos-lima/master/nixos.yaml
-	limactl shell nixos -- bash -c "git clone https://github.com/a2not/dotfiles.git ~/dotfiles"
+	limactl shell nixos -- bash -c "git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
 	limactl shell nixos -- bash -c "mkdir -p ~/.config/sops/age/ ; vim ~/.config/sops/age/keys.txt" # put age key
 	# limactl shell nixos -- bash -c "cd ~/dotfiles ; make home" # TODO: install make initially
 	limactl shell nixos -- bash -c "nix run nixpkgs#home-manager -- switch --flake ~/dotfiles#aarch64-linux --impure"
