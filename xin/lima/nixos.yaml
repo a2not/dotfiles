@@ -1,0 +1,26 @@
+images:
+  - location: "https://github.com/nixos-lima/nixos-lima/releases/download/v0.0.3/nixos-lima-v0.0.3-aarch64.qcow2"
+    arch: "aarch64"
+    digest: "sha512:809bd6bf46e27719eb69cc248e31a6c98725415976f8f0111b86228148a4379ea05e7405930c086487c9d51961e8776f61744175f33423ce3508e74a7f1a87c4"
+
+# TODO: with locally-built images.
+# images:
+#   - location: "./result-aarch64/nixos.qcow2"
+#     arch: "aarch64"
+
+mounts:
+- location: "~"
+  # NOTE: Try choosing "mmap" or "none" if you see a stability issue with the default "fscache".
+  # 9p:
+  #   cache: "mmap"
+
+containerd:
+  system: false
+  user: false
+
+## NOTE: user defined below
+memory: 16GiB
+disk: 200GiB
+ssh:
+  forwardAgent: true
+

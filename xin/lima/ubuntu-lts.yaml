@@ -45,30 +45,9 @@ images:
 mounts:
 - location: "~"
 
-- location: "{{.GlobalTempDir}}/lima"
-  mountPoint: /tmp/lima
-  writable: true
-
 ## NOTE: user defined below
-#
-# Memory size
-# 🟢 Builtin default: min("4GiB", half of host memory)
 memory: 16GiB
-
-# Disk size
-# 🟢 Builtin default: "100GiB"
 disk: 200GiB
-
 ssh:
-  # Forward ssh agent into the instance.
-  # The ssh agent socket can be mounted in a container at the path `/run/host-services/ssh-auth.sock`.
-  # Set the environment variable `SSH_AUTH_SOCK` value to the path above.
-  # The socket is accessible by the non-root user inside the Lima instance.
-  # 🟢 Builtin default: false
   forwardAgent: true
-
-# Upgrade the instance on boot
-# Reboot after upgrade if required
-# 🟢 Builtin default: false
-upgradePackages: true
 
