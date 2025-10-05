@@ -29,7 +29,7 @@ mkdir -p ~/.config/sops/age/
 touch ~/.config/sops/age/keys.txt
 
 # voila
-make home
+make home-linux
 
 # change default shell to zsh
 sudo sed --in-place -e '/auth.*required.*pam_shells.so/s/required/sufficient/g' /etc/pam.d/chsh
