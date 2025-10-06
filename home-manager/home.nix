@@ -20,10 +20,10 @@ in {
 
   home.packages = with pkgs; [
     nixVersions.latest
-    just
-
     sops
+    htop
 
+    just
     go
   ];
 
