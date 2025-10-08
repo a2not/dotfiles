@@ -20,6 +20,10 @@ darwin-rebuild:
 	sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mac
 
 # TODO: build it on darwin;
+.PHONY: img
+img:
+	nix build .#img --out-link result-aarch64
+
 .PHONY: lima-nixos-vm
 lima-nixos-vm:
 	limactl start --name=nixos ./xin/lima/nixos.yaml
