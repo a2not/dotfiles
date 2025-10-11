@@ -30,10 +30,11 @@ lima-nixos-vm:
 
 .PHONY: lima
 lima:
-	limactl shell nixos -- bash -c "git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
-	# TODO: nixos rebuild; nixos-rebuild boot --flake .#$GUEST_CONFIG_NAME
+	# TODO: needs separate-git-dir?
 	# ref: https://github.com/nxmatic/nixos-lima-config/blob/f25c9085502364bba1582e12fcec8e8b7dcec262/setup-nixos.sh
-	# TODO: zsh as default. in nixos config.
+	# TODO: clone could be symlink?
+	limactl shell nixos -- sudo git clone git@github.com:a2not/dotfiles.git /etc/nixos
+	limactl shell nixos -- sudo nixos-rebuild boot --flake /etc/nixos#lima
+	limactl shell nixos -- bash -c "git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
 	limactl shell nixos -- bash -c "mkdir -p ~/.config/sops/age/ ; vim ~/.config/sops/age/keys.txt" # put age key
-	# limactl shell nixos -- bash -c "cd ~/dotfiles ; make home-linux" # TODO: install make initially
-	limactl shell nixos -- bash -c "nix run nixpkgs#home-manager -- switch --flake ~/dotfiles#aarch64-linux --impure"
+	limactl shell nixos -- bash -c "cd ~/dotfiles ; make home-linux"

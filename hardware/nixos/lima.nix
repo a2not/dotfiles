@@ -52,11 +52,5 @@
   # misc
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  # pkgs
-  environment.systemPackages = with pkgs; [
-    vim
-    git
-  ];
-
   system.stateVersion = "25.11";
 }

@@ -3,6 +3,7 @@
 in {
   imports = [
     ./lima.nix
+    ./packages.nix
 
     (
       if enableDesktop
