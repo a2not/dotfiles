@@ -30,7 +30,11 @@ touch ~/.config/sops/age/keys.txt
 
 # voila
 make home-linux
+```
 
+### (only on ubuntu) set zsh as default shell
+
+```sh
 # change default shell to zsh
 sudo sed --in-place -e '/auth.*required.*pam_shells.so/s/required/sufficient/g' /etc/pam.d/chsh
 chsh -s $(which zsh)
