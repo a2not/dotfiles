@@ -60,7 +60,7 @@
       system = "aarch64-linux";
       specialArgs = {inherit nixos-lima;};
       modules = [
-        ./hardware/nixos/lima.nix
+        ./hardware/nixos
       ];
     };
 
@@ -73,7 +73,7 @@
       pkgs = import nixpkgs {system = "aarch64-linux";};
       specialArgs = {inherit nixos-lima;};
       modules = [
-        ./hardware/nixos/lima.nix
+        ./hardware/nixos
       ];
       format = "qcow-efi";
     };

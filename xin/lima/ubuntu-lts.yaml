@@ -51,3 +51,6 @@ disk: 200GiB
 ssh:
   forwardAgent: true
 
+# NOTE: to enable desktop
+# video:
+#   display: default
