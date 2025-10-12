@@ -6,8 +6,6 @@
   nixos-lima,
   ...
 }: {
-  networking.hostName = "lima-nixos";
-
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
     nixos-lima.nixosModules.lima

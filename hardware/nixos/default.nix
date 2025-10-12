@@ -3,6 +3,7 @@
 in {
   imports = [
     ./lima.nix
+    ./configuration.nix
     ./packages.nix
 
     (
