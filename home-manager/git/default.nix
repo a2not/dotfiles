@@ -3,7 +3,6 @@
     enable = true;
     delta.enable = true;
     ignores = [
-      ".aider*"
     ];
   };
 

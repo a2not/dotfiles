@@ -13,7 +13,6 @@ in {
     fastfetch
 
     mise
-    aider-chat
   ];
 
   programs.zsh = {
@@ -46,7 +45,6 @@ in {
       ls = "eza --icons";
       ll = "eza -lah --icons";
       update = "sudo apt update && sudo apt upgrade -y && sudo snap refresh"; # ubunbu update
-      aider = "aider --no-show-model-warnings --no-auto-commits";
     };
     history.size = 100000;
     # https://discourse.nixos.org/t/programs-neovim-defaulteditor-true-kills-bindkey-for-autosuggest-accept-in-zsh/48844
@@ -55,30 +53,45 @@ in {
     initContent = ''
       ${builtins.readFile ./.zshrc}
 
-      source ${config.xdg.configHome}/zsh/.zshrc_aider
       source ${config.sops.secrets."work/zshrc".path}
     '';
   };
 
   sops = {
     secrets = {
-      "aider/model" = {};
-      "aider/openai/api_base" = {};
-      "aider/openai/api_key" = {};
+      "openai/model" = {};
+      "openai/api_base" = {};
+      "openai/api_key" = {};
 
       "work/zshrc" = {};
     };
     templates = {
-      "aider" = {
+      "crush" = {
         content = ''
-          export AIDER_MODEL=${config.sops.placeholder."aider/model"}
-          export OPENAI_API_BASE=${config.sops.placeholder."aider/openai/api_base"}
-          export OPENAI_API_KEY=${config.sops.placeholder."aider/openai/api_key"}
+          {
+            "$schema": "https://charm.land/crush.json",
+            "providers": {
+              "qwen": {
+                "type": "openai",
+                "base_url": "${config.sops.placeholder."openai/api_base"}",
+                "api_key": "${config.sops.placeholder."openai/api_key"}",
+                "models": [
+                  {
+                    "name": "qwen3",
+                    "id": "${config.sops.placeholder."openai/model"}",
+                    "context_window": 256000,
+                    "default_max_tokens": 20000
+                  }
+                ]
+              }
+            }
+          }
         '';
-        path = "${config.xdg.configHome}/zsh/.zshrc_aider";
+        path = "${config.xdg.configHome}/crush/crush.json";
       };
     };
   };
+  programs.crush.enable = true;
 
   programs.starship = {
     enable = true;
