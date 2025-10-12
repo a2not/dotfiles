@@ -12,15 +12,16 @@ in {
 
         inputs.sops-nix.homeManagerModules.sops
 
-        # charmbracelet/crush
         (_: {
           nixpkgs.overlays = [
+            # charmbracelet/crush
             inputs.nur.overlays.default
           ];
         })
       ];
 
-      # pkgs = inputs.nixpkgs.legacyPackages.${system};
-      pkgs = import inputs.nixpkgs {config = {allowUnfree = true;};};
+      pkgs = import inputs.nixpkgs {
+        config.allowUnfree = true;
+      };
     };
 }
