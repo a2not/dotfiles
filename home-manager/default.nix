@@ -11,16 +11,13 @@ in {
         homeManagerConfig
 
         inputs.sops-nix.homeManagerModules.sops
-
-        (_: {
-          nixpkgs.overlays = [
-            # charmbracelet/crush
-            inputs.nur.overlays.default
-          ];
-        })
       ];
 
       pkgs = import inputs.nixpkgs {
+        inherit system;
+        overlays = [
+          inputs.nur.overlays.default
+        ];
         config.allowUnfree = true;
       };
     };
