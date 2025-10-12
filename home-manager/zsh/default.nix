@@ -13,6 +13,8 @@ in {
     fastfetch
 
     mise
+
+    nur.repos.charmbracelet.crush
   ];
 
   programs.zsh = {
@@ -91,7 +93,6 @@ in {
       };
     };
   };
-  programs.crush.enable = true;
 
   programs.starship = {
     enable = true;
