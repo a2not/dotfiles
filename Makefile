@@ -36,8 +36,6 @@ lima-nixos-vm:
 
 .PHONY: lima
 lima:
-	# TODO: needs separate-git-dir?
-	# ref: https://github.com/nxmatic/nixos-lima-config/blob/f25c9085502364bba1582e12fcec8e8b7dcec262/setup-nixos.sh
 	limactl shell nixos -- bash -c "[ -d ~/dotfiles ] || git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
 	limactl shell nixos -- sudo rm -rf /etc/nixos
 	limactl shell nixos -- sudo ln -s ~/dotfiles /etc/nixos
