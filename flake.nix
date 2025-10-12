@@ -52,7 +52,7 @@
       system = "aarch64-darwin";
       specialArgs = {inherit inputs;};
       modules = [
-        ./nix-darwin
+        ./system/darwin
       ];
     };
 
@@ -60,7 +60,7 @@
       system = "aarch64-linux";
       specialArgs = {inherit nixos-lima;};
       modules = [
-        ./hardware/nixos
+        ./system/nixos
       ];
     };
 
@@ -73,7 +73,7 @@
       pkgs = import nixpkgs {system = "aarch64-linux";};
       specialArgs = {inherit nixos-lima;};
       modules = [
-        ./hardware/nixos
+        ./system/nixos
       ];
       format = "qcow-efi";
     };
