@@ -1,5 +1,5 @@
 {...}: let
-  enableDesktop = false; # true to enable desktop environment
+  enableDesktop = true; # true to enable desktop environment
 in {
   imports = [
     ./lima.nix
