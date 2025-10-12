@@ -3,8 +3,8 @@
     vim
     git
     gnumake
-    zsh
   ];
 
+  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 }
