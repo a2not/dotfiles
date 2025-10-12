@@ -15,6 +15,12 @@ cleanup:
 update:
 	nix flake update
 
+.PHONY: nixos-rebuild
+nixos-rebuild:
+	sudo rm -rf /etc/nixos
+	sudo ln -s ~/dotfiles /etc/nixos
+	sudo nixos-rebuild boot --flake /etc/nixos#lima
+
 .PHONY: darwin-rebuild
 darwin-rebuild:
 	sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mac
@@ -33,8 +39,9 @@ lima:
 	# TODO: needs separate-git-dir?
 	# ref: https://github.com/nxmatic/nixos-lima-config/blob/f25c9085502364bba1582e12fcec8e8b7dcec262/setup-nixos.sh
 	# TODO: clone could be symlink?
-	limactl shell nixos -- sudo git clone git@github.com:a2not/dotfiles.git /etc/nixos
+	# limactl shell nixos -- bash -c "git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
+	limactl shell nixos -- sudo rm -rf /etc/nixos
+	limactl shell nixos -- sudo ln -s ~/dotfiles /etc/nixos
 	limactl shell nixos -- sudo nixos-rebuild boot --flake /etc/nixos#lima
-	limactl shell nixos -- bash -c "git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
 	limactl shell nixos -- bash -c "mkdir -p ~/.config/sops/age/ ; vim ~/.config/sops/age/keys.txt" # put age key
 	limactl shell nixos -- bash -c "cd ~/dotfiles ; make home-linux"
