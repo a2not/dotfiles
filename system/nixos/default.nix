@@ -5,6 +5,7 @@ in {
     ./lima.nix
     ./configuration.nix
     ./packages.nix
+    ./user.nix
 
     (
       if enableDesktop
