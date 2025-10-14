@@ -18,7 +18,11 @@ in {
         overlays = [
           inputs.nur.overlays.default
         ];
-        config.allowUnfree = true;
+        config.allowUnfreePredicate = pkg:
+          builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+            # NOTE: I hate unfree bc it won't get cached. Keeping the list the shortest possible.
+            "crush" # NOTE: an unfree license (‘fsl11Mit’)
+          ];
       };
     };
 }
