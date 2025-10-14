@@ -22,6 +22,7 @@ containerd:
 memory: 16GiB
 disk: 200GiB
 ssh:
+  loadDotSSHPubKeys: true # put ssh key at ~/.ssh/key.pub or whatever
   forwardAgent: true
 
 # NOTE: to enable desktop
