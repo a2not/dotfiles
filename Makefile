@@ -7,6 +7,11 @@ home-linux:
 home-darwin:
 	nix run nixpkgs#home-manager -- switch --flake ".#aarch64-darwin" --impure
 
+.PHONY: sops-age
+sops-age:
+	mkdir -p ~/.config/sops/age/
+	vim ~/.config/sops/age/keys.txt
+
 .PHONY: cleanup
 cleanup:
 	nix store gc
