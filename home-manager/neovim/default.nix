@@ -25,8 +25,10 @@
       gnumake
       unzip
 
-      nixd
       alejandra
+      nil
+      nixd
+
       go
       cargo
       python3
