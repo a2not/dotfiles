@@ -1,9 +1,11 @@
 {config, ...}: {
   programs.git = {
     enable = true;
-    delta.enable = true;
-    ignores = [
-    ];
+    ignores = [];
+  };
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
   };
 
   home.file = {
