@@ -30,6 +30,7 @@
       nixd
 
       go
+      golangci-lint
       cargo
       python3
 
