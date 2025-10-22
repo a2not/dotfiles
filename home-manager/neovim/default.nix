@@ -42,6 +42,7 @@
 
   home.packages = with pkgs; [
     gcc # CGO
+    nodejs_24 # npx
   ];
 
   xdg.configFile."nvim" = {
