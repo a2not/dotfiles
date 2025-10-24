@@ -67,8 +67,12 @@ return {
         ensure_installed = {
           'eslint',
           'jsonls',
-          'lua_ls',
-          'stylua',
+          -- NOTE: installed by nix.
+          -- > "Could not start dynamically linked executable: stylua
+          --    NixOS cannot run dynamically linked executables intended for generic linux environments out of the box.
+          --    For more information, see:\nhttps://nix.dev/permalink/stub-ld"
+          -- 'lua_ls',
+          -- 'stylua',
           'ts_ls',
           'gopls',
           'goimports',

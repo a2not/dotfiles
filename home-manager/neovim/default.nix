@@ -28,6 +28,8 @@
       alejandra
       nil
       nixd
+      stylua
+      lua-language-server
 
       go
       golangci-lint
