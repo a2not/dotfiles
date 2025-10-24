@@ -43,6 +43,35 @@ return {
   },
 
   {
+    'folke/sidekick.nvim',
+    opts = {
+      cli = {
+        ---@class sidekick.cli.Mux
+        mux = {
+          backend = 'tmux',
+          enabled = true,
+        },
+        ---@type table<string, sidekick.cli.Config|{}>
+        tools = {
+          crush = {
+            cmd = { 'crush' },
+            keys = { prompt = { '<a-p>', 'prompt' } },
+          },
+        },
+      },
+    },
+    keys = {
+      {
+        '<leader>aa',
+        function()
+          require('sidekick.cli').toggle({ name = 'crush', focus = true })
+        end,
+        desc = 'Sidekick Toggle Crush',
+      },
+    },
+  },
+
+  {
     'yetone/avante.nvim',
     event = 'VeryLazy',
     lazy = false,
