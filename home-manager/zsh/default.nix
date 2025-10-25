@@ -65,8 +65,6 @@ in {
 
   sops = {
     secrets = {
-      "openai/model" = {};
-      "openai/api_base" = {};
       "openai/api_key" = {};
 
       "work/zshrc" = {};
@@ -79,12 +77,12 @@ in {
             "providers": {
               "qwen": {
                 "type": "openai",
-                "base_url": "${config.sops.placeholder."openai/api_base"}",
+                "base_url": "https://api.ai.sakura.ad.jp/v1",
                 "api_key": "${config.sops.placeholder."openai/api_key"}",
                 "models": [
                   {
                     "name": "qwen3",
-                    "id": "${config.sops.placeholder."openai/model"}",
+                    "id": "Qwen3-Coder-480B-A35B-Instruct-FP8",
                     "context_window": 256000,
                     "default_max_tokens": 20480
                   }
