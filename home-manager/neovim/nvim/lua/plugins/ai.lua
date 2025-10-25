@@ -73,60 +73,47 @@ return {
 
   {
     'yetone/avante.nvim',
+    build = 'make',
     event = 'VeryLazy',
     lazy = false,
     version = false,
     opts = {
-      provider = 'copilot',
-      auto_suggestions_provider = 'copilot',
-      behaviour = {
-        auto_suggestions = false,
-        auto_set_highlight_group = true,
-        auto_set_keymaps = true,
-        auto_apply_diff_after_generation = true,
-        support_paste_from_clipboard = true,
-        minimize_diff = true,
+      provider = 'qwen',
+      -- provider = 'copilot',
+      auto_suggestions_provider = 'qwen',
+      providers = {
+        qwen = {
+          __inherited_from = 'openai',
+          api_key_name = 'OPENAI_API_KEY',
+          endpoint = 'https://api.ai.sakura.ad.jp/v1',
+          model = 'Qwen3-Coder-480B-A35B-Instruct-FP8',
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 20480,
+          },
+        },
       },
       windows = {
-        position = 'right',
-        wrap = true,
         width = 40,
-        sidebar_header = {
-          enabled = true,
-          align = 'center',
-          rounded = true,
-        },
-        input = {
-          prefix = '> ',
-          height = 8,
-        },
-        edit = {
-          border = 'rounded',
-          start_insert = true,
-        },
         ask = {
           floating = true,
-          start_insert = true,
-          border = 'rounded',
-          focus_on_apply = 'ours',
         },
       },
       file_selector = {
         provider = 'telescope',
       },
     },
-    build = 'make',
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
       'zbirenbaum/copilot.lua',
+      'nvim-telescope/telescope.nvim',
       {
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
-          file_types = { 'Avante' },
+          file_types = { 'markdown', 'Avante' },
         },
-        ft = { 'Avante' },
+        ft = { 'markdown', 'Avante' },
       },
     },
   },

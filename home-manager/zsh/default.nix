@@ -57,6 +57,8 @@ in {
     initContent = ''
       ${builtins.readFile ./.zshrc}
 
+      export OPENAI_API_KEY="$(cat ${config.sops.secrets."openai/api_key".path})"
+
       source ${config.sops.secrets."work/zshrc".path}
     '';
   };
@@ -84,7 +86,7 @@ in {
                     "name": "qwen3",
                     "id": "${config.sops.placeholder."openai/model"}",
                     "context_window": 256000,
-                    "default_max_tokens": 20000
+                    "default_max_tokens": 20480
                   }
                 ]
               }
