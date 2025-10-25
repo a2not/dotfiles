@@ -62,7 +62,7 @@ return {
     },
     keys = {
       {
-        '<leader>aa',
+        '<leader>ai',
         function()
           require('sidekick.cli').toggle({ name = 'crush', focus = true })
         end,
