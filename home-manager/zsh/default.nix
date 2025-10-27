@@ -15,8 +15,6 @@ in {
     mise
 
     nur.repos.charmbracelet.crush
-
-    valkey # valkey-cli
   ];
 
   programs.zsh = {
