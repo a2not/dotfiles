@@ -17,7 +17,7 @@
   "provider": {
     "sakura": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "sakura",
+      "name": "Sakura AI Engine",
       "options": {
         "baseURL": "https://api.ai.sakura.ad.jp/v1",
         "apiKey": "{env:OPENAI_API_KEY}"
