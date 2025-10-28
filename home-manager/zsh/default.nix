@@ -15,6 +15,7 @@ in {
     mise
 
     nur.repos.charmbracelet.crush
+    opencode
   ];
 
   programs.zsh = {
@@ -59,6 +60,10 @@ in {
 
       source ${config.sops.secrets."work/zshrc".path}
     '';
+  };
+
+  xdg.configFile = {
+    "opencode/opencode.json".source = ./opencode.json;
   };
 
   sops = {
