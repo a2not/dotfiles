@@ -3,10 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -35,7 +31,6 @@
   outputs = inputs @ {
     self,
     nixpkgs,
-    nur,
     nix-darwin,
     nixos-lima,
     nixos-generators,

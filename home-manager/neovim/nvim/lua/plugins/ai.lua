@@ -53,9 +53,10 @@ return {
         },
         ---@type table<string, sidekick.cli.Config|{}>
         tools = {
-          crush = {
-            cmd = { 'crush' },
-            keys = { prompt = { '<a-p>', 'prompt' } },
+          opencode = {
+            cmd = { 'opencode' },
+            -- HACK: https://github.com/sst/opencode/issues/445
+            env = { OPENCODE_THEME = 'system' },
           },
         },
       },
@@ -64,9 +65,9 @@ return {
       {
         '<leader>ai',
         function()
-          require('sidekick.cli').toggle({ name = 'crush', focus = true })
+          require('sidekick.cli').toggle({ name = 'opencode', focus = true })
         end,
-        desc = 'Sidekick Toggle Crush',
+        desc = 'Sidekick Toggle OpenCode',
       },
     },
   },
