@@ -1,6 +1,12 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "system",
+  "instructions": [
+    "CONTRIBUTING.md",
+    "docs/guidelines.md",
+    ".cursor/rules/*.md",
+    "CLAUDE.md"
+  ],
   "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
   "agent": {
     "build": {
@@ -18,7 +24,13 @@
       },
       "models": {
         "Qwen3-Coder-480B-A35B-Instruct-FP8": {
-          "name": "Qen3-Coder-480B-A35B-Instruct-FP8"
+          "name": "Qwen3-Coder-480B-A35B-Instruct-FP8"
+        },
+        "Qwen3-Coder-30B-A3B-Instruct": {
+          "name": "Qwen3-Coder-30B-A3B-Instruct"
+        },
+        "gpt-oss-120b": {
+          "name": "gpt-oss-120b"
         }
       }
     }
