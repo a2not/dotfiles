@@ -23,7 +23,11 @@
   "permissions": {
     "allowed_tools": [
       "view",
-      "bash"
+      "write",
+      "edit",
+      "bash",
+      "ls",
+      "grep"
     ]
   },
   "lsp": {
