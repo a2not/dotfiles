@@ -15,6 +15,12 @@ in {
 
       pkgs = import inputs.nixpkgs {
         inherit system;
+        overlays = [
+          (final: prev: {
+            crush = inputs.nix-ai-tools.packages.${system}.crush;
+            opencode = inputs.nix-ai-tools.packages.${system}.opencode;
+          })
+        ];
       };
     };
 }

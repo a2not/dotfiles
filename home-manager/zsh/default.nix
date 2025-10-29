@@ -14,6 +14,7 @@ in {
 
     mise
 
+    crush
     opencode
   ];
 
@@ -62,6 +63,7 @@ in {
   };
 
   xdg.configFile = {
+    "crush/crush.json".source = ./crush.json;
     "opencode/opencode.json".source = ./opencode.json;
   };
 

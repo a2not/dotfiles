@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-ai-tools = {
+      url = "github:numtide/nix-ai-tools";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-lima = {
       url = "github:nixos-lima/nixos-lima/master";
       inputs.nixpkgs.follows = "nixpkgs";

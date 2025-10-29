@@ -1,0 +1,27 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "providers": {
+    "sakura": {
+      "name": "Sakura AI Engine",
+      "type": "openai",
+      "base_url": "https://api.ai.sakura.ad.jp/v1",
+      "api_key": "$OPENAI_API_KEY",
+      "models": [
+        {
+          "name": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+          "id": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+          "context_window": 256000,
+          "default_max_tokens": 20480
+        }
+      ]
+    }
+  },
+  "options": {
+    "disable_auto_summarize": true
+  },
+  "lsp": {
+    "go": {
+      "command": "gopls"
+    }
+  }
+}
