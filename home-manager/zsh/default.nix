@@ -14,7 +14,6 @@ in {
 
     mise
 
-    nur.repos.charmbracelet.crush
     opencode
   ];
 
@@ -71,39 +70,6 @@ in {
       "openai/api_key" = {};
 
       "work/zshrc" = {};
-    };
-    templates = {
-      "crush" = {
-        content = ''
-          {
-            "$schema": "https://charm.land/crush.json",
-            "providers": {
-              "qwen": {
-                "type": "openai",
-                "base_url": "https://api.ai.sakura.ad.jp/v1",
-                "api_key": "${config.sops.placeholder."openai/api_key"}",
-                "models": [
-                  {
-                    "name": "qwen3",
-                    "id": "Qwen3-Coder-480B-A35B-Instruct-FP8",
-                    "context_window": 256000,
-                    "default_max_tokens": 20480
-                  }
-                ]
-              }
-            },
-            "options": {
-              "disable_auto_summarize": true
-            },
-            "lsp": {
-              "go": {
-                "command": "gopls"
-              }
-            }
-          }
-        '';
-        path = "${config.xdg.configHome}/crush/crush.json";
-      };
     };
   };
 

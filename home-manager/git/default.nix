@@ -1,9 +1,7 @@
 {config, ...}: {
   programs.git = {
     enable = true;
-    ignores = [
-      "CRUSH.md"
-    ];
+    ignores = [];
   };
   programs.delta = {
     enable = true;

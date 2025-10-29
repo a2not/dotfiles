@@ -53,10 +53,6 @@ return {
         },
         ---@type table<string, sidekick.cli.Config|{}>
         tools = {
-          crush = {
-            cmd = { 'crush' },
-            keys = { prompt = { '<a-p>', 'prompt' } },
-          },
           opencode = {
             cmd = { 'opencode' },
             -- HACK: https://github.com/sst/opencode/issues/445
@@ -66,13 +62,6 @@ return {
       },
     },
     keys = {
-      {
-        '<leader>ac',
-        function()
-          require('sidekick.cli').toggle({ name = 'crush', focus = true })
-        end,
-        desc = 'Sidekick Toggle Crush',
-      },
       {
         '<leader>ao',
         function()
