@@ -11,7 +11,30 @@
   "agent": {
     "build": {
       "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
-      "temperature": 0.75
+      "temperature": 0.75,
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "plan": {
+      "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+      "temperature": 0.75,
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    },
+    "code-reviewer": {
+      "mode": "subagent",
+      "model": "gpt-oss-120b",
+      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
+      "tools": {
+        "write": false,
+        "edit": false
+      }
     }
   },
   "provider": {
