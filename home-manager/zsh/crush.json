@@ -17,7 +17,14 @@
     }
   },
   "options": {
+    "disable_metrics": true,
     "disable_auto_summarize": true
+  },
+  "permissions": {
+    "allowed_tools": [
+      "view",
+      "bash"
+    ]
   },
   "lsp": {
     "go": {
