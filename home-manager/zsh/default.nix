@@ -91,6 +91,14 @@ in {
                   }
                 ]
               }
+            },
+            "options": {
+              "disable_auto_summarize": true
+            },
+            "lsp": {
+              "go": {
+                "command": "gopls"
+              }
             }
           }
         '';

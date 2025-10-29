@@ -46,6 +46,8 @@
     gcc # CGO
     nodejs_24 # npx
     pnpm
+    go
+    gopls
   ];
 
   xdg.configFile."nvim" = {
