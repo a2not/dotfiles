@@ -2,11 +2,15 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "system",
   "instructions": [
+    "AGENTS.md",
     "CONTRIBUTING.md",
     "docs/guidelines.md",
     ".cursor/rules/*.md",
     "CLAUDE.md"
   ],
+  "keybinds": {
+    "leader": "ctrl+o"
+  },
   "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
   "agent": {
     "build": {
