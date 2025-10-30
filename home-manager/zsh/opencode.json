@@ -24,7 +24,7 @@
     },
     "plan": {
       "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
-      "temperature": 0.75,
+      "temperature": 0.2,
       "tools": {
         "write": false,
         "edit": false,
