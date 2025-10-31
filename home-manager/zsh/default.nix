@@ -16,6 +16,7 @@ in {
 
     crush
     opencode
+    bash # AI agent needs this
   ];
 
   programs.zsh = {
