@@ -20,7 +20,6 @@ return {
       },
       'folke/lazydev.nvim',
       'fang2hou/blink-copilot',
-      'Kaiser-Yang/blink-cmp-avante',
     },
 
     --- @module 'blink.cmp'
@@ -65,7 +64,7 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'copilot', 'avante' },
+        default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'copilot' },
         providers = {
           lazydev = {
             name = 'lazydev',
@@ -78,11 +77,11 @@ return {
             score_offset = 100,
             async = true,
           },
-          avante = {
-            module = 'blink-cmp-avante',
-            name = 'Avante',
-          },
         },
+      },
+
+      signatures = {
+        enabled = true,
       },
 
       snippets = { preset = 'luasnip' },
