@@ -80,7 +80,7 @@ return {
         },
       },
 
-      signatures = {
+      signature = {
         enabled = true,
       },
 
