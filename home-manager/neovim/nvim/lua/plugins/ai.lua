@@ -22,25 +22,9 @@ return {
       { 'zbirenbaum/copilot.lua' },
       { 'nvim-lua/plenary.nvim', branch = 'master' },
     },
-    config = function()
-      local chat = require('CopilotChat')
-      local select = require('CopilotChat.select')
-      chat.setup({
-        chat_autocomplete = false,
-        prompts = {
-          Commit = {
-            prompt = [[
-              Write commit message for the change with commitizen convention.
-              Keep the title under 50 characters and wrap message at 72 characters.
-              Format as a gitcommit code block.
-              Do not delete signed-off by or anything that's already written in commit message.
-            ]],
-            sticky = '#gitdiff:staged',
-            selection = select.buffer,
-          },
-        },
-      })
-    end,
+    opts = {
+      chat_autocomplete = false,
+    },
   },
 
   {
