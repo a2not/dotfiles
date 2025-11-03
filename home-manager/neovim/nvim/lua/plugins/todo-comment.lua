@@ -2,7 +2,7 @@ return {
   {
     'folke/todo-comments.nvim',
     event = 'VeryLazy',
-    cmd = { 'TodoTrouble', 'TodoTelescope' },
+    cmd = { 'TodoTrouble' },
     config = true,
     keys = {
       {
@@ -20,12 +20,6 @@ return {
         end,
         mode = 'n',
         desc = 'TODO jump prev',
-      },
-      {
-        '<leader>ft',
-        [[<cmd>TodoTelescope<cr>]],
-        mode = 'n',
-        desc = 'workspace TODOs in Telescope',
       },
     },
     -- FIX:

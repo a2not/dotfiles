@@ -39,17 +39,19 @@ return {
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-          map('gt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
-          map('gi', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-          map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-          map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-          map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
-          map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+          -- with picker
+          map('gd', Snacks.picker.lsp_definitions, '[G]oto [D]efinition')
+          map('gD', Snacks.picker.lsp_declarations, '[G]oto [D]eclaration')
+          map('gt', Snacks.picker.lsp_type_definitions, '[G]oto [T]ype Definition')
+          map('gi', Snacks.picker.lsp_implementations, '[G]oto [I]mplementation')
+          map('gr', Snacks.picker.lsp_references, '[G]oto [R]eferences')
+          map('<leader>ss', Snacks.picker.lsp_symbols, '[S]earch LSP [S]ymbols')
+          map('<leader>ws', Snacks.picker.lsp_workspace_symbols, '[W]orkspace LSP [S]ymbols')
         end,
       })
 

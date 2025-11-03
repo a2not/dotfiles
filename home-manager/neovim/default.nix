@@ -16,7 +16,6 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       lazy-nvim
-      telescope-fzf-native-nvim
     ];
 
     extraPackages = with pkgs; [
