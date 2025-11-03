@@ -7,7 +7,7 @@ return {
     opts = {
       bigfile = { enabled = true },
       dashboard = {
-        enabled = true,
+        enabled = false,
         sections = {
           { section = 'header' },
           { icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 3 },
@@ -201,9 +201,9 @@ return {
       {
         '<leader>sd',
         function()
-          Snacks.picker.diagnostics()
+          Snacks.picker.diagnostics_buffer()
         end,
-        desc = 'Diagnostics',
+        desc = 'Buffer Diagnostics',
       },
       {
         '<leader>sh',
