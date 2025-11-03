@@ -31,7 +31,6 @@ return {
       -- explorer = { enabled = true },
       quickfile = { enabled = true },
       rename = { enabled = true },
-      scroll = { enabled = true },
       styles = {
         notification = {
           wo = { wrap = true }, -- Wrap notifications
