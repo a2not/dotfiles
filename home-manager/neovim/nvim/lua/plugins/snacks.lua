@@ -5,27 +5,38 @@ return {
     lazy = false,
     ---@type snacks.Config
     opts = {
-      -- TODO:
-      -- bigfile = { enabled = true },
-      -- dashboard = { enabled = true },
-      -- explorer = { enabled = true },
-      -- indent = { enabled = true },
-      -- input = { enabled = true },
-      -- notifier = {
-      --   enabled = true,
-      --   timeout = 3000,
-      -- },
+      bigfile = { enabled = true },
+      dashboard = {
+        enabled = true,
+        sections = {
+          { section = 'header' },
+          { icon = ' ', title = 'Recent Files', section = 'recent_files', indent = 2, padding = 3 },
+          { icon = ' ', title = 'Keymaps', section = 'keys', indent = 2, padding = 3 },
+          { section = 'startup' },
+        },
+      },
+      indent = {
+        enabled = true,
+        animate = {
+          enabled = false,
+        },
+      },
+      input = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 3000,
+      },
       picker = { enabled = true },
-      -- quickfile = { enabled = true },
-      -- scope = { enabled = true },
-      -- scroll = { enabled = true },
-      -- statuscolumn = { enabled = true },
-      -- words = { enabled = true },
-      -- styles = {
-      --   notification = {
-      --     -- wo = { wrap = true } -- Wrap notifications
-      --   },
-      -- },
+      -- TODO:
+      -- explorer = { enabled = true },
+      quickfile = { enabled = true },
+      rename = { enabled = true },
+      scroll = { enabled = true },
+      styles = {
+        notification = {
+          wo = { wrap = true }, -- Wrap notifications
+        },
+      },
     },
     keys = {
       -- Top Pickers & Explorer
@@ -64,13 +75,13 @@ return {
         end,
         desc = 'Notification History',
       },
-      {
-        '<leader>e',
-        function()
-          Snacks.explorer()
-        end,
-        desc = 'File Explorer',
-      },
+      -- {
+      --   '<leader>e',
+      --   function()
+      --     Snacks.explorer()
+      --   end,
+      --   desc = 'File Explorer',
+      -- },
       -- find
       {
         '<leader>fb',
