@@ -162,7 +162,14 @@ return {
         desc = 'Buffer Lines',
       },
       {
-        '<leader>sg', -- previously <leader>fg
+        '<leader>sg',
+        function()
+          Snacks.picker.grep()
+        end,
+        desc = 'Grep',
+      },
+      {
+        '<leader>fg', -- just in case; previously <leader>fg
         function()
           Snacks.picker.grep()
         end,
