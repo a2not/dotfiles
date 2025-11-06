@@ -87,7 +87,7 @@ return {
           'alejandra',
           'terraformls',
           'tflint',
-          'phpactor',
+          'intelephense',
           'astro',
           'tsp_server',
         },
