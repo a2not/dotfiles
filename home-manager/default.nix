@@ -17,7 +17,6 @@ in {
         inherit system;
         overlays = [
           (final: prev: {
-            crush = inputs.nix-ai-tools.packages.${system}.crush;
             opencode = inputs.nix-ai-tools.packages.${system}.opencode;
           })
         ];

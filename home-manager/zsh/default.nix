@@ -14,7 +14,6 @@ in {
 
     mise
 
-    crush
     opencode
     bash # AI agent needs this
   ];
@@ -64,7 +63,6 @@ in {
   };
 
   xdg.configFile = {
-    "crush/crush.json".source = ./crush.json;
     "opencode/opencode.json".source = ./opencode.json;
   };
 

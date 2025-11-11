@@ -2,7 +2,6 @@
   programs.git = {
     enable = true;
     ignores = [
-      "CRUSH.md"
     ];
   };
   programs.delta = {
