@@ -12,35 +12,6 @@
     "leader": "ctrl+o"
   },
   "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
-  "agent": {
-    "build": {
-      "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
-      "temperature": 0.75,
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
-    },
-    "plan": {
-      "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
-      "temperature": 0.2,
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
-    },
-    "code-reviewer": {
-      "mode": "subagent",
-      "model": "gpt-oss-120b",
-      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
-      "tools": {
-        "write": false,
-        "edit": false
-      }
-    }
-  },
   "provider": {
     "sakura": {
       "npm": "@ai-sdk/openai-compatible",
@@ -50,13 +21,13 @@
         "apiKey": "{env:OPENAI_API_KEY}"
       },
       "models": {
-        "openai/Qwen3-Coder-480B-A35B-Instruct-FP8": {
+        "Qwen3-Coder-480B-A35B-Instruct-FP8": {
           "name": "Qwen3-Coder-480B-A35B-Instruct-FP8"
         },
-        "openai/Qwen3-Coder-30B-A3B-Instruct": {
+        "Qwen3-Coder-30B-A3B-Instruct": {
           "name": "Qwen3-Coder-30B-A3B-Instruct"
         },
-        "openai/gpt-oss-120b": {
+        "gpt-oss-120b": {
           "name": "gpt-oss-120b"
         }
       }
