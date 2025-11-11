@@ -50,13 +50,13 @@
         "apiKey": "{env:OPENAI_API_KEY}"
       },
       "models": {
-        "Qwen3-Coder-480B-A35B-Instruct-FP8": {
+        "openai/Qwen3-Coder-480B-A35B-Instruct-FP8": {
           "name": "Qwen3-Coder-480B-A35B-Instruct-FP8"
         },
-        "Qwen3-Coder-30B-A3B-Instruct": {
+        "openai/Qwen3-Coder-30B-A3B-Instruct": {
           "name": "Qwen3-Coder-30B-A3B-Instruct"
         },
-        "gpt-oss-120b": {
+        "openai/gpt-oss-120b": {
           "name": "gpt-oss-120b"
         }
       }
