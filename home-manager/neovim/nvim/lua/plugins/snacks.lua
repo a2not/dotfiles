@@ -54,13 +54,6 @@ return {
         desc = 'Buffers',
       },
       {
-        '<leader>/',
-        function()
-          Snacks.picker.grep()
-        end,
-        desc = 'Grep',
-      },
-      {
         '<leader>:',
         function()
           Snacks.picker.command_history()
@@ -169,16 +162,16 @@ return {
         desc = 'Buffer Lines',
       },
       {
-        '<leader>sg',
+        '<leader>fg',
         function()
-          Snacks.picker.grep()
-        end,
-        desc = 'Grep',
-      },
-      {
-        '<leader>fg', -- just in case; previously <leader>fg
-        function()
-          Snacks.picker.grep()
+          Snacks.picker.grep({
+            -- NOTE: to include .github/**
+            hidden = true,
+            exclude = {
+              'node_modules',
+              '.git',
+            },
+          })
         end,
         desc = 'Grep',
       },
