@@ -59,12 +59,6 @@ return {
           },
         },
       },
-      windows = {
-        width = 40,
-      },
-      file_selector = {
-        provider = 'telescope',
-      },
     },
     dependencies = {
       'nvim-lua/plenary.nvim',
