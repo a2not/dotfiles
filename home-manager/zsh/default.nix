@@ -15,6 +15,7 @@ in {
     mise
 
     opencode
+    amp
     bash # AI agent needs this
   ];
 

@@ -18,6 +18,7 @@ in {
         overlays = [
           (final: prev: {
             opencode = inputs.nix-ai-tools.packages.${system}.opencode;
+            amp = inputs.nix-ai-tools.packages.${system}.amp;
           })
         ];
       };
