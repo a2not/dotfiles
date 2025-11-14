@@ -92,7 +92,14 @@ return {
       {
         '<leader>ff',
         function()
-          Snacks.picker.files()
+          Snacks.picker.files({
+            -- NOTE: wanted to include .github/**
+            hidden = true,
+            exclude = {
+              'node_modules',
+              '.git',
+            },
+          })
         end,
         desc = 'Find Files',
       },
