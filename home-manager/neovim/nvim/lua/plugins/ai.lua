@@ -59,12 +59,15 @@ return {
           },
         },
       },
+      file_selector = {
+        provider = 'snacks',
+      },
     },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'MunifTanjim/nui.nvim',
       'zbirenbaum/copilot.lua',
-      'nvim-telescope/telescope.nvim',
+      'folke/snacks.nvim',
       {
         'MeanderingProgrammer/render-markdown.nvim',
         opts = {
