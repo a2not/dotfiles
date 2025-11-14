@@ -28,52 +28,57 @@ return {
   },
 
   {
-    'yetone/avante.nvim',
-    build = 'make',
-    event = 'VeryLazy',
-    lazy = false,
-    version = false,
+    'folke/sidekick.nvim',
     opts = {
-      provider = 'opencode',
-      -- provider = 'qwen',
-      -- provider = 'copilot',
-      auto_suggestions_provider = 'qwen',
-      providers = {
-        qwen = {
-          __inherited_from = 'openai',
-          api_key_name = 'OPENAI_API_KEY',
-          endpoint = 'https://api.ai.sakura.ad.jp/v1',
-          model = 'Qwen3-Coder-480B-A35B-Instruct-FP8',
-          extra_request_body = {
-            temperature = 0.75,
-            max_tokens = 20480,
+      cli = {
+        ---@class sidekick.cli.Mux
+        mux = {
+          backend = 'tmux',
+          enabled = true,
+        },
+        ---@type table<string, sidekick.cli.Config|{}>
+        tools = {
+          opencode = {
+            cmd = { 'opencode' },
+            -- HACK: https://github.com/sst/opencode/issues/445
+            env = { OPENCODE_THEME = 'system' },
           },
         },
-      },
-      acp_providers = {
-        ['opencode'] = {
-          command = 'opencode',
-          args = { 'acp' },
-          env = {
-            OPENAI_API_KEY = os.getenv('OPENAI_API_KEY'),
-          },
-        },
-      },
-      file_selector = {
-        provider = 'snacks',
       },
     },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      'zbirenbaum/copilot.lua',
-      'folke/snacks.nvim',
+    keys = {
       {
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { 'markdown', 'Avante' },
-        },
-        ft = { 'markdown', 'Avante' },
+        '<tab>',
+        function()
+          if not require('sidekick').nes_jump_or_apply() then
+            return '<Tab>'
+          end
+        end,
+        expr = true,
+        desc = 'Goto/Apply Next Edit Suggestion',
+      },
+      {
+        '<leader>aa',
+        function()
+          require('sidekick.cli').toggle({ name = 'opencode', focus = true })
+        end,
+        desc = 'Sidekick Toggle opencode',
+      },
+      {
+        '<leader>at',
+        function()
+          require('sidekick.cli').send({ msg = '{this}' })
+        end,
+        mode = { 'x', 'n' },
+        desc = 'Send This',
+      },
+      {
+        '<leader>ap',
+        function()
+          require('sidekick.cli').prompt()
+        end,
+        mode = { 'n', 'x' },
+        desc = 'Sidekick Select Prompt',
       },
     },
   },
