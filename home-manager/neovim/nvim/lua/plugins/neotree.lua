@@ -12,7 +12,12 @@ return {
     {
       '<leader>e',
       function()
-        require('neo-tree.command').execute({ toggle = true, dir = vim.fn.getcwd() })
+        require('neo-tree.command').execute({
+          toggle = true,
+          dir = vim.fn.getcwd(),
+          position = 'float',
+          reveal = true,
+        })
       end,
       desc = 'Explorer NeoTree (cwd)',
     },
