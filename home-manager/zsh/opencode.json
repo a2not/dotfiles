@@ -11,7 +11,7 @@
   "keybinds": {
     "leader": "ctrl+o"
   },
-  "model": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+  "model": "sakura/Qwen3-Coder-480B-A35B-Instruct-FP8",
   "provider": {
     "sakura": {
       "npm": "@ai-sdk/openai-compatible",
@@ -24,7 +24,7 @@
         "Qwen3-Coder-480B-A35B-Instruct-FP8": {
           "name": "Qwen3-Coder-480B-A35B-Instruct-FP8",
           "limit": {
-            "context": 200000,
+            "context": 256000,
             "output": 65536
           }
         },
