@@ -22,7 +22,11 @@
       },
       "models": {
         "Qwen3-Coder-480B-A35B-Instruct-FP8": {
-          "name": "Qwen3-Coder-480B-A35B-Instruct-FP8"
+          "name": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+          "limit": {
+            "context": 32000,
+            "output": 65536
+          }
         },
         "Qwen3-Coder-30B-A3B-Instruct": {
           "name": "Qwen3-Coder-30B-A3B-Instruct"
