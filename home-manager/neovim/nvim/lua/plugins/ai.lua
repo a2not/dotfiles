@@ -29,7 +29,11 @@ return {
 
   {
     'folke/sidekick.nvim',
+    cmd = 'Sidekick',
     opts = {
+      nes = {
+        enabled = true,
+      },
       cli = {
         ---@class sidekick.cli.Mux
         mux = {

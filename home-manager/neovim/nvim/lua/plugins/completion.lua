@@ -61,6 +61,11 @@ return {
         ghost_text = {
           enabled = vim.g.ai_cmp,
         },
+        accept = {
+          auto_brackets = {
+            enabled = true,
+          },
+        },
       },
 
       sources = {
@@ -97,11 +102,5 @@ return {
       -- Extend neovim's client capabilities with the completion ones.
       vim.lsp.config('*', { capabilities = require('blink.cmp').get_lsp_capabilities(nil, true) })
     end,
-  },
-
-  {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    config = true,
   },
 }
