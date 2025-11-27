@@ -23,8 +23,12 @@
       "models": {
         "Qwen3-Coder-480B-A35B-Instruct-FP8": {
           "name": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+          "limit": {
+            "context": 20480,
+            "output": 8192
+          },
           "options": {
-            "max_tokens": 20480
+            "max_tokens": 8192
           }
         }
       }
