@@ -1,7 +1,7 @@
 term = xterm-256color
 window-width = 360
 window-height = 120
-theme = tokyonight
+theme = TokyoNight Night
 
 # NOTE: for better coloring in starship
 # background = #000000
