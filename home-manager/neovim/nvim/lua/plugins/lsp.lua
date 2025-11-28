@@ -44,7 +44,19 @@ return {
           -- Enable inline completion if supported by the LSP server. Mainly for copilot.
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client ~= nil and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion) then
-            vim.lsp.inline_completion.enable(true)
+            -- only enable inline completion when cmp menu is not visible
+            vim.api.nvim_create_autocmd('User', {
+              pattern = 'BlinkCmpMenuOpen',
+              callback = function()
+                vim.lsp.inline_completion.enable(false)
+              end,
+            })
+            vim.api.nvim_create_autocmd('User', {
+              pattern = 'BlinkCmpMenuClose',
+              callback = function()
+                vim.lsp.inline_completion.enable(true)
+              end,
+            })
 
             vim.keymap.set('i', '<Tab>', function()
               if not vim.lsp.inline_completion.get() then
