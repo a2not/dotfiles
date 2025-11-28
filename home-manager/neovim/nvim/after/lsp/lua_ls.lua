@@ -2,14 +2,21 @@
 return {
   settings = {
     Lua = {
-      runtime = { version = 'LuaJIT' },
+      runtime = {
+        version = 'LuaJIT',
+        path = {
+          'lua/?.lua',
+          'lua/?/init.lua',
+        },
+      },
       workspace = {
         checkThirdParty = false,
-        library = vim.list_extend(vim.api.nvim_get_runtime_file('lua', true), {
+        library = {
+          vim.env.VIMRUNTIME,
           '${3rd}/luv/library',
           '${3rd}/busted/library',
           '${3rd}/luassert/library',
-        }),
+        },
       },
       completion = {
         callSnippet = 'Replace',

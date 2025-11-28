@@ -1,16 +1,4 @@
 return {
-  -- NOTE: shout-out to TJ, the GOAT
-  -- https://github.com/nvim-lua/kickstart.nvim
-  {
-    'folke/lazydev.nvim',
-    ft = 'lua',
-    opts = {
-      library = {
-        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
-      },
-    },
-  },
-
   {
     'mason-org/mason-lspconfig.nvim',
     dependencies = {
