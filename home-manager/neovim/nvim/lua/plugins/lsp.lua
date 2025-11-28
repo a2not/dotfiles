@@ -21,9 +21,10 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
         callback = function(event)
+          local bufnr = event.buf
           local map = function(keys, func, desc, mode)
             mode = mode or 'n'
-            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+            vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = 'LSP: ' .. desc })
           end
 
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
@@ -39,6 +40,30 @@ return {
           map('gr', Snacks.picker.lsp_references, '[G]oto [R]eferences')
           map('<leader>ss', Snacks.picker.lsp_symbols, '[S]earch LSP [S]ymbols')
           map('<leader>ws', Snacks.picker.lsp_workspace_symbols, '[W]orkspace LSP [S]ymbols')
+
+          -- Enable inline completion if supported by the LSP server. Mainly for copilot.
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client ~= nil and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion) then
+            vim.lsp.inline_completion.enable(true)
+
+            vim.keymap.set('i', '<Tab>', function()
+              if not vim.lsp.inline_completion.get() then
+                return '<Tab>'
+              end
+            end, {
+              expr = true,
+              silent = true,
+              buffer = bufnr,
+              desc = 'Confirm inline_completion',
+            })
+
+            vim.keymap.set('i', '<C-n>', function()
+              vim.lsp.inline_completion.select()
+            end, { silent = true, buffer = bufnr })
+            vim.keymap.set('i', '<C-p>', function()
+              vim.lsp.inline_completion.select({ count = -1 * vim.v.count1 })
+            end, { silent = true, buffer = bufnr })
+          end
         end,
       })
 
