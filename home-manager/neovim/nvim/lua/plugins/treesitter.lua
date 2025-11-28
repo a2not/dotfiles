@@ -30,6 +30,7 @@ return {
         lazy = true,
         config = function()
           require('illuminate').configure({
+            under_cursor = false,
             delay = 200,
             large_file_cutoff = 2000,
             large_file_overrides = {

@@ -38,10 +38,13 @@ return {
       },
 
       completion = {
+        keyword = {
+          range = 'full',
+        },
         list = {
           selection = {
             preselect = false,
-            auto_insert = true,
+            auto_insert = false,
           },
         },
         menu = {
@@ -58,7 +61,7 @@ return {
           },
         },
         ghost_text = {
-          enabled = vim.g.ai_cmp,
+          enabled = true,
         },
         accept = {
           auto_brackets = {
