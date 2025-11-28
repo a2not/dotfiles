@@ -51,8 +51,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.isfname:append('@-@')
 
 vim.opt.showcmd = true
--- Give more space for displaying messages.
-vim.opt.cmdheight = 0
 
 vim.opt.winborder = 'rounded'
 

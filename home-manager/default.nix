@@ -20,6 +20,7 @@ in {
             opencode = inputs.nix-ai-tools.packages.${system}.opencode;
             amp = inputs.nix-ai-tools.packages.${system}.amp;
           })
+          inputs.neovim-nightly-overlay.overlays.default
         ];
       };
     };
