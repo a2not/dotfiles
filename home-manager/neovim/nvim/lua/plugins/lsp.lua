@@ -70,12 +70,6 @@ return {
           'copilot',
           'eslint',
           'jsonls',
-          -- NOTE: installed by nix.
-          -- > "Could not start dynamically linked executable: stylua
-          --    NixOS cannot run dynamically linked executables intended for generic linux environments out of the box.
-          --    For more information, see:\nhttps://nix.dev/permalink/stub-ld"
-          -- 'lua_ls',
-          -- 'stylua',
           'ts_ls',
           'gopls',
           'goimports',
@@ -95,6 +89,15 @@ return {
       })
 
       require('mason-lspconfig').setup()
+
+      -- NOTE: installed by nix. manually enable here.
+      -- > "Could not start dynamically linked executable: stylua
+      --    NixOS cannot run dynamically linked executables intended for generic linux environments out of the box.
+      --    For more information, see:\nhttps://nix.dev/permalink/stub-ld"
+      vim.lsp.enable({
+        'lua_ls',
+        'stylua',
+      })
     end,
   },
 }
