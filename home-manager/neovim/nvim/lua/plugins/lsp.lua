@@ -67,6 +67,7 @@ return {
       -- NOTE: for installing non-LSP tools such as `stylua`, `goimports`
       require('mason-tool-installer').setup({
         ensure_installed = {
+          'copilot',
           'eslint',
           'jsonls',
           -- NOTE: installed by nix.
