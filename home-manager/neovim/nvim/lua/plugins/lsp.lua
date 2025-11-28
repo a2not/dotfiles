@@ -12,15 +12,14 @@ return {
   },
 
   {
-    'mason-org/mason.nvim',
-    opts = {},
-  },
-
-  {
     'mason-org/mason-lspconfig.nvim',
     dependencies = {
       'neovim/nvim-lspconfig',
-      'mason-org/mason.nvim',
+      {
+        'mason-org/mason.nvim',
+        opts = {},
+      },
+
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       'saghen/blink.cmp',
 
