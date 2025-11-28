@@ -2,9 +2,13 @@ return {
   'folke/flash.nvim',
   event = 'VeryLazy',
   opts = {
-    labels = 'ASDFGHJKLQWERTYUIOPZXCVBNM',
-    search = {
-      mode = 'incsearch',
+    modes = {
+      search = {
+        enabled = true,
+      },
+      char = {
+        jump_labels = true,
+      },
     },
     label = {
       after = false,
