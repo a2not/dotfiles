@@ -1,9 +1,11 @@
-vim.g.gruvbox_material_transparent_background = 1
-
 return {
   {
     'sainnhe/gruvbox-material',
     enabled = false,
+    config = function()
+      vim.cmd.colorscheme('gruvbox-material')
+      vim.g.gruvbox_material_transparent_background = 1
+    end,
   },
   {
     'folke/tokyonight.nvim',
