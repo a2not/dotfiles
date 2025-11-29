@@ -68,6 +68,7 @@ return {
         'lua',
         'go',
         'gomod',
+        'zig',
         'templ',
         'rust',
         'markdown',

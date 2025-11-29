@@ -99,6 +99,7 @@ return {
           'goimports',
           'gofumpt',
           'golangci_lint_ls',
+          'zls',
           'html',
           'templ',
           'rust_analyzer',
