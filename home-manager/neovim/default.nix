@@ -42,12 +42,18 @@
   };
 
   home.packages = with pkgs; [
-    gcc # CGO
-    nodejs_24 # npx
-    pnpm
     go
     gopls
+
     zig
+
+    gcc # CGO
+
+    nodejs_24 # npx
+    pnpm
+
+    cargo
+    rustc
   ];
 
   xdg.configFile."nvim" = {
