@@ -47,6 +47,7 @@
     pnpm
     go
     gopls
+    zig
   ];
 
   xdg.configFile."nvim" = {
