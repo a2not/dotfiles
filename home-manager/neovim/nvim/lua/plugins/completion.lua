@@ -83,7 +83,7 @@ return {
       },
 
       signature = {
-        enabled = true,
+        enabled = false,
       },
 
       snippets = { preset = 'luasnip' },
