@@ -12,6 +12,8 @@ in {
     ripgrep
     fastfetch
 
+    devenv
+
     mise
 
     opencode
