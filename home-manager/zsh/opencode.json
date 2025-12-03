@@ -15,7 +15,7 @@
     "bash": true,
     "write": true
   },
-  "model": "github-copilot/gpt-4.1",
+  "model": "sakura/Qwen3-Coder-480B-A35B-Instruct-FP8",
   "provider": {
     "github-copilot": {
       "npm": "@github/copilot",
