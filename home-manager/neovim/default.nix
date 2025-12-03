@@ -34,6 +34,7 @@
       golangci-lint
       cargo
       python3
+      terraform
 
       fd
       fzf

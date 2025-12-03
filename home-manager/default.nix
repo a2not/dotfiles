@@ -22,6 +22,10 @@ in {
           })
           inputs.neovim-nightly-overlay.overlays.default
         ];
+        config.allowUnfreePredicate = pkg:
+          builtins.elem (inputs.nixpkgs.lib.getName pkg) [
+            "terraform"
+          ];
       };
     };
 }

@@ -19,6 +19,8 @@ in {
     opencode
     amp
     bash # AI agent needs this
+
+    terraform
   ];
 
   programs.zsh = {
