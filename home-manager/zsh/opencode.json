@@ -15,8 +15,17 @@
     "bash": true,
     "write": true
   },
-  "model": "sakura/Qwen3-Coder-480B-A35B-Instruct-FP8",
+  "model": "github-copilot/gpt-4.1",
   "provider": {
+    "github-copilot": {
+      "npm": "@github/copilot",
+      "name": "GitHub Copilot",
+      "models": {
+        "gpt-4.1": {
+          "name": "GPT-4.1"
+        }
+      }
+    },
     "sakura": {
       "npm": "@ai-sdk/openai-compatible",
       "name": "Sakura AI Engine",
