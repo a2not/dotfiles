@@ -27,7 +27,17 @@ return {
       keymap = {
         preset = 'enter',
         ['<C-y>'] = { 'select_and_accept' },
-        ['<Tab>'] = { 'select_next', 'snippet_forward', 'fallback' },
+        ['<Tab>'] = {
+          'select_next',
+          'snippet_forward',
+          function()
+            return require('sidekick').nes_jump_or_apply()
+          end,
+          function()
+            return vim.lsp.inline_completion.get()
+          end,
+          'fallback',
+        },
         ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
         ['<Up>'] = { 'fallback' },
         ['<Down>'] = { 'fallback' },
