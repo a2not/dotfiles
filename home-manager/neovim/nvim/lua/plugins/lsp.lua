@@ -110,6 +110,7 @@ return {
           'intelephense',
           'astro',
           'tsp_server',
+          'ocaml-lsp',
         },
       })
 

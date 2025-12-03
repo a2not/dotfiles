@@ -57,6 +57,11 @@
     rustc
   ];
 
+  programs.opam = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/neovim/nvim";
     recursive = true;
