@@ -10,9 +10,5 @@ return {
         jump_labels = true,
       },
     },
-    label = {
-      after = false,
-      before = true,
-    },
   },
 }
