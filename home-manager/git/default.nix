@@ -2,6 +2,7 @@
   programs.git = {
     enable = true;
     ignores = [
+      "node_modules"
     ];
   };
   programs.delta = {
