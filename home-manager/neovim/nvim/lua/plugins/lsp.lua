@@ -102,7 +102,6 @@ return {
           'zls',
           'html',
           'templ',
-          'rust_analyzer',
           'nil_ls',
           'alejandra',
           'terraformls',
@@ -123,6 +122,7 @@ return {
       vim.lsp.enable({
         'lua_ls',
         'stylua',
+        'rust_analyzer',
       })
     end,
   },

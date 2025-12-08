@@ -33,6 +33,7 @@
       go
       golangci-lint
       cargo
+      rust-analyzer
       python3
       terraform
 
