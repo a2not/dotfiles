@@ -34,6 +34,7 @@
       golangci-lint
       cargo
       rust-analyzer
+      rustfmt
       python3
       terraform
 
