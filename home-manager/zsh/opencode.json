@@ -35,16 +35,10 @@
       },
       "models": {
         "Qwen3-Coder-480B-A35B-Instruct-FP8": {
-          "name": "Qwen3-Coder-480B-A35B-Instruct-FP8",
-          "options": {
-            "max_tokens": 16384
-          }
+          "name": "Qwen3-Coder-480B-A35B-Instruct-FP8"
         },
         "Qwen3-Coder-30B-A3B-Instruct": {
-          "name": "Qwen3-Coder-30B-A3B-Instruct",
-          "options": {
-            "max_tokens": 16384
-          }
+          "name": "Qwen3-Coder-30B-A3B-Instruct"
         }
       }
     }
