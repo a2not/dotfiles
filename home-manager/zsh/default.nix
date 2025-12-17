@@ -17,10 +17,13 @@ in {
     mise
 
     opencode
+    crush
     amp
     bash # AI agent needs this
 
     terraform
+    typescript-language-server
+    phpactor
   ];
 
   programs.zsh = {
@@ -69,6 +72,7 @@ in {
 
   xdg.configFile = {
     "opencode/opencode.json".source = ./opencode.json;
+    "crush/crush.json".source = ./crush.json;
   };
 
   sops = {

@@ -18,6 +18,7 @@ in {
         overlays = [
           (final: prev: {
             opencode = inputs.nix-ai-tools.packages.${system}.opencode;
+            crush = inputs.nix-ai-tools.packages.${system}.crush;
             amp = inputs.nix-ai-tools.packages.${system}.amp;
           })
           inputs.neovim-nightly-overlay.overlays.default

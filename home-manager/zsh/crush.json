@@ -1,0 +1,58 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "providers": {
+    "sakura": {
+      "name": "Sakura AI Engine",
+      "type": "openai-compat",
+      "base_url": "https://api.ai.sakura.ad.jp/v1",
+      "api_key": "$OPENAI_API_KEY",
+      "models": [
+        {
+          "name": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+          "id": "Qwen3-Coder-480B-A35B-Instruct-FP8",
+          "context_window": 256000,
+          "default_max_tokens": 20480
+        },
+        {
+          "name": "Qwen3-Coder-30B-A3B-Instruct",
+          "id": "Qwen3-Coder-30B-A3B-Instruct",
+          "context_window": 256000,
+          "default_max_tokens": 20480
+        }
+      ]
+    }
+  },
+  "options": {
+    "disable_metrics": true,
+    "disable_auto_summarize": true
+  },
+  "permissions": {
+    "allowed_tools": [
+      "view"
+    ]
+  },
+  "lsp": {
+    "go": {
+      "command": "gopls"
+    },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": [
+        "--stdio"
+      ]
+    },
+    "php": {
+      "command": "phpactor",
+      "args": [
+        "language-server"
+      ],
+      "filetypes": [
+        "php"
+      ],
+      "root_makers": [
+        "composer.json",
+        ".git"
+      ]
+    }
+  }
+}
