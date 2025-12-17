@@ -35,6 +35,9 @@
     "go": {
       "command": "gopls"
     },
+    "rust": {
+      "command": "rust-analyzer"
+    },
     "typescript": {
       "command": "typescript-language-server",
       "args": [

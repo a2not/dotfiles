@@ -22,6 +22,8 @@ in {
     bash # AI agent needs this
 
     terraform
+    gopls
+    rust-analyzer
     typescript-language-server
     phpactor
   ];
