@@ -16,7 +16,7 @@ return {
     cmd = 'Sidekick',
     opts = {
       nes = {
-        enabled = true,
+        enabled = false,
       },
       cli = {
         ---@class sidekick.cli.Mux
