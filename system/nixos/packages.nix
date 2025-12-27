@@ -10,4 +10,9 @@
   environment.shells = with pkgs; [zsh];
 
   virtualisation.docker.enable = true;
+
+  virtualisation.docker.extraPackages = with pkgs; [
+    docker-buildx
+    docker-compose
+  ];
 }
