@@ -36,27 +36,6 @@ in {
     enableCompletion = true;
     autosuggestion.enable = true; # plugin "zsh-autosuggestions"
     syntaxHighlighting.enable = true; # plugin "zsh-syntax-highlighting"
-    oh-my-zsh = {
-      enable = true;
-      plugins = [
-        "git"
-      ];
-      extraConfig = ''
-        zstyle ':omz:update' mode auto
-        zstyle ':omz:update' verbose minimal
-        ${
-          if isDarwin
-          then ''
-            # NOTE: MacOS specific
-            export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-            if [[ $(uname -m) == 'arm64' ]]; then
-              eval "$(/opt/homebrew/bin/brew shellenv)"
-            fi
-          ''
-          else ""
-        }
-      '';
-    };
     plugins = [
       {
         name = "fzf-tab";
@@ -73,6 +52,18 @@ in {
     defaultKeymap = "emacs";
 
     initContent = ''
+      ${
+        if isDarwin
+        then ''
+          # NOTE: MacOS specific
+          export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+          if [[ $(uname -m) == 'arm64' ]]; then
+            eval "$(/opt/homebrew/bin/brew shellenv)"
+          fi
+        ''
+        else ""
+      }
+
       ${builtins.readFile ./.zshrc}
 
       export OPENAI_API_KEY="$(cat ${config.sops.secrets."openai/api_key".path})"
