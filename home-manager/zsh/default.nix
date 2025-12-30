@@ -6,6 +6,9 @@
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
 in {
   home.packages = with pkgs; [
+    fzf
+    zsh-fzf-tab
+
     eza
     starship
     zoxide
@@ -54,6 +57,12 @@ in {
         }
       '';
     };
+    plugins = [
+      {
+        name = "fzf-tab";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+      }
+    ];
     shellAliases = {
       ls = "eza --icons";
       ll = "eza -lah --icons";
@@ -89,6 +98,11 @@ in {
     enable = true;
     enableZshIntegration = true;
     settings = pkgs.lib.importTOML ./starship.toml;
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.zoxide = {
