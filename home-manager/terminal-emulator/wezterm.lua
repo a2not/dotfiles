@@ -3,6 +3,7 @@ local mux = wezterm.mux
 local config = wezterm.config_builder()
 
 config.automatically_reload_config = true
+
 config.color_scheme = "tokyonight_night"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
@@ -11,6 +12,7 @@ wezterm.on("gui-startup", function()
 	local _, _, window = mux.spawn_window({})
 	window:gui_window():maximize()
 end)
+
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 0,
