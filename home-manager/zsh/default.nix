@@ -70,6 +70,9 @@ in {
 
       source ${config.sops.secrets."work/zshrc".path}
     '';
+
+    # NOTE: align with new default value from home.stateVersion >= 26.05
+    programs.zsh.dotDir = "${config.xdg.configHome}/zsh";
   };
 
   xdg.configFile = {
