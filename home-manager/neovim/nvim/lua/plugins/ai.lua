@@ -62,4 +62,47 @@ return {
       },
     },
   },
+
+  {
+    'yetone/avante.nvim',
+    -- build = 'make',
+    event = 'VeryLazy',
+    version = false,
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      provider = 'copilot',
+      -- provider = 'opencode', -- not working
+      -- provider = 'qwen', -- not working
+      providers = {
+        qwen = {
+          __inherited_from = 'openai',
+          api_key_name = 'OPENAI_API_KEY',
+          endpoint = 'https://api.ai.sakura.ad.jp/v1',
+          model = 'Qwen3-Coder-480B-A35B-Instruct-FP8',
+        },
+      },
+      acp_providers = {
+        opencode = {
+          command = 'opencode',
+          args = { 'acp' },
+          env = {
+            OPENAI_API_KEY = vim.fn.getenv('OPENAI_API_KEY'),
+            LD_LIBRARY_PATH = vim.fn.systemlist('bash -lc \'echo $(nix eval --raw nixpkgs#stdenv.cc.cc.lib)/lib\'')[1],
+          },
+        },
+      },
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { 'markdown', 'Avante' },
+        },
+        ft = { 'markdown', 'Avante' },
+      },
+    },
+  },
 }

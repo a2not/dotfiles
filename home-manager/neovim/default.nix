@@ -16,6 +16,7 @@
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       lazy-nvim
+      avante-nvim
     ];
 
     extraPackages = with pkgs; [

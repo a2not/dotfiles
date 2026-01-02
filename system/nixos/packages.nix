@@ -15,4 +15,9 @@
     docker-buildx
     docker-compose
   ];
+
+  # TODO: nix-ld
+  environment.sessionVariables = {
+    LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+  };
 }
