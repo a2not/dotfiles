@@ -66,6 +66,10 @@ in {
 
       ${builtins.readFile ./.zshrc}
 
+      # edit-command-line with vim
+      autoload -Uz edit-command-line; zle -N edit-command-line
+      bindkey "^X^E" edit-command-line
+
       export OPENAI_API_KEY="$(cat ${config.sops.secrets."openai/api_key".path})"
 
       source ${config.sops.secrets."work/zshrc".path}
