@@ -4,16 +4,6 @@ Managed by nix.
 
 ## install Nix
 
-Determinate is preferable, but the official is fine as well.
-
-### Determinate
-
-```sh
-curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
-```
-
-### official
-
 ```sh
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 # enable flakes
