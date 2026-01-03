@@ -7,7 +7,6 @@
 in {
   home.packages = with pkgs; [
     fzf
-    zsh-fzf-tab
 
     eza
     starship
@@ -36,12 +35,11 @@ in {
     enableCompletion = true;
     autosuggestion.enable = true; # plugin "zsh-autosuggestions"
     syntaxHighlighting.enable = true; # plugin "zsh-syntax-highlighting"
-    plugins = [
-      {
-        name = "fzf-tab";
-        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
-      }
-    ];
+    historySubstringSearch = {
+      enable = true; # plugin "zsh-history-substring-search"
+      searchDownKey = ["^[[B" "^[OB"];
+      searchUpKey = ["^[[A" "^[OA"];
+    };
     shellAliases = {
       ls = "eza --icons";
       ll = "eza -lah --icons";
@@ -65,6 +63,9 @@ in {
       }
 
       ${builtins.readFile ./.zshrc}
+
+      # Ctrl-R history search with fzf
+      source <(fzf --zsh)
 
       # edit-command-line with vim
       autoload -Uz edit-command-line; zle -N edit-command-line
