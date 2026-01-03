@@ -42,7 +42,7 @@ in {
     ./tmux
     ./neovim
 
-    ./terminal-emulator
+    ./gui
   ];
 
   home.shell.enableZshIntegration = true;
