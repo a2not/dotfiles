@@ -71,8 +71,8 @@ return {
     ---@module 'avante'
     ---@type avante.Config
     opts = {
-      provider = 'copilot',
-      -- provider = 'opencode', -- not working
+      -- provider = 'copilot',
+      provider = 'opencode',
       -- provider = 'qwen', -- not working
       providers = {
         qwen = {
