@@ -10,6 +10,7 @@
   path = ~/.gitconfig_mac
 
 [core]
+  pager = delta
   editor = nvim
   quotepath = false
 [color]
@@ -37,13 +38,10 @@
 [gpg "ssh"]
   allowedSignersFile = ~/.ssh/allowed_signers
 
+[delta]
+  nagivate = True
+  side-by-side = False
 [diff]
-  tool = difftastic
-  external = difft
-[difftool]
-  prompt = false
-[difftool "difftastic"]
-  cmd = difft "$LOCAL" "$REMOTE"
-[pager]
-  difftool = true
-
+  colorMoved = default
+[interactive]
+  diffFilter = delta --color-only
