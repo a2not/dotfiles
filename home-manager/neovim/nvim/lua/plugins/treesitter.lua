@@ -1,67 +1,9 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
     build = ':TSUpdate',
-    event = { 'BufEnter' },
-    init = function(plugin)
-      -- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
-      -- This is needed because a bunch of plugins no longer `require("nvim-treesitter")`, which
-      -- no longer trigger the **nvim-treeitter** module to be loaded in time.
-      -- Luckily, the only thins that those plugins need are the custom queries, which we make available
-      -- during startup.
-      require('lazy.core.loader').add_to_rtp(plugin)
-      require('nvim-treesitter.query_predicates')
-    end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-context',
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      {
-        'm-demare/hlargs.nvim',
-        config = true,
-      },
-      {
-        'andymass/vim-matchup',
-      },
-      {
-        'windwp/nvim-ts-autotag',
-      },
-      {
-        'RRethy/vim-illuminate',
-        lazy = true,
-        config = function()
-          require('illuminate').configure({
-            under_cursor = false,
-            delay = 200,
-            large_file_cutoff = 2000,
-            large_file_overrides = {
-              providers = {
-                'lsp',
-                'treesitter',
-              },
-            },
-          })
-        end,
-        keys = {
-          {
-            '<leader>n',
-            function()
-              require('illuminate').goto_next_reference()
-            end,
-            mode = 'n',
-            desc = 'illuminate goto_next_reference',
-          },
-          {
-            '<leader>N',
-            function()
-              require('illuminate').goto_prev_reference()
-            end,
-            mode = 'n',
-            desc = 'illuminate goto_prev_reference',
-          },
-        },
-      },
-    },
-    cmd = { 'TSUpdateSync', 'TSUpdate', 'TSInstall' },
 
     opts = {
       ensure_installed = {
@@ -140,6 +82,67 @@ return {
 
       autotag = {
         enable = true,
+      },
+    },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+
+  {
+    'm-demare/hlargs.nvim',
+    config = true,
+  },
+
+  {
+    'andymass/vim-matchup',
+  },
+
+  {
+    'windwp/nvim-ts-autotag',
+    config = true,
+  },
+
+  {
+    'RRethy/vim-illuminate',
+    lazy = true,
+    config = function()
+      require('illuminate').configure({
+        under_cursor = false,
+        delay = 200,
+        large_file_cutoff = 2000,
+        large_file_overrides = {
+          providers = {
+            'lsp',
+            'treesitter',
+          },
+        },
+      })
+    end,
+    keys = {
+      {
+        '<leader>n',
+        function()
+          require('illuminate').goto_next_reference()
+        end,
+        mode = 'n',
+        desc = 'illuminate goto_next_reference',
+      },
+      {
+        '<leader>N',
+        function()
+          require('illuminate').goto_prev_reference()
+        end,
+        mode = 'n',
+        desc = 'illuminate goto_prev_reference',
       },
     },
   },
