@@ -68,27 +68,23 @@ in {
     # https://discourse.nixos.org/t/programs-neovim-defaulteditor-true-kills-bindkey-for-autosuggest-accept-in-zsh/48844
     defaultKeymap = "emacs";
 
-    profileExtra = ''
-      ${
-        if isDarwin
-        then ''
-          # NOTE: MacOS specific
-          export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-          if [[ $(uname -m) == 'arm64' ]]; then
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-          fi
-        ''
-        else ""
-      }
-    '';
+    profileExtra =
+      if isDarwin
+      then ''
+        # NOTE: MacOS specific
+        export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+        if [[ $(uname -m) == 'arm64' ]]; then
+          eval "$(/opt/homebrew/bin/brew shellenv)"
+        fi
+      ''
+      else "";
 
-    initContent = ''
-      ${builtins.readFile ./.zshrc}
-
-      export OPENAI_API_KEY="$(cat ${config.sops.secrets."openai/api_key".path})"
-
-      source ${config.sops.secrets."work/zshrc".path}
-    '';
+    initContent =
+      ''
+        export OPENAI_API_KEY="$(cat ${config.sops.secrets."openai/api_key".path})"
+        source ${config.sops.secrets."work/zshrc".path}
+      ''
+      + builtins.readFile ./.zshrc;
 
     # NOTE: align with new default value from home.stateVersion >= 26.05
     dotDir = "${config.xdg.configHome}/zsh";
