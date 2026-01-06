@@ -4,84 +4,23 @@ return {
     branch = 'main',
     lazy = false,
     build = ':TSUpdate',
+  },
 
+  {
+    'MeanderingProgrammer/treesitter-modules.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {
-      ensure_installed = {
-        'lua',
-        'go',
-        'gomod',
-        'zig',
-        'templ',
-        'rust',
-        'markdown',
-        'toml',
-        'javascript',
-        'typescript',
-        'tsx',
-        'bash',
-        'json',
-        'dockerfile',
-        'python',
-        'vim',
-        'html',
-        'yaml',
-        'terraform',
-        'hcl',
-      },
-      auto_install = true,
-
-      highlight = {
+      -- ensure_installed = 'all' -- NOTE: handled by nix
+      highlight = { enable = true },
+      indent = { enable = true },
+      incremental_selection = {
         enable = true,
-      },
-      indent = {
-        enable = true,
-      },
-
-      textobjects = {
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            [']f'] = '@function.outer',
-            [']c'] = '@class.outer',
-            [']a'] = '@parameter.inner',
-          },
-          goto_next_end = {
-            [']F'] = '@function.outer',
-            [']C'] = '@class.outer',
-            [']A'] = '@parameter.inner',
-          },
-          goto_previous_start = {
-            ['[f'] = '@function.outer',
-            ['[c'] = '@class.outer',
-            ['[a'] = '@parameter.inner',
-          },
-          goto_previous_end = {
-            ['[F'] = '@function.outer',
-            ['[C'] = '@class.outer',
-            ['[A'] = '@parameter.inner',
-          },
+        keymaps = {
+          init_selection = '<CR>',
+          node_incremental = '<CR>',
+          scope_incremental = '<TAB>',
+          node_decremental = '<BS>',
         },
-
-        select = {
-          enable = true,
-          -- Automatically jump forward to textobj, similar to targets.vim
-          lookahead = true,
-          keymaps = {
-            ['af'] = { query = '@function.outer', desc = 'TS: select => @function.outer' },
-            ['if'] = { query = '@function.inner', desc = 'TS: select => @function.inner' },
-            ['ac'] = { query = '@class.outer', desc = 'TS: select => @class.outer' },
-            ['ic'] = { query = '@class.inner', desc = 'TS: select => @class.inner' },
-          },
-        },
-      },
-
-      matchup = {
-        enable = true,
-      },
-
-      autotag = {
-        enable = true,
       },
     },
   },
@@ -145,13 +84,5 @@ return {
         desc = 'illuminate goto_prev_reference',
       },
     },
-  },
-
-  -- for incremental selection with <CR> and <BS>
-  {
-    'sustech-data/wildfire.nvim',
-    event = 'VeryLazy',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    opts = {},
   },
 }
