@@ -25,7 +25,7 @@
 [push]
   autoSetupRemote = true
 [merge]
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [rerere]
   enabled = True
 
@@ -40,7 +40,7 @@
 
 [delta]
   nagivate = True
-  side-by-side = False
+  side-by-side = True
 [diff]
   colorMoved = default
 [interactive]
