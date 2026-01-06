@@ -49,7 +49,7 @@ in {
     # https://discourse.nixos.org/t/programs-neovim-defaulteditor-true-kills-bindkey-for-autosuggest-accept-in-zsh/48844
     defaultKeymap = "emacs";
 
-    initContent = ''
+    profileExtra = ''
       ${
         if isDarwin
         then ''
@@ -61,15 +61,10 @@ in {
         ''
         else ""
       }
+    '';
 
+    initContent = ''
       ${builtins.readFile ./.zshrc}
-
-      # Ctrl-R history search with fzf
-      source <(fzf --zsh)
-
-      # edit-command-line with vim
-      autoload -Uz edit-command-line; zle -N edit-command-line
-      bindkey "^X^E" edit-command-line
 
       export OPENAI_API_KEY="$(cat ${config.sops.secrets."openai/api_key".path})"
 

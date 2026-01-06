@@ -8,3 +8,11 @@ export PATH=$HOME/go/bin:$PATH
 PATH="$PATH:/usr/sbin:/sbin"
 export PATH
 # Lima END
+
+# Ctrl-R history search with fzf
+source <(fzf --zsh)
+
+# edit-command-line with vim
+autoload -Uz edit-command-line; zle -N edit-command-line
+bindkey "^X^E" edit-command-line
+
