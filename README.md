@@ -1,6 +1,6 @@
 # dotfiles
 
-Managed by nix.
+[![built with nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
 
 ## install Nix
 
