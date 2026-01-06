@@ -79,6 +79,3 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- vim.opt.listchars:append('eol:↴')
 
 vim.filetype.add({ extension = { templ = 'templ' } })
-
--- NOTE: for avante; views can only be fully collapsed with the global statusline
-vim.opt.laststatus = 3
