@@ -6,9 +6,9 @@
       "CRUSH.md"
     ];
   };
-  programs.delta = {
+  programs.difftastic = {
     enable = true;
-    enableGitIntegration = true;
+    git.enable = true;
   };
 
   home.file = {
