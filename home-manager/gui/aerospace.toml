@@ -221,15 +221,15 @@ on-mode-changed = []
 [[on-window-detected]]
 if.app-id='com.mitchellh.ghostty'
 run= [
-  'move-node-to-workspace T',
   # NOTE: workaround for tabs being recognized as windows
   # see https://ghostty.org/docs/help/macos-tiling-wms#aerospace
-  'layout tiling'
+  'layout tiling',
+  'move-node-to-workspace W',
 ]
 
 [[on-window-detected]]
 if.app-id = 'app.zen-browser.zen'
-run = 'move-node-to-workspace B'
+run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
