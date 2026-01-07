@@ -28,8 +28,6 @@ return {
         tools = {
           opencode = {
             cmd = { 'opencode' },
-            -- HACK: https://github.com/sst/opencode/issues/445
-            env = { OPENCODE_THEME = 'system' },
           },
         },
       },
