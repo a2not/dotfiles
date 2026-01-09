@@ -26,6 +26,10 @@
   autoSetupRemote = true
 [merge]
   conflictstyle = zdiff3
+  tool = nvimdiff
+[mergetool "nvimdiff"]
+  layout = "LOCAL,BASE,REMOTE / MERGED"
+
 [rerere]
   enabled = True
 
