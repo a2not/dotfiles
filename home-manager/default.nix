@@ -22,18 +22,18 @@ in {
             amp = inputs.nix-ai-tools.packages.${system}.amp;
           })
           inputs.neovim-nightly-overlay.overlays.default
-          # FIX: do not copy. this is a temporary workaround for nix-functional-tests failing on aarch64-darwin
+          # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.
           # see https://github.com/NixOS/nix/issues/13106
-          (self: super: {
-            nix =
-              if self.stdenv.isDarwin
-              then
-                super.nix.overrideAttrs (oldAttrs: {
-                  doCheck = false;
-                  doInstallCheck = false;
-                })
-              else super.nix;
-          })
+          # (self: super: {
+          #   nix =
+          #     if self.stdenv.isDarwin
+          #     then
+          #       super.nix.overrideAttrs (oldAttrs: {
+          #         doCheck = false;
+          #         doInstallCheck = false;
+          #       })
+          #     else super.nix;
+          # })
         ];
         config.allowUnfreePredicate = pkg:
           builtins.elem (inputs.nixpkgs.lib.getName pkg) [
