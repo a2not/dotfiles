@@ -7,8 +7,6 @@
   config,
   ...
 }: let
-  # system = pkgs.system;
-  # isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
   isLinux = pkgs.stdenv.hostPlatform.isLinux;
 in {
   home.stateVersion = "25.05";
