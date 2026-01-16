@@ -30,6 +30,7 @@ config.font = wezterm.font_with_fallback({
 	-- "Moralerspace Neon NF",
 	"MesloLGM Nerd Font",
 })
+config.line_height = 1.1
 config.font_size = 18
 config.use_ime = true
 
