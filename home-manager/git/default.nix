@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.git = {
     enable = true;
     ignores = [
@@ -15,6 +19,10 @@
     ".gitconfig".source = ./.gitconfig;
     ".gitconfig_mac".source = ./.gitconfig_mac;
   };
+
+  home.packages = with pkgs; [
+    lazygit
+  ];
 
   sops = {
     secrets = {
