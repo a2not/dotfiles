@@ -83,12 +83,6 @@ in {
       ''
         export OPENAI_API_KEY="$(cat ${config.sops.secrets."openai/api_key".path})"
         source ${config.sops.secrets."work/zshrc".path}
-
-        # set tab title; see https://starship.rs/advanced-config/#change-window-title
-        function set_win_title(){
-          echo -ne "\033]0; $(basename "$PWD") \007"
-        }
-        precmd_functions+=(set_win_title)
       ''
       + builtins.readFile ./.zshrc;
 
