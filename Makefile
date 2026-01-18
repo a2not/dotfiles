@@ -14,6 +14,7 @@ sops-age:
 
 .PHONY: cleanup
 cleanup:
+	sudo nix-collect-garbage -d
 	nix store gc
 
 .PHONY: update
