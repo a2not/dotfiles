@@ -63,4 +63,15 @@ in {
     dates = "daily";
     persistent = true;
   };
+
+  # HACK: workaround for sops-nix file missing.
+  # see https://github.com/Mic92/sops-nix/issues/890
+  launchd.agents.sops-nix = pkgs.lib.mkIf pkgs.stdenv.isDarwin {
+    enable = true;
+    config = {
+      EnvironmentVariables = {
+        PATH = pkgs.lib.mkForce "/usr/bin:/bin:/usr/sbin:/sbin";
+      };
+    };
+  };
 }
