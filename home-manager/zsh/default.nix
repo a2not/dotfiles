@@ -35,11 +35,9 @@ in {
     enableCompletion = true;
     autosuggestion.enable = true; # plugin "zsh-autosuggestions"
     syntaxHighlighting.enable = true; # plugin "zsh-syntax-highlighting"
-    historySubstringSearch = {
-      enable = true; # plugin "zsh-history-substring-search"
-      searchDownKey = ["^[[B" "^[OB"];
-      searchUpKey = ["^[[A" "^[OA"];
-    };
+    # NOTE: omz gives me sane defaults. For example, I prefer "{up,down}-line-or-beginning-search" keybindings to enabling zsh-history-substring-search.
+    oh-my-zsh.enable = true;
+
     shellAliases = {
       ls = "eza --icons";
       ll = "eza -lah --icons";
