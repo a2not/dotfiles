@@ -26,7 +26,5 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-shell-integration-features = no-cursor
-cursor-opacity = 0.5
-cursor-style = block
-cursor-style-blink = false
+# for custom tab title with `precmd` hook
+shell-integration-features = no-title

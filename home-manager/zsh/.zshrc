@@ -21,5 +21,3 @@ function set_win_title(){
   echo -ne "\033]0; IDGAF \007"
 }
 precmd_functions+=(set_win_title)
-# NOTE: ghostty will append "_ghostty_precmd" which overwrites the title defined here so I ditched it and using wezterm now.
-# run `print -l $precmd_functions` on ghostty. it's less flexible there.
