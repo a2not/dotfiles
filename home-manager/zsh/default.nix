@@ -48,22 +48,12 @@ in {
     history = {
       append = true;
       expireDuplicatesFirst = true;
-      findNoDups = true;
       ignoreAllDups = true;
       ignoreDups = true;
       save = 10000;
       saveNoDups = true;
       share = true;
       size = 10000;
-      ignorePatterns = [
-        "ls"
-        "ls *"
-        "cd"
-        "cd *"
-        "pwd"
-        "clear"
-        "exit"
-      ];
     };
     # https://discourse.nixos.org/t/programs-neovim-defaulteditor-true-kills-bindkey-for-autosuggest-accept-in-zsh/48844
     defaultKeymap = "emacs";
