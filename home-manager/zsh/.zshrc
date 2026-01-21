@@ -20,4 +20,5 @@ bindkey "^X^E" edit-command-line
 function set_win_title(){
   echo -ne "\033]0; IDGAF \007"
 }
-precmd_functions+=(set_win_title)
+precmd_functions+=(set_win_title) # for wezterm
+preexec_functions+=(set_win_title) # for ghostty
