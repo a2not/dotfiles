@@ -23,6 +23,9 @@ $time\n\
 $character\
 """
 
+[fill]
+symbol = ' '
+
 [character]
 success_symbol = '[\$](bold green)'
 error_symbol = '[\$](bold red)'
