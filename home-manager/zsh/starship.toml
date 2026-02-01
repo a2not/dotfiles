@@ -19,7 +19,7 @@ $fill\
 [](fg:#24283b)\
 $cmd_duration\
 [](fg:#343b58 bg:#24283b)\
-$time\n\
+$time
 $character\
 """
 
@@ -42,9 +42,9 @@ truncation_length = 3
 truncation_symbol = '…/'
 
 [git_branch]
-symbol = '🌱 '
+symbol = '🌱'
 style = 'fg:#e0af68 bg:prev_bg'
-format = '[$symbol$branch ]($style)'
+format = '[ $symbol $branch ]($style)'
 
 [git_state]
 style = 'fg:#e0af68 bg:prev_bg'
@@ -66,6 +66,8 @@ disabled = false
 
 [nix_shell]
 style = 'fg:#b4f9f8 bg:prev_bg'
+symbol = '❄' # NOTE: default ❄️ messes with fill module. see https://github.com/starship/starship/issues/5924
+format = '[ $symbol $state ]($style)'
 
 [python]
 style = 'fg:#9ece6a bg:prev_bg'
