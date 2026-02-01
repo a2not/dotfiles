@@ -1,8 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Disable the blank line at the start of the prompt
-add_newline = false
-
 # NOTE: hand-picked from color palette
 # https://github.com/enkia/tokyo-night-vscode-theme?tab=readme-ov-file#tokyo-night-and-tokyo-night-storm
 format = """
@@ -18,14 +15,17 @@ $git_metrics\
 [](fg:prev_bg bg:#1a1b26)\
 $nix_shell\
 [](fg:prev_bg)\
+$fill\
+[](fg:#24283b)\
+$cmd_duration\
+[](fg:#343b58 bg:#24283b)\
+$time\n\
+$character\
 """
 
-# right_format = """
-# [](fg:#24283b)\
-# $cmd_duration\
-# [](fg:#343b58 bg:#24283b)\
-# $time
-# """
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
 
 [os]
 style = 'fg:#cfc9c2 bg:#565f89'
