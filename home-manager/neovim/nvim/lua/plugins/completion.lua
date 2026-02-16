@@ -71,7 +71,7 @@ return {
           },
         },
         ghost_text = {
-          enabled = true,
+          enabled = false,
         },
         accept = {
           auto_brackets = {
