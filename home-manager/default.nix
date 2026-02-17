@@ -21,8 +21,7 @@ in {
             crush = inputs.nix-ai-tools.packages.${system}.crush;
             amp = inputs.nix-ai-tools.packages.${system}.amp;
           })
-          # NOTE: disabling neovim-nightly-overlay for now.
-          # inputs.neovim-nightly-overlay.overlays.default
+          inputs.neovim-nightly-overlay.overlays.default
           # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.
           # see https://github.com/NixOS/nix/issues/13106
           # (self: super: {
