@@ -146,13 +146,6 @@ return {
         end,
         desc = 'Git Status',
       },
-      {
-        '<leader>gd',
-        function()
-          Snacks.picker.git_diff()
-        end,
-        desc = 'Git Diff (Hunks)',
-      },
       -- Grep
       {
         '<leader>sb',
