@@ -42,40 +42,41 @@ return {
           map('<leader>ws', Snacks.picker.lsp_workspace_symbols, '[W]orkspace LSP [S]ymbols')
 
           -- Enable inline completion if supported by the LSP server. Mainly for copilot.
-          -- local client = vim.lsp.get_client_by_id(event.data.client_id)
-          -- if client ~= nil and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion) then
-          --   -- only enable inline completion when cmp menu is not visible
-          --   vim.api.nvim_create_autocmd('User', {
-          --     pattern = 'BlinkCmpMenuOpen',
-          --     callback = function()
-          --       vim.lsp.inline_completion.enable(false)
-          --     end,
-          --   })
-          --   vim.api.nvim_create_autocmd('User', {
-          --     pattern = 'BlinkCmpMenuClose',
-          --     callback = function()
-          --       vim.lsp.inline_completion.enable(true)
-          --     end,
-          --   })
-          --
-          --   vim.keymap.set('i', '<Tab>', function()
-          --     if not vim.lsp.inline_completion.get() then
-          --       return '<Tab>'
-          --     end
-          --   end, {
-          --     expr = true,
-          --     silent = true,
-          --     buffer = bufnr,
-          --     desc = 'Confirm inline_completion',
-          --   })
-          --
-          --   vim.keymap.set('i', '<C-n>', function()
-          --     vim.lsp.inline_completion.select()
-          --   end, { silent = true, buffer = bufnr })
-          --   vim.keymap.set('i', '<C-p>', function()
-          --     vim.lsp.inline_completion.select({ count = -1 * vim.v.count1 })
-          --   end, { silent = true, buffer = bufnr })
-          -- end
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client ~= nil and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion) then
+            -- only enable inline completion when cmp menu is not visible
+            vim.api.nvim_create_autocmd('User', {
+              pattern = 'BlinkCmpMenuOpen',
+              callback = function()
+                vim.lsp.inline_completion.enable(false)
+              end,
+            })
+            vim.api.nvim_create_autocmd('User', {
+              pattern = 'BlinkCmpMenuClose',
+              callback = function()
+                vim.lsp.inline_completion.enable(true)
+              end,
+            })
+
+            vim.keymap.set('i', '<Tab>', function()
+              if not vim.lsp.inline_completion.get() then
+                return '<Tab>'
+              end
+            end, {
+              expr = true,
+              silent = true,
+              replace_keycodes = true,
+              buffer = bufnr,
+              desc = 'Confirm inline_completion',
+            })
+
+            vim.keymap.set('i', '<C-n>', function()
+              vim.lsp.inline_completion.select()
+            end, { silent = true, buffer = bufnr })
+            vim.keymap.set('i', '<C-p>', function()
+              vim.lsp.inline_completion.select({ count = -1 * vim.v.count1 })
+            end, { silent = true, buffer = bufnr })
+          end
         end,
       })
 

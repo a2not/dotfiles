@@ -33,9 +33,6 @@ return {
           function()
             return require('sidekick').nes_jump_or_apply()
           end,
-          function()
-            return vim.lsp.inline_completion.get()
-          end,
           'fallback',
         },
         ['<S-Tab>'] = { 'select_prev', 'snippet_backward', 'fallback' },
@@ -71,7 +68,7 @@ return {
           },
         },
         ghost_text = {
-          enabled = false,
+          enabled = true,
         },
         accept = {
           auto_brackets = {
