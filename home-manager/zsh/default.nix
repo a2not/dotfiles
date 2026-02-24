@@ -79,7 +79,10 @@ in {
   };
 
   xdg.configFile = {
-    "opencode/opencode.json".source = ./opencode.json;
+    "opencode" = {
+      source = ./opencode;
+      recursive = true;
+    };
     "crush/crush.json".source = ./crush.json;
   };
 
