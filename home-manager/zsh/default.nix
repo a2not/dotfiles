@@ -27,6 +27,7 @@ in {
     gopls
     rust-analyzer
     typescript-language-server
+    bun
     phpactor
   ];
 
