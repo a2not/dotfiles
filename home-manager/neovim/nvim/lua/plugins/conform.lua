@@ -40,6 +40,7 @@ return {
       terraform = { 'terraform_fmt' },
       tf = { 'terraform_fmt' },
       ['terraform-vars'] = { 'terraform_fmt' },
+      hcl = { 'terraform_fmt' },
 
       javascript = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
