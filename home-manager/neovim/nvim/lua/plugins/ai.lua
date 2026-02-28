@@ -34,13 +34,6 @@ return {
     },
     keys = {
       {
-        '<leader>aa',
-        function()
-          require('sidekick.cli').toggle({ name = 'opencode', focus = true })
-        end,
-        desc = 'Sidekick Toggle opencode',
-      },
-      {
         '<leader>at',
         function()
           require('sidekick.cli').send({ name = 'opencode', msg = '{this}' })

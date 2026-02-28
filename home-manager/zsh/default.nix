@@ -7,7 +7,6 @@
 in {
   home.packages = with pkgs; [
     fzf
-
     eza
     starship
     zoxide
