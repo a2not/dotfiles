@@ -19,7 +19,6 @@ in {
           (final: prev: {
             opencode = inputs.nix-ai-tools.packages.${system}.opencode;
             crush = inputs.nix-ai-tools.packages.${system}.crush;
-            amp = inputs.nix-ai-tools.packages.${system}.amp;
           })
           inputs.neovim-nightly-overlay.overlays.default
           # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.

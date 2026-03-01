@@ -19,7 +19,6 @@ in {
 
     opencode
     crush
-    amp
     bash # AI agent needs this
 
     terraform
