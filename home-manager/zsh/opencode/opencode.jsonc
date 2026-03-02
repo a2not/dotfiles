@@ -50,6 +50,9 @@
   ],
   // NOTE: agents from https://gist.github.com/mjakl/490ef1d85fffea810dfe2f17069bc08b
   "agent": {
+    "build": {
+      "disable": true
+    },
     "plan": {
       "disable": true
     }
