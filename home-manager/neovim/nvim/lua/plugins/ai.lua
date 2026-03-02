@@ -23,12 +23,7 @@ return {
         mux = {
           backend = 'tmux',
           enabled = true,
-        },
-        ---@type table<string, sidekick.cli.Config|{}>
-        tools = {
-          opencode = {
-            cmd = { 'opencode' },
-          },
+          create = 'split',
         },
       },
     },
