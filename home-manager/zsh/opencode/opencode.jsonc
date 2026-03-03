@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "system",
   "instructions": [
     "AGENTS.md",
     "CONTRIBUTING.md",
@@ -8,14 +7,12 @@
     ".cursor/rules/*.md",
     "CLAUDE.md"
   ],
-  "keybinds": {
-    "leader": "ctrl+o"
-  },
-  "tools": {
-    "bash": true,
-    "write": true
-  },
   "default_agent": "architect",
+  "permission": {
+    "external_directory": {
+      "/tmp/**": "allow"
+    }
+  },
   "model": "sakura/Qwen3-Coder-480B-A35B-Instruct-FP8",
   "provider": {
     "github-copilot": {
