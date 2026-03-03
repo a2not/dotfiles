@@ -27,9 +27,6 @@ if has('CopilotChat.nvim') then
         if sob then
           -- Insert SOB before the closing ``` or append if not found
           response.content = response.content:gsub('\n```$', '\n\n' .. sob .. '\n```')
-          if response.content:sub(-3) ~= '```' then
-            response.content = response.content .. '\n' .. sob
-          end
         end
         return response
       end,
