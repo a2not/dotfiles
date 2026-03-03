@@ -15,6 +15,7 @@
     "bash": true,
     "write": true
   },
+  "default_agent": "architect",
   "model": "sakura/Qwen3-Coder-480B-A35B-Instruct-FP8",
   "provider": {
     "github-copilot": {
