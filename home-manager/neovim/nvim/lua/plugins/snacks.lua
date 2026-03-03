@@ -26,21 +26,7 @@ return {
         enabled = true,
         timeout = 3000,
       },
-      picker = {
-        enabled = true,
-        actions = {
-          opencode_send = function(...)
-            return require('opencode').snacks_picker_send(...)
-          end,
-        },
-        win = {
-          input = {
-            keys = {
-              ['<a-a>'] = { 'opencode_send', mode = { 'n', 'i' } },
-            },
-          },
-        },
-      },
+      picker = { enabled = true },
       -- TODO:
       -- explorer = { enabled = true },
       quickfile = { enabled = true },
