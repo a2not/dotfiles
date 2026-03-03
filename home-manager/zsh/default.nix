@@ -6,6 +6,7 @@
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
 in {
   home.packages = with pkgs; [
+    lsof
     fzf
     eza
     starship
