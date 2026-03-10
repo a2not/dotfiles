@@ -18,7 +18,6 @@ in {
     mise
 
     opencode
-    crush
     bash # AI agent needs this
 
     terraform
@@ -82,7 +81,6 @@ in {
       source = ./opencode;
       recursive = true;
     };
-    "crush/crush.json".source = ./crush.json;
   };
 
   sops = {

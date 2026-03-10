@@ -7,7 +7,6 @@
     enable = true;
     ignores = [
       "node_modules"
-      "CRUSH.md"
     ];
   };
   programs.delta = {
