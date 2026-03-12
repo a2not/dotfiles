@@ -6,17 +6,15 @@ temperature: 0.05
 reasoningEffort: high
 textVerbosity: low
 tools:
-  write: false
   edit: false
-  bash: true
-  webfetch: false
+  write: false
 permission:
   edit: deny
+  write: deny
   bash:
+    "*": allow
     "git commit": deny
     "git push": deny
-    "*": allow
-  webfetch: deny
 ---
 
 ## Role

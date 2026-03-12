@@ -4,6 +4,7 @@ description:
   Internet research specialist using Exa AI websearch. Use when gathering current
   information, researching external topics, or finding recent docs/API versions.
 tools:
+  *: false
   websearch: true
   webfetch: true
   question: true

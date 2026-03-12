@@ -2,14 +2,8 @@
 description: Programming agent with great Software Engineering skills
 mode: primary
 temperature: 0.2
-tools:
-  write: true
-  edit: true
-  bash: true
-  webfetch: true
 permission:
   edit: allow
-  bash: allow
   webfetch: allow
 ---
 

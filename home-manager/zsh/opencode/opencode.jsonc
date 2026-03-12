@@ -9,7 +9,35 @@
   ],
   "default_agent": "architect",
   "permission": {
+    "*": "ask",
+    "bash": {
+      "*": "ask",
+      "grep *": "allow",
+      "ls *": "allow",
+      "rg *": "allow"
+    },
+    "codesearch": "allow",
+    "doom_loop": "ask",
+    "edit": "ask",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "lsp": "allow",
+    "question": "allow",
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow"
+    },
+    "skill": "allow",
+    "task": "allow",
+    "todoread": "allow",
+    "todowrite": "allow",
+    "webfetch": "ask",
+    "websearch": "ask",
     "external_directory": {
+      "*": "ask",
       "/tmp/**": "allow"
     }
   },
