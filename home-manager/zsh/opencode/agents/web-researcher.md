@@ -4,11 +4,14 @@ description:
   Internet research specialist using Exa AI websearch. Use when gathering current
   information, researching external topics, or finding recent docs/API versions.
 tools:
-  *: false
+  '*': false
   websearch: true
   webfetch: true
   question: true
   read: true
+permission:
+  webfetch: allow
+  websearch: allow
 ---
 
 # Role: Web Researcher

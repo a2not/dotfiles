@@ -12,9 +12,9 @@ permission:
   edit: deny
   write: deny
   bash:
-    "*": allow
-    "git commit": deny
-    "git push": deny
+    '*': ask
+    'git commit': deny
+    'git push': deny
 ---
 
 ## Role
