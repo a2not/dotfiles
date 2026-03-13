@@ -14,7 +14,8 @@
       "*": "ask",
       "grep *": "allow",
       "ls *": "allow",
-      "rg *": "allow"
+      "rg *": "allow",
+      "go doc *": "allow"
     },
     "codesearch": "allow",
     "doom_loop": "ask",
