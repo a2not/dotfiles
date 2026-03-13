@@ -22,6 +22,7 @@ in {
 
     terraform
     gopls
+    golangci-lint
     rust-analyzer
     typescript-language-server
     bun
