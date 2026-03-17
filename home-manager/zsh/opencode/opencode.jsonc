@@ -42,7 +42,7 @@
       "/tmp/**": "allow"
     }
   },
-  "model": "sakura/Qwen3-Coder-480B-A35B-Instruct-FP8",
+  "model": "sakura/Kimi-K2.5",
   "provider": {
     "github-copilot": {
       "npm": "@github/copilot",
@@ -61,6 +61,9 @@
         "apiKey": "{env:OPENAI_API_KEY}"
       },
       "models": {
+        "preview/Kimi-K2.5": {
+          "name": "Kimi-K2.5"
+        },
         "Qwen3-Coder-480B-A35B-Instruct-FP8": {
           "name": "Qwen3-Coder-480B-A35B-Instruct-FP8"
         },
