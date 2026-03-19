@@ -5,6 +5,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 vim.keymap.set('n', '<leader><leader>x', '<Cmd>source %<CR>', { desc = 'source current file' })
 vim.keymap.set({ 'n', 'v' }, 'qq', '<C-w>q', { desc = 'Quit current window' })
+vim.keymap.set({ 'n', 'v' }, '<C-q>', '<Cmd>qa!<CR>', { desc = 'Quit all' })
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'yank to clipboard' })
 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
