@@ -37,7 +37,6 @@ vim.opt.undofile = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.inccommand = 'split'
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
