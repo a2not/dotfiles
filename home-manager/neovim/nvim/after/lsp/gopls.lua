@@ -3,7 +3,7 @@ return {
   settings = {
     gopls = {
       gofumpt = true,
-      buildFlags = { '-tags=integration' },
+      buildFlags = { '-tags=integration,database,simplemq' },
       codelenses = {
         gc_details = false,
         generate = true,
