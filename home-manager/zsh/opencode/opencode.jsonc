@@ -9,36 +9,25 @@
   ],
   "default_agent": "architect",
   "permission": {
-    "*": "ask",
     "bash": {
-      "*": "ask",
-      "grep *": "allow",
-      "ls *": "allow",
-      "rg *": "allow",
-      "go doc *": "allow"
+      "*": "allow",
+      "git add *": "deny",
+      "git commit *": "deny",
+      "git push": "deny",
+      "git push *": "deny",
+      "sudo *": "deny",
+      "rm -rf /": "deny",
+      "rm -rf /*": "deny",
+      "rm -rf ~": "deny",
+      "rm -rf ~/*": "deny"
     },
-    "codesearch": "allow",
-    "doom_loop": "ask",
-    "edit": "ask",
-    "glob": "allow",
-    "grep": "allow",
-    "list": "allow",
-    "lsp": "allow",
-    "question": "allow",
     "read": {
       "*": "allow",
       "*.env": "deny",
       "*.env.*": "deny",
       "*.env.example": "allow"
     },
-    "skill": "allow",
-    "task": "allow",
-    "todoread": "allow",
-    "todowrite": "allow",
-    "webfetch": "allow",
-    "websearch": "allow",
     "external_directory": {
-      "*": "ask",
       "/tmp/**": "allow"
     }
   },
