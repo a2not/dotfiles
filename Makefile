@@ -39,15 +39,16 @@ darwin-rebuild:
 img:
 	nix build .#img --out-link result-aarch64
 
+# NOTE: alternating vm name with "default" <-> "nixos" b/w generations.
 .PHONY: lima-nixos-vm
 lima-nixos-vm:
-	limactl start --name=nixos ./xin/lima/nixos.yaml
+	limactl start --name=default ./xin/lima/nixos.yaml
 
 .PHONY: lima
 lima:
-	limactl shell nixos -- bash -c "[ -d ~/dotfiles ] || git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
-	limactl shell nixos -- sudo rm -rf /etc/nixos
-	limactl shell nixos -- sudo ln -s ~/dotfiles /etc/nixos
-	limactl shell nixos -- sudo nixos-rebuild switch --flake /etc/nixos#lima
-	limactl shell nixos -- bash -c "mkdir -p ~/.config/sops/age/ ; vim ~/.config/sops/age/keys.txt" # put age key
-	limactl shell nixos -- bash -c "cd ~/dotfiles ; make home-linux"
+	limactl shell default -- bash -c "[ -d ~/dotfiles ] || git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
+	limactl shell default -- sudo rm -rf /etc/nixos
+	limactl shell default -- sudo ln -s ~/dotfiles /etc/nixos
+	limactl shell default -- sudo nixos-rebuild switch --flake /etc/nixos#lima
+	limactl shell default -- bash -c "mkdir -p ~/.config/sops/age/ ; vim ~/.config/sops/age/keys.txt" # put age key
+	limactl shell default -- bash -c "cd ~/dotfiles ; make home-linux"
