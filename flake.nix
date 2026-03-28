@@ -47,6 +47,7 @@
   }: let
     username = builtins.getEnv "USER";
     homeDirectory = builtins.getEnv "HOME";
+    limaVMName = builtins.getEnv "LIMA_VM_NAME";
   in {
     hm = import ./home-manager {inherit inputs username homeDirectory;};
 
@@ -59,7 +60,7 @@
 
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs username;};
       modules = [
         ./system/darwin
       ];
@@ -67,7 +68,7 @@
 
     nixosConfigurations."lima" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {inherit nixos-lima;};
+      specialArgs = {inherit nixos-lima username limaVMName;};
       modules = [
         ./system/nixos
       ];

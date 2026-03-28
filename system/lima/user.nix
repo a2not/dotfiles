@@ -1,5 +1,4 @@
-{...}: let
-  username = "n-honda";
+{username, ...}: let
   homeDirectory = "/home/${username}.linux";
 in {
   users.users.${username} = {

@@ -1,10 +1,9 @@
 {
   pkgs,
   inputs,
+  username,
   ...
-}: let
-  username = "n-honda";
-in {
+}: {
   imports = [
     ./system.nix
     ./packages.nix
