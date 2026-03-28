@@ -28,11 +28,11 @@ update:
 nixos-rebuild:
 	sudo rm -rf /etc/nixos
 	sudo ln -s ~/dotfiles /etc/nixos
-	sudo nixos-rebuild switch --flake /etc/nixos#lima --impure
+	sudo nixos-rebuild switch --flake /etc/nixos#lima
 
 .PHONY: darwin-rebuild
 darwin-rebuild:
-	sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mac --impure
+	sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mac
 
 # TODO: build it on darwin;
 .PHONY: img

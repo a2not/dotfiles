@@ -68,7 +68,7 @@
 
     nixosConfigurations."lima" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {inherit nixos-lima username limaVMName;};
+      specialArgs = {inherit nixos-lima limaVMName;};
       modules = [
         ./system/nixos
       ];
