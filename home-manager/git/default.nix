@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  username,
   ...
 }: {
   programs.git = {
@@ -33,7 +32,7 @@
       "gitconfig_work" = {
         content = ''
           [user]
-            name = ${username}
+            name = n-honda
             email = ${config.sops.placeholder."work/email"}
         '';
         path = "${config.home.homeDirectory}/.gitconfig_work";
