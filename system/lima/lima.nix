@@ -1,4 +1,4 @@
-# NOTE: ref -> https://github.com/nixos-lima/nixos-lima/blob/813e170372e0c7b5f5944ed8979cba44777b418c/lima.nix
+# NOTE: ref -> https://github.com/nixos-lima/nixos-lima-config-sample/blob/42218c18dc560ac16126e4925ab42f6594bcfdc3/nixos-lima-config.nix
 {
   modulesPath,
   pkgs,
@@ -10,6 +10,8 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     nixos-lima.nixosModules.lima
   ];
+
+  networking.hostName = "lima-nixos";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -28,13 +30,10 @@
   };
 
   # system mounts
-  boot = {
-    kernelParams = ["console=tty0"];
-    loader.grub = {
-      device = "nodev";
-      efiSupport = true;
-      efiInstallAsRemovable = true;
-    };
+  boot.loader.grub = {
+    device = "nodev";
+    efiSupport = true;
+    efiInstallAsRemovable = true;
   };
   fileSystems."/boot" = {
     device = lib.mkForce "/dev/vda1"; # /dev/disk/by-label/ESP
@@ -49,6 +48,7 @@
 
   # misc
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelParams = ["console=tty0"];
 
   system.stateVersion = "25.11";
 }
