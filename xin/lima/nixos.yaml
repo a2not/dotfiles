@@ -15,13 +15,6 @@ images:
 mounts:
 - location: "~"
   writable: false
-  # NOTE: Try choosing "mmap" or "none" if you see a stability issue with the default "fscache".
-  # 9p:
-  #   cache: "mmap"
-- location: "/tmp/lima"
-  writable: true
-  9p:
-    cache: "mmap"
 
 containerd:
   system: false
