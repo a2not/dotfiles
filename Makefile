@@ -57,6 +57,7 @@ lima-vm-default:
 .PHONY: init-lima
 init-lima:
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/dotfiles ] || git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && git pull"
 	limactl shell $(LIMA_VM_NAME) -- bash -c "sudo rm -rf /etc/nixos"
 	limactl shell $(LIMA_VM_NAME) -- bash -c "sudo ln -s ~/dotfiles /etc/nixos"
 	limactl shell $(LIMA_VM_NAME) -- bash -c "sudo nixos-rebuild switch --flake /etc/nixos#lima"
