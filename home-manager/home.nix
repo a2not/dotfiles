@@ -6,10 +6,10 @@
   pkgs,
   config,
   ...
-}: let
-  isLinux = pkgs.stdenv.hostPlatform.isLinux;
-in {
+}: {
   home.stateVersion = "25.05";
+  # TODO: next time we build new NixOS
+  # home.stateVersion = "25.11";
 
   home.username = username;
   home.homeDirectory = homeDirectory;

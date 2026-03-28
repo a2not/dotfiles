@@ -6,7 +6,6 @@ images:
     arch: "x86_64"
     digest: "sha512:5daac286d415a579ca659a98de864fe04ab7a1879d4e4608e3edcd2e931f1848f88ed07316e69a1131ab35b88158b999a21cc5ccf9be9c3d04f51a7e58dc8580"
 
-
 # TODO: with locally-built images.
 # images:
 #   - location: "./result-aarch64/nixos.qcow2"
@@ -15,6 +14,15 @@ images:
 mounts:
 - location: "~"
   writable: false
+
+portForwards:
+  # Tell Lima's port-forwarding to ignore port 68 to prevent interception of host DHCP packets
+  # Apparently this is an issue with NixOS that does not occur on other Linux distros
+  # See: https://github.com/nixos-lima/nixos-lima/issues/50
+  - proto: udp
+    guestPort: 68
+    guestIP: 0.0.0.0
+    ignore: true
 
 containerd:
   system: false
