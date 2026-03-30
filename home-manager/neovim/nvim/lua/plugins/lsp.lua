@@ -84,7 +84,10 @@ return {
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config({
         severity_sort = true,
-        float = { border = 'rounded' },
+        float = {
+          border = 'rounded',
+          source = true,
+        },
         underline = true,
         jump = { float = true },
       })
