@@ -17,7 +17,7 @@ in {
         inherit system;
         overlays = [
           (final: prev: {
-            opencode = inputs.nix-ai-tools.packages.${system}.opencode;
+            opencode = inputs.llm-agents.packages.${system}.opencode;
           })
           inputs.neovim-nightly-overlay.overlays.default
           # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.

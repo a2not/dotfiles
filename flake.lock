@@ -3,11 +3,11 @@
     "blueprint": {
       "inputs": {
         "nixpkgs": [
-          "nix-ai-tools",
+          "llm-agents",
           "nixpkgs"
         ],
         "systems": [
-          "nix-ai-tools",
+          "llm-agents",
           "systems"
         ]
       },
@@ -28,20 +28,20 @@
     "bun2nix": {
       "inputs": {
         "flake-parts": [
-          "nix-ai-tools",
+          "llm-agents",
           "flake-parts"
         ],
         "import-tree": "import-tree",
         "nixpkgs": [
-          "nix-ai-tools",
+          "llm-agents",
           "nixpkgs"
         ],
         "systems": [
-          "nix-ai-tools",
+          "llm-agents",
           "systems"
         ],
         "treefmt-nix": [
-          "nix-ai-tools",
+          "llm-agents",
           "treefmt-nix"
         ]
       },
@@ -62,7 +62,7 @@
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
-          "neovim-nightly-overlay",
+          "llm-agents",
           "nixpkgs"
         ]
       },
@@ -83,7 +83,7 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "nix-ai-tools",
+          "neovim-nightly-overlay",
           "nixpkgs"
         ]
       },
@@ -154,9 +154,34 @@
         "type": "github"
       }
     },
+    "llm-agents": {
+      "inputs": {
+        "blueprint": "blueprint",
+        "bun2nix": "bun2nix",
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": "systems",
+        "treefmt-nix": "treefmt-nix"
+      },
+      "locked": {
+        "lastModified": 1774807645,
+        "narHash": "sha256-jLUzPM+NXXwYXhAIv5yDvuMNZGqTLd6eAkBggyci5vM=",
+        "owner": "numtide",
+        "repo": "llm-agents.nix",
+        "rev": "52905207de31ae586c8c17183bad9e717c76d8a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "llm-agents.nix",
+        "type": "github"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "neovim-src": "neovim-src",
         "nixpkgs": [
           "nixpkgs"
@@ -189,31 +214,6 @@
       "original": {
         "owner": "neovim",
         "repo": "neovim",
-        "type": "github"
-      }
-    },
-    "nix-ai-tools": {
-      "inputs": {
-        "blueprint": "blueprint",
-        "bun2nix": "bun2nix",
-        "flake-parts": "flake-parts_2",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "systems": "systems",
-        "treefmt-nix": "treefmt-nix"
-      },
-      "locked": {
-        "lastModified": 1774807645,
-        "narHash": "sha256-jLUzPM+NXXwYXhAIv5yDvuMNZGqTLd6eAkBggyci5vM=",
-        "owner": "numtide",
-        "repo": "nix-ai-tools",
-        "rev": "52905207de31ae586c8c17183bad9e717c76d8a8",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "nix-ai-tools",
         "type": "github"
       }
     },
@@ -351,8 +351,8 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "llm-agents": "llm-agents",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "nix-ai-tools": "nix-ai-tools",
         "nix-darwin": "nix-darwin",
         "nixos-generators": "nixos-generators",
         "nixos-lima": "nixos-lima",
@@ -413,7 +413,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "nix-ai-tools",
+          "llm-agents",
           "nixpkgs"
         ]
       },
