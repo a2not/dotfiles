@@ -90,7 +90,23 @@ return {
         enabled = false,
       },
 
-      snippets = { preset = 'luasnip' },
+      ---@type blink.cmp.SnippetsConfig
+      snippets = {
+        preset = 'luasnip',
+        -- fixes https://github.com/saghen/blink.cmp/issues/1805
+        active = function(filter)
+          local snippet = require('luasnip')
+          local blink = require('blink.cmp')
+          if snippet.in_snippet() and not blink.is_visible() then
+            return true
+          else
+            if not snippet.in_snippet() and vim.fn.mode() == 'n' then
+              snippet.unlink_current()
+            end
+            return false
+          end
+        end,
+      },
 
       fuzzy = { implementation = 'prefer_rust_with_warning' },
     },
