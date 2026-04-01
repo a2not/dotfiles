@@ -12,7 +12,6 @@ permission:
   edit: deny
   write: deny
   bash:
-    '*': ask
     'git commit': deny
     'git push': deny
 ---
