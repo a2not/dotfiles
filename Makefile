@@ -26,7 +26,7 @@ update:
 
 .PHONY: nixos-rebuild
 nixos-rebuild:
-	sudo nixos-rebuild switch --flake /etc/nixos#lima
+	sudo nixos-rebuild switch --flake .#lima
 
 .PHONY: darwin-rebuild
 darwin-rebuild:
@@ -55,9 +55,8 @@ lima-vm-default:
 .PHONY: init-lima
 init-lima:
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/dotfiles ] || git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && git pull"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "sudo rm -rf /etc/nixos && sudo ln -s ~/dotfiles /etc/nixos"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "sudo nixos-rebuild boot --flake /etc/nixos#lima"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; git pull"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; sudo nixos-rebuild boot --flake .#lima"
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/.config/sops/age ] || mkdir -p ~/.config/sops/age/ && vim ~/.config/sops/age/keys.txt" # put age key
 	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; make home-linux"
 
