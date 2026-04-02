@@ -12,6 +12,7 @@ in {
     zoxide
     ripgrep
     fastfetch
+    jq
 
     devenv
 
