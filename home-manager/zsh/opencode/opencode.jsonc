@@ -8,6 +8,9 @@
     "CLAUDE.md"
   ],
   "default_agent": "architect",
+  "plugin": [
+    "oh-my-opencode"
+  ],
   "permission": {
     "bash": {
       "*": "allow",
