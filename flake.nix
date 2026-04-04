@@ -55,7 +55,6 @@
       aarch64-linux = self.hm.mkHomeManager {system = "aarch64-linux";};
       aarch64-darwin = self.hm.mkHomeManager {system = "aarch64-darwin";};
       x86_64-linux = self.hm.mkHomeManager {system = "x86_64-linux";};
-      x86_64-darwin = self.hm.mkHomeManager {system = "x86_64-darwin";};
     };
 
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {

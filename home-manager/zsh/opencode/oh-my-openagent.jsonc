@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
+  // default every model to one
+  // ref. https://github.com/code-yeongyu/oh-my-openagent/blob/ba26b6f29d25590ba8ce0bcf7cb52cdafdb6811a/docs/reference/configuration.md#categories
+  "agents": {
+    "hephaestus": {
+      "model": "sakura/Kimi-K2.5"
+    }
+  },
+  "categories": {
+    // visual-engineering - Frontend, UI/UX, design, animation. Preferably with Gemini (`google/gemini-3.1-pro (high)`).
+    "visual-engineering": {
+      "model": "sakura/Kimi-K2.5"
+    },
+    // ultrabrain - Deep logical reasoning, complex architecture
+    "ultrabrain": {
+      "model": "sakura/Kimi-K2.5"
+    },
+    // deep - Autonomous problem-solving, thorough research
+    "deep": {
+      "model": "sakura/Kimi-K2.5"
+    },
+    // artistry - Creative/unconventional approaches
+    "artistry": {
+      "model": "sakura/Kimi-K2.5"
+    },
+    // quick - Trivial tasks, typo fixes, single-file changes
+    "quick": {
+      "model": "sakura/Kimi-K2.5"
+    },
+    // unspecified-low - General tasks, low effort
+    "unspecified-low": {
+      "model": "sakura/Kimi-K2.5"
+    },
+    // unspecified-high - General tasks, high effort
+    "unspecified-high": {
+      "model": "sakura/Kimi-K2.5"
+    },
+    // writing - Documentation, prose, technical writing
+    "writing": {
+      "model": "sakura/Kimi-K2.5"
+    }
+  },
+  "runtime_fallback": {
+    "enabled": true,
+    "notify_on_fallback": true
+  },
+  "experimental": {
+    "aggressive_truncation": true,
+    "task_system": true
+  },
+  "sisyphus_agent": {
+    "planner_enabled": true,
+    "replace_plan": true
+  },
+  "disabled_mcps": [
+    "websearch",
+    "context7",
+    "grep_app"
+  ]
+}

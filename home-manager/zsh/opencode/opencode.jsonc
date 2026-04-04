@@ -7,7 +7,8 @@
     ".cursor/rules/*.md",
     "CLAUDE.md"
   ],
-  "default_agent": "architect",
+  // "default_agent": "architect",
+  "default_agent": "sisyphus",
   "plugin": [
     "oh-my-opencode"
   ],
