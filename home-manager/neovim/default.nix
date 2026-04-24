@@ -12,6 +12,7 @@
 
     withPython3 = true;
     withNodeJs = true;
+    withRuby = false;
 
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
