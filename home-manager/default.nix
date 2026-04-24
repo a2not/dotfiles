@@ -18,7 +18,6 @@ in {
         overlays = [
           (final: prev: {
             opencode = inputs.llm-agents.packages.${system}.opencode;
-            oh-my-opencode = inputs.llm-agents.packages.${system}.oh-my-opencode;
           })
           inputs.neovim-nightly-overlay.overlays.default
           # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.

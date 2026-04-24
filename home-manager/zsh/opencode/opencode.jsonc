@@ -11,9 +11,6 @@
   ],
   // "default_agent": "architect",
   "default_agent": "sisyphus",
-  "plugin": [
-    "oh-my-openagent"
-  ],
   "permission": {
     "bash": {
       "*": "allow",

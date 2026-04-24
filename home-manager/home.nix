@@ -25,8 +25,6 @@
 
     just
     go
-
-    oh-my-opencode
   ];
 
   home.sessionVariables = {
