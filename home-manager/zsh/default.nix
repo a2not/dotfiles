@@ -18,7 +18,8 @@ in {
 
     mise
 
-    opencode
+    llm-agents.opencode
+    llm-agents.fence
     bash # AI agent needs this
 
     terraform

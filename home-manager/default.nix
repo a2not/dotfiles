@@ -16,9 +16,7 @@ in {
       pkgs = import inputs.nixpkgs {
         inherit system;
         overlays = [
-          (final: prev: {
-            opencode = inputs.llm-agents.packages.${system}.opencode;
-          })
+          inputs.llm-agents.overlays.default
           inputs.neovim-nightly-overlay.overlays.default
           # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.
           # see https://github.com/NixOS/nix/issues/13106
