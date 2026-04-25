@@ -15,6 +15,9 @@
     withNodeJs = true;
     withRuby = false;
 
+    # NOTE: to prevent neovim module to create init.lua. I have my own definition.
+    sideloadInitLua = true;
+
     plugins = with pkgs.vimPlugins; [
       nvim-treesitter.withAllGrammars
       lazy-nvim
@@ -67,8 +70,6 @@
   #   enableZshIntegration = true;
   # };
 
-  # NOTE: to prevent neovim module to create init.lua. I have my own definition.
-  xdg.configFile."nvim/init.lua".enable = lib.mkForce false;
   xdg.configFile."nvim" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/neovim/nvim";
   };
