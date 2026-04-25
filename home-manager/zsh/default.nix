@@ -4,6 +4,7 @@
   ...
 }: let
   isDarwin = pkgs.stdenv.hostPlatform.isDarwin;
+  pnpmHome = "${config.home.homeDirectory}/.local/share/pnpm";
 in {
   home.packages = with pkgs; [
     fzf
@@ -29,6 +30,14 @@ in {
     typescript-language-server
     bun
     phpactor
+  ];
+
+  # make it available to `pnpm install --global`
+  home.sessionVariables = {
+    PNPM_HOME = pnpmHome;
+  };
+  home.sessionPath = [
+    pnpmHome
   ];
 
   programs.zsh = {
