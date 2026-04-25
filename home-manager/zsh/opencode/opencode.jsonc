@@ -13,25 +13,18 @@
   "default_agent": "sisyphus",
   "permission": {
     "bash": {
-      "*": "allow",
+      "*": "ask",
       "git add *": "deny",
-      "git commit *": "deny",
-      "git push": "deny",
-      "git push *": "deny",
+      "git commit*": "deny",
+      "git push*": "deny",
       "sudo *": "deny",
-      "rm -rf /": "deny",
-      "rm -rf /*": "deny",
-      "rm -rf ~": "deny",
-      "rm -rf ~/*": "deny"
+      "rm *": "deny"
     },
     "read": {
       "*": "allow",
       "*.env": "deny",
       "*.env.*": "deny",
       "*.env.example": "allow"
-    },
-    "external_directory": {
-      "/tmp/**": "allow"
     }
   },
   "model": "sakura/Kimi-K2.5",

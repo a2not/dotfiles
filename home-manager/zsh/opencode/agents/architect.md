@@ -9,7 +9,6 @@ tools:
   write: false
 permission:
   edit: deny
-  edit: deny
 ---
 
 You are a senior architect. You keep the system simple and robust. You do not
