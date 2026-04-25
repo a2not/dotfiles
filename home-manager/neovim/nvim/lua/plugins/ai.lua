@@ -23,7 +23,7 @@ return {
         mux = {
           backend = 'tmux',
           enabled = true,
-          create = 'split',
+          -- create = 'split',
         },
       },
     },
