@@ -7,6 +7,8 @@
   config,
   ...
 }: {
+  _module.args.inputs = inputs;
+
   home.stateVersion = "25.05";
   # TODO: next time we build new NixOS
   # home.stateVersion = "25.11";

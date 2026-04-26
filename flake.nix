@@ -26,6 +26,10 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    anthropic-skills = {
+      url = "github:anthropics/skills";
+      flake = false;
+    };
 
     nixos-lima = {
       url = "github:nixos-lima/nixos-lima";

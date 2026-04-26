@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   config,
   ...
@@ -94,6 +95,9 @@ in {
     "opencode" = {
       source = ./opencode;
       recursive = true;
+    };
+    "opencode/skills/skill-creator" = {
+      source = "${inputs.anthropic-skills}/skills/skill-creator";
     };
   };
 
