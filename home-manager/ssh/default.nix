@@ -11,7 +11,6 @@ in {
     includes =
       [
         "${config.sops.secrets."ssh_config/cloud".path}"
-        "${config.sops.secrets."ssh_config/is".path}" # NOTE: is/rs
       ]
       ++ (
         # NOTE: macos specific
@@ -25,7 +24,6 @@ in {
 
   sops = {
     secrets."ssh_config/cloud" = {};
-    secrets."ssh_config/is" = {};
     secrets."ssh_config/macos" = {};
   };
 
