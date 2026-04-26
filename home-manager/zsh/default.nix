@@ -22,7 +22,6 @@ in {
 
     llm-agents.opencode
     llm-agents.fence
-    llm-agents.amp
     llm-agents.claude-code
     bash # AI agent needs this
 
