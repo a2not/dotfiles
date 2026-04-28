@@ -22,6 +22,8 @@ in {
       );
   };
 
+  home.file.".ssh/default.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z";
+
   sops = {
     secrets."ssh_config/cloud" = {};
     secrets."ssh_config/macos" = {};
