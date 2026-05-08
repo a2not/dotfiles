@@ -32,3 +32,4 @@ sudo sed --in-place -e '/auth.*required.*pam_shells.so/s/required/sufficient/g' 
 chsh -s $(which zsh)
 ```
 -->
+
