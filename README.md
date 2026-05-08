@@ -22,6 +22,8 @@ touch ~/.config/sops/age/keys.txt
 make home-linux
 ```
 
+<!--
+
 ### (only on ubuntu) set zsh as default shell
 
 ```sh
@@ -29,8 +31,4 @@ make home-linux
 sudo sed --in-place -e '/auth.*required.*pam_shells.so/s/required/sufficient/g' /etc/pam.d/chsh
 chsh -s $(which zsh)
 ```
-
-## Lima Desktop (ubuntu, NixOS)
-
-see https://github.com/a2not/dotfiles/issues/11
-
+-->
