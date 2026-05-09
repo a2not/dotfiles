@@ -54,6 +54,7 @@ in {
       ls = "eza --icons";
       ll = "eza -lah --icons";
       update = "sudo apt update && sudo apt upgrade -y && sudo snap refresh"; # ubunbu update
+      opencode = "fence opencode";
     };
     history = {
       append = true;
@@ -97,6 +98,9 @@ in {
     };
     "opencode/skills/skill-creator" = {
       source = "${inputs.anthropic-skills}/skills/skill-creator";
+    };
+    "fence/fence.jsonc" = {
+      source = ./fence/fence.jsonc;
     };
   };
 

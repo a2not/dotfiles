@@ -13,6 +13,9 @@
   "permission": {
     "bash": {
       "*": "ask",
+      "which *": "allow",
+      "grep *": "allow",
+      "find *": "allow",
       "git add *": "deny",
       "git commit*": "deny",
       "git push*": "deny",
