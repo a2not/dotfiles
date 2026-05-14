@@ -16,6 +16,8 @@
       "which *": "allow",
       "grep *": "allow",
       "find *": "allow",
+      "git branch*": "allow",
+      "git branch -d *": "deny",
       "git status*": "allow",
       "git log*": "allow",
       "git diff*": "allow",
