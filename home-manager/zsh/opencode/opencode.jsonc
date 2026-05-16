@@ -71,6 +71,7 @@
   "disabled_providers": [
     "openai",
     "gemini",
-    "opencode"
+    "opencode",
+    "github-copilot"
   ]
 }
