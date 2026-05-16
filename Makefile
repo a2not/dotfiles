@@ -44,14 +44,6 @@ LIMA_VM_NAME := nixos
 lima-vm:
 	limactl start --name=$(LIMA_VM_NAME) ./xin/lima/nixos.yaml
 
-.PHONY: lima-vm-nixos
-lima-vm-nixos:
-	$(MAKE) lima-vm LIMA_VM_NAME=nixos
-
-.PHONY: lima-vm-default
-lima-vm-default:
-	$(MAKE) lima-vm LIMA_VM_NAME=default
-
 .PHONY: init-lima
 init-lima:
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/dotfiles ] || git clone git@codeberg.org:a2not/dotfiles.git ~/dotfiles"
@@ -60,10 +52,3 @@ init-lima:
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/.config/sops/age ] || mkdir -p ~/.config/sops/age/ && vim ~/.config/sops/age/keys.txt" # put age key
 	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; make home-linux"
 
-.PHONY: init-lima-nixos
-init-lima-nixos:
-	$(MAKE) init-lima LIMA_VM_NAME=nixos
-
-.PHONY: init-lima-default
-init-lima-default:
-	$(MAKE) init-lima LIMA_VM_NAME=default
