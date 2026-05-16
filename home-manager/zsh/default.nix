@@ -58,6 +58,7 @@ in {
     };
     history = {
       append = true;
+      extended = true;
       expireDuplicatesFirst = true;
       ignoreAllDups = true;
       ignoreDups = true;
