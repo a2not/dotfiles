@@ -8,25 +8,36 @@ in {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    includes =
-      [
-        "${config.sops.secrets."ssh_config/cloud".path}"
-      ]
-      ++ (
-        # NOTE: macos specific
-        if isDarwin
-        then [
-          "${config.sops.secrets."ssh_config/macos".path}"
-        ]
-        else []
-      );
+
+    matchBlocks = {
+      "*" = {
+        forwardAgent = true;
+        identitiesOnly = true;
+        identityFile = "~/.ssh/default.pub";
+      };
+    };
+
+    extraConfig = (
+      if isDarwin
+      then ''
+        Host *
+          # NOTE: macos specific
+          IgnoreUnknown UseKeychain
+          UseKeychain yes
+          AddKeysToAgent yes
+          IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+      ''
+      else ""
+    );
+    includes = [
+      "${config.sops.secrets."ssh_config/cloud".path}"
+    ];
   };
 
   home.file.".ssh/default.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z";
 
   sops = {
     secrets."ssh_config/cloud" = {};
-    secrets."ssh_config/macos" = {};
   };
 
   # NOTE: this is needed only on host but no harm having inside VM so keeping this unconditionally
