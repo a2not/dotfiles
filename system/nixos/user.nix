@@ -1,6 +1,6 @@
 {...}: let
   username = "n-honda";
-  homeDirectory = "/home/${username}.linux";
+  homeDirectory = "/home/${username}.guest";
 in {
   users.users.${username} = {
     isNormalUser = true;
