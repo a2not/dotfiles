@@ -26,8 +26,8 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 
-# for custom tab title with `precmd` hook
-shell-integration-features = no-title
+# `no-title` for custom tab title with `precmd` hook
+shell-integration-features = no-title,cursor,sudo,ssh-env,ssh-terminfo
 
 desktop-notifications = true
 
