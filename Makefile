@@ -48,7 +48,7 @@ lima-vm:
 init-lima:
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/dotfiles ] || git clone git@codeberg.org:a2not/dotfiles.git ~/dotfiles"
 	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; git pull"
-	# limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; sudo nixos-rebuild boot --flake .#lima"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; make nixos-rebuild"
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/.config/sops/age ] || (mkdir -p ~/.config/sops/age/ && vim ~/.config/sops/age/keys.txt)" # put age key
 	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; make home-linux"
 

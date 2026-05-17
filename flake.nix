@@ -51,7 +51,6 @@
   }: let
     username = builtins.getEnv "USER";
     homeDirectory = builtins.getEnv "HOME";
-    limaVMName = builtins.getEnv "LIMA_VM_NAME";
   in {
     hm = import ./home-manager {inherit inputs username homeDirectory;};
 
@@ -71,7 +70,7 @@
 
     nixosConfigurations."lima" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {inherit nixos-lima limaVMName;};
+      specialArgs = {inherit nixos-lima;};
       modules = [
         ./system/nixos
       ];
