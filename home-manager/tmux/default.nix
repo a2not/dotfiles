@@ -3,7 +3,12 @@
     enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
     plugins = with pkgs; [
-      tmuxPlugins.minimal-tmux-status
+      {
+        plugin = tmuxPlugins.minimal-tmux-status;
+        extraConfig = ''
+          set -g @minimal-tmux-justify "left"
+        '';
+      }
     ];
   };
 
