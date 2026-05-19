@@ -3,6 +3,7 @@
     vim
     git
     gnumake
+    gnupg
 
     # python-build / pyenv build dependencies
     curl # downloader used by python-build
