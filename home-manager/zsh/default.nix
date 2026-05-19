@@ -32,6 +32,7 @@ in {
     typescript-language-server
     bun
     phpactor
+    python3
   ];
 
   # make it available to `pnpm install --global`
