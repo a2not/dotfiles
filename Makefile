@@ -1,3 +1,8 @@
+# Define colors
+GREEN  := \033[0;32m
+ORANGE := \033[0;33m
+NC     := \033[0m # No Color
+
 # NOTE: to use env vars like USER and HOME, use `--impure`
 .PHONY: home-linux
 home-linux:
@@ -18,7 +23,13 @@ cleanup:
 
 .PHONY: deep-clean
 deep-clean:
+	nix store optimise
 	sudo nix-collect-garbage -d
+
+.PHONY: kernel-clean
+kernel-clean:
+	@echo -e "$(ORANGE)Manually delete old kernels since 'nix store gc' won't clean them.$(NC)"
+	sudo ls -lah /boot/kernels/
 
 .PHONY: update
 update:
