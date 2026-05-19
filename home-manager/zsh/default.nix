@@ -139,12 +139,5 @@ in {
   programs.mise = {
     enable = true;
     enableZshIntegration = true;
-    globalConfig = {
-      tools = {
-        node = "lts";
-        python = "latest";
-        uv = "latest";
-      };
-    };
   };
 }
