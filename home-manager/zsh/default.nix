@@ -19,6 +19,7 @@ in {
     devenv
 
     mise
+    gnupg
 
     llm-agents.opencode
     llm-agents.fence
