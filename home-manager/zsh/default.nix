@@ -22,7 +22,6 @@ in {
     gnupg
 
     llm-agents.opencode
-    llm-agents.pi
     llm-agents.fence
     llm-agents.claude-code
     bash # AI agent needs this
@@ -108,10 +107,12 @@ in {
     };
   };
 
-  home.file = {
-    ".pi/agent/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/settings.json";
-    ".pi/agent/models.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/models.json";
-  };
+  # NOTE: it's mid at best, for now. SCA from external packages is too scary.
+  # llm-agents.pi
+  # home.file = {
+  #   ".pi/agent/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/settings.json";
+  #   ".pi/agent/models.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/models.json";
+  # };
 
   sops = {
     secrets = {
