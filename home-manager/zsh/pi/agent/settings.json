@@ -5,5 +5,9 @@
   "lastChangelogVersion": "0.74.1",
   "skills": [
     "~/.config/opencode/skills"
+  ],
+  "packages": [
+    "git:github.com/nicobailon/pi-subagents",
+    "git:github.com/nicobailon/pi-web-access"
   ]
 }
