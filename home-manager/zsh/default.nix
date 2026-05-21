@@ -22,6 +22,7 @@ in {
     gnupg
 
     llm-agents.opencode
+    llm-agents.pi
     llm-agents.fence
     llm-agents.claude-code
     bash # AI agent needs this
@@ -105,6 +106,11 @@ in {
     "fence/fence.jsonc" = {
       source = ./fence/fence.jsonc;
     };
+  };
+
+  home.file = {
+    ".pi/agent/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/settings.json";
+    ".pi/agent/models.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/models.json";
   };
 
   sops = {
