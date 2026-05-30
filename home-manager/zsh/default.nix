@@ -15,6 +15,7 @@ in {
     ripgrep
     fastfetch
     jq
+    gh
 
     devenv
 
