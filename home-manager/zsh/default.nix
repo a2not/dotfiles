@@ -42,7 +42,7 @@ in {
     PNPM_HOME = pnpmHome;
   };
   home.sessionPath = [
-    pnpmHome
+    "${pnpmHome}/bin/"
   ];
 
   programs.zsh = {
