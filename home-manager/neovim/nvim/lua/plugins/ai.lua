@@ -8,6 +8,7 @@ return {
     },
     opts = {
       chat_autocomplete = false,
+      model = 'gpt-5-mini',
     },
   },
 
