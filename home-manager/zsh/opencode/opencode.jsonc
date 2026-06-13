@@ -1,5 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "context-mode@1.0.162",
+    "superpowers@git+https://github.com/obra/superpowers.git#v5.1.0",
+    "./plugins/caveman/plugin.js"
+  ],
   "autoupdate": false,
   "share": "disabled",
   "instructions": [
