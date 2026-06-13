@@ -100,9 +100,6 @@ in {
       source = ./opencode;
       recursive = true;
     };
-    "opencode/skills/skill-creator" = {
-      source = "${inputs.anthropic-skills}/skills/skill-creator";
-    };
     "fence/fence.jsonc" = {
       source = ./fence/fence.jsonc;
     };
