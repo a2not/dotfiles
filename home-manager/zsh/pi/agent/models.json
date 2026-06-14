@@ -3,7 +3,7 @@
     "sakura": {
       "baseUrl": "https://api.ai.sakura.ad.jp/v1",
       "api": "openai-completions",
-      "apiKey": "OPENAI_API_KEY",
+      "apiKey": "$OPENAI_API_KEY",
       "models": [
         {
           "id": "preview/Kimi-K2.6"

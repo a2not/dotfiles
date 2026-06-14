@@ -2,12 +2,13 @@
   "defaultProvider": "sakura",
   "defaultModel": "preview/Kimi-K2.6",
   "defaultThinkingLevel": "medium",
-  "lastChangelogVersion": "0.74.1",
+  "lastChangelogVersion": "0.79.2",
   "skills": [
     "~/.config/opencode/skills"
   ],
   "packages": [
-    "git:github.com/nicobailon/pi-subagents",
-    "git:github.com/nicobailon/pi-web-access"
+    "npm:context-mode@1.0.162",
+    "git:github.com/nicobailon/pi-subagents@v0.24.4",
+    "git:github.com/nicobailon/pi-web-access@v0.10.7"
   ]
 }
