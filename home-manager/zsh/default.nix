@@ -56,8 +56,8 @@ in {
     shellAliases = {
       ls = "eza --icons";
       ll = "eza -lah --icons";
-      update = "sudo apt update && sudo apt upgrade -y && sudo snap refresh"; # ubunbu update
-      # opencode = "fence opencode";
+      opencode = "fence opencode";
+      pi = "fence pi";
     };
     history = {
       append = true;

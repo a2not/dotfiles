@@ -1,11 +1,45 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Use-Tusk/fence/main/docs/schema/fence.schema.json",
+  "$schema": "https://raw.githubusercontent.com/fencesandbox/fence/main/docs/schema/fence.schema.json",
   "extends": "code-strict",
-  "filesystem": {
-    "denyRead": [
-      "**/.env",
-      "**/.env.*",
-      "**/*.env"
+  "network": {
+    "allowLocalBinding": true,
+    "allowLocalOutbound": true,
+    "allowLocalOutboundPorts": [
+      3000,
+      5173,
+      5432,
+      6379,
+      8000,
+      8080
+    ],
+    "allowedDomains": [
+      // Sakura Internet
+      "*.sakura.ad.jp",
+      // Go
+      "*.pkg.go.dev"
     ]
-  }
+  },
+  "filesystem": {
+    "defaultDenyRead": true,
+    "allowGitConfig": true,
+    "allowRead": [
+      ".",
+      ".git/**",
+      "~/.config/**",
+      "/nix/**",
+      "~/.nix-profile/**"
+    ],
+    "allowWrite": [
+      ".git/**"
+    ],
+    "allowExecute": [
+      "~/.nix-profile/**"
+    ]
+  },
+  "command": {
+    "acceptSharedBinaryCannotRuntimeDeny": [
+      "chroot"
+    ]
+  },
+  "allowPty": true
 }
