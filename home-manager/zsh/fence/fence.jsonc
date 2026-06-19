@@ -28,7 +28,8 @@
       "~/.config/**",
       "~/.pi", // pi configurations and skills
       "/nix/**",
-      "~/.nix-profile/**"
+      "~/.nix-profile/**",
+      "~/.cache/opencode/**"
     ],
     "allowWrite": [
       ".git/**"
