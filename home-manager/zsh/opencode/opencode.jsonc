@@ -15,6 +15,7 @@
     "CLAUDE.md"
   ],
   "default_agent": "architect",
+  "lsp": true,
   "permission": {
     "bash": {
       "*": "ask",
