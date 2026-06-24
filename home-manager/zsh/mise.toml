@@ -1,0 +1,7 @@
+[settings]
+
+[settings.node]
+compile = false
+
+[tools]
+usage = "latest"

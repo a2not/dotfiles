@@ -9,6 +9,9 @@ PATH="$PATH:/usr/sbin:/sbin"
 export PATH
 # Lima END
 
+# mise completion
+eval "$(mise completion zsh)"
+
 # Ctrl-R history search with fzf
 source <(fzf --zsh)
 
