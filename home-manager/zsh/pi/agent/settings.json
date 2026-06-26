@@ -2,13 +2,15 @@
   "defaultProvider": "sakura",
   "defaultModel": "preview/Kimi-K2.6",
   "defaultThinkingLevel": "high",
-  "lastChangelogVersion": "0.79.2",
+  "lastChangelogVersion": "0.80.2",
   "skills": [
     "~/.config/opencode/skills"
   ],
   "packages": [
-    "npm:context-mode@1.0.162",
-    "git:github.com/nicobailon/pi-subagents@v0.24.4",
-    "git:github.com/nicobailon/pi-web-access@v0.10.7"
-  ]
+    "npm:context-mode@1.0.167",
+    "git:github.com/nicobailon/pi-subagents@v0.31.0",
+    "git:github.com/nicobailon/pi-web-access@v0.13.0",
+    "git:github.com/DietrichGebert/ponytail@v4.8.3"
+  ],
+  "theme": "dark"
 }
