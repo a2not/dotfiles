@@ -44,7 +44,6 @@
 
 [delta]
   nagivate = True
-  side-by-side = True
 [diff]
   colorMoved = default
 [interactive]
