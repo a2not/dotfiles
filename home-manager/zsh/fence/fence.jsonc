@@ -27,6 +27,7 @@
     "allowRead": [
       ".",
       ".git/**",
+      "~/dotfiles/**",
       "~/.config/**",
       "~/.pi/**", // pi configurations and skills
       "/nix/**",
