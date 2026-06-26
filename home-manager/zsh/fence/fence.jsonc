@@ -34,7 +34,8 @@
       "~/.cache/opencode/**"
     ],
     "allowWrite": [
-      ".git/**"
+      ".git/**",
+      "~/go" // GOPATH
     ],
     "allowExecute": [
       "~/.nix-profile/**"
