@@ -23,10 +23,8 @@
   },
   "filesystem": {
     "defaultDenyRead": true,
-    "allowGitConfig": true,
     "allowRead": [
       ".",
-      ".git/**",
       "~/dotfiles/**",
       "~/.config/**",
       "~/.pi/**", // pi configurations and skills
@@ -34,9 +32,9 @@
       "~/.nix-profile/**",
       "~/.cache/opencode/**"
     ],
-    "allowWrite": [
-      ".git/**",
-      "~/go" // GOPATH
+    "denyWrite": [ // kinda ugly but hey
+      "**/config.json",
+      "**/config.yaml"
     ],
     "allowExecute": [
       "~/.nix-profile/**"
