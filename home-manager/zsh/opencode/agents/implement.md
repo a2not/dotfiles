@@ -1,6 +1,6 @@
 ---
 description: Programming agent with great Software Engineering skills
-mode: primary
+mode: subagent
 temperature: 0.2
 tools:
   edit: true
