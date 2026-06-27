@@ -1,8 +1,8 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "plugin": [
-    "context-mode@1.0.167",
-    "@dietrichgebert/ponytail@4.8.3"
+    "~/.pi/agent/git/github.com/mksglu/context-mode",
+    "~/.pi/agent/git/github.com/DietrichGebert/ponytail"
   ],
   "autoupdate": false,
   "share": "disabled",

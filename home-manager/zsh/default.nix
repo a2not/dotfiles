@@ -113,10 +113,15 @@ in {
 
   home.file = {
     ".config/mise/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/mise.toml";
+
     ".pi/agent/AGENTS.md".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/AGENTS.md";
     ".pi/agent/mcp.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/mcp.json";
     ".pi/agent/models.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/models.json";
     ".pi/agent/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/settings.json";
+    ".pi/agent/git/github.com/mksglu/context-mode".source = inputs.context-mode;
+    ".pi/agent/git/github.com/nicobailon/pi-subagents".source = inputs.pi-subagents;
+    ".pi/agent/git/github.com/nicobailon/pi-web-access".source = inputs.pi-web-access;
+    ".pi/agent/git/github.com/DietrichGebert/ponytail".source = inputs.ponytail;
   };
 
   sops = {

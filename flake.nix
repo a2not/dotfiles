@@ -30,6 +30,22 @@
       url = "github:mattpocock/skills";
       flake = false;
     };
+    context-mode = {
+      url = "github:mksglu/context-mode/v1.0.167";
+      flake = false;
+    };
+    pi-subagents = {
+      url = "github:nicobailon/pi-subagents/v0.31.0";
+      flake = false;
+    };
+    pi-web-access = {
+      url = "github:nicobailon/pi-web-access/v0.13.0";
+      flake = false;
+    };
+    ponytail = {
+      url = "github:DietrichGebert/ponytail/v4.8.3";
+      flake = false;
+    };
 
     nixos-lima = {
       url = "github:nixos-lima/nixos-lima";
