@@ -5,12 +5,14 @@ Prefer simple, secure, robust solutions that fit the existing codebase and conve
 Never edit generated files.
 Never edit gitignored files.
 
-## Plan then Execute
+## Plan, Clarify, then Execute
 
 For any non-trivial task:
 
-1. **Plan first.** Write the plan to `PLAN.md` in the current project root.
-2. **Wait for confirmation.** Pause after writing the plan; do not execute until the user approves it.
+1. **Clarify first.** Ask the user any necessary clarifying questions to resolve ambiguity, confirm assumptions, and surface missing requirements. If the task references a ticket or PR, read it in full first. Never write a plan with unknowns unaddressed.
+   *Exception:* If the task is obviously trivial, fully specified, or a one-line fix, skip clarifications and proceed directly to execution (step 3).
+2. **Write the plan.** After clarity, write a concise plan as markdown in `PLAN.md` at the current project root. If the plan is intended for a fresh agent to pick up, use `/skill:handoff` instead. Pause after writing. Do not execute until the user approves it.
+   *Exception:* For trivial tasks, skip the written plan and execute directly.
 3. **Execute.** After approval, implement the plan. Update `PLAN.md` to mark completed items if useful.
 
 A plan is markdown with:
@@ -28,11 +30,46 @@ Pi loads skills automatically, but full instructions are fetched on-demand. Use 
 
 Installed skills to reach for:
 
-- `/skill:context-mode` (and `/skill:ctx-*`) — large outputs, logs, indexing, search, stats, doctor, purge, upgrade.
-- `/skill:ponytail` — minimal solutions; also `/skill:ponytail-review`, `/skill:ponytail-audit`, `/skill:ponytail-debt`.
-- `/skill:pi-subagents` — delegation and multi-step workflows.
-- `/skill:librarian` — library internals and source-code research.
+### Engineering
+- `/skill:codebase-design` — shared vocabulary for designing deep modules, seams, and testable interfaces.
+- `/skill:domain-modeling` — build and sharpen a project's domain model and ubiquitous language.
+- `/skill:tdd` — test-driven development with tracer bullets and vertical slicing.
+- `/skill:implement` — implement work from a PRD or issues; uses `/tdd` and `/review`.
+- `/skill:grill-with-docs` — interview-style session to sharpen plans and produce ADRs / glossary.
+
+### Workflow & Productivity
+- `/skill:handoff` — compact the current conversation into a handoff document for a fresh agent.
+- `/skill:pi-subagents` — delegation and multi-step workflows via subagents, chains, and parallel tasks.
+- `/skill:librarian` — library internals and source-code research with GitHub permalinks.
 - `/skill:confluence` — Confluence page operations (loaded from `~/.config/opencode/skills`).
 
+### Context Management (`ctx-*`)
+- `/skill:context-mode` — large outputs, logs, indexing, search, stats, doctor, purge, upgrade.
+- `/skill:ctx-doctor` — run context-mode diagnostics (runtimes, hooks, FTS5, versions).
+- `/skill:ctx-index` — index files/directories into the persistent FTS5 knowledge base.
+- `/skill:ctx-search` — search the indexed knowledge base for focused snippets.
+- `/skill:ctx-stats` — show token savings and consumption for this session.
+- `/skill:ctx-purge` — wipe the context-mode knowledge base permanently.
+- `/skill:ctx-upgrade` — update context-mode from GitHub and fix hooks/settings.
+- `/skill:ctx-insight` — open the hosted analytics dashboard for AI-assisted engineering teams.
+
+### Ponytail (`ponytail:*`)
+- `/skill:ponytail` — minimal, lazy solutions. YAGNI, stdlib-first, shortest diff wins.
+- `/skill:ponytail-review` — code review focused on over-engineering and what to delete.
+- `/skill:ponytail-audit` — whole-repo audit for over-engineering and bloat.
+- `/skill:ponytail-debt` — harvest `ponytail:` shortcut comments into a debt ledger.
+- `/skill:ponytail-gain` — show ponytail's measured impact (code/cost/speed scoreboard).
+- `/skill:ponytail-help` — quick-reference card for all ponytail modes and commands.
+
 Use skills instead of reimplementing their behavior.
+
+## Extensions
+
+Installed Pi extensions that may affect behavior or provide additional capabilities:
+
+- **guardrails** (aliou/pi-guardrails) — file protection policies, onboarding, and examples.
+- **path-access** (aliou/pi-guardrails) — controls access outside the current workspace.
+- **permission-gate** (aliou/pi-guardrails) — confirms or blocks risky shell commands.
+- **context-mode** (mksglu/context-mode) — session continuity and context window protection.
+- **ponytail** (DietrichGebert/ponytail) — enforces ponytail mode constraints and shortcuts.
 
