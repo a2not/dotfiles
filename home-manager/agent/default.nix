@@ -43,10 +43,4 @@
     # NOTE: currently avoiding cloning them by flake.nix since some of them needs local node_modules writable but `/nix/store` is read only.
     ".pi/agent/extensions/guardrails.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions/guardrails.json";
   };
-
-  sops = {
-    secrets = {
-      "openai/api_key" = {};
-    };
-  };
 }

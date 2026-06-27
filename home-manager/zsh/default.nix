@@ -96,6 +96,7 @@ in {
   sops = {
     secrets = {
       "work/zshrc" = {};
+      "openai/api_key" = {};
     };
   };
 
