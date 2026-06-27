@@ -23,6 +23,7 @@
   },
   "filesystem": {
     "defaultDenyRead": true,
+    "allowGitConfig": true,
     "allowRead": [
       ".",
       "~/dotfiles/**",

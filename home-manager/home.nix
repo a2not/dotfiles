@@ -41,6 +41,7 @@
     ./ssh
     ./tmux
     ./neovim
+    ./agent
 
     ./gui
   ];
