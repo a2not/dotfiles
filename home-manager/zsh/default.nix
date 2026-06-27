@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   config,
   ...
@@ -23,7 +24,6 @@ in {
 
     llm-agents.opencode
     llm-agents.fence
-    llm-agents.claude-code
     llm-agents.pi
     bash # AI agent needs this
 
@@ -100,6 +100,12 @@ in {
       source = ./opencode;
       recursive = true;
     };
+    "opencode/skills/grill-with-docs".source = "${inputs.mattpocock-skills}/skills/engineering/grill-with-docs";
+    "opencode/skills/tdd".source = "${inputs.mattpocock-skills}/skills/engineering/tdd";
+    "opencode/skills/codebase-design".source = "${inputs.mattpocock-skills}/skills/engineering/codebase-design";
+    "opencode/skills/domain-modeling".source = "${inputs.mattpocock-skills}/skills/engineering/domain-modeling";
+    "opencode/skills/implement".source = "${inputs.mattpocock-skills}/skills/engineering/implement";
+    "opencode/skills/handoff".source = "${inputs.mattpocock-skills}/skills/productivity/handoff";
     "fence/fence.jsonc" = {
       source = ./fence/fence.jsonc;
     };

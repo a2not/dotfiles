@@ -9,9 +9,7 @@
   "instructions": [
     "AGENTS.md",
     "CONTRIBUTING.md",
-    "docs/guidelines.md",
-    ".cursor/rules/*.md",
-    "CLAUDE.md"
+    "docs/guidelines.md"
   ],
   "default_agent": "architect",
   "lsp": true,
@@ -21,6 +19,8 @@
       "which *": "allow",
       "grep *": "allow",
       "find *": "allow",
+      "ls *": "allow",
+      "cat *": "allow",
       "git branch *": "allow",
       "git branch -d *": "deny",
       "git status *": "allow",
