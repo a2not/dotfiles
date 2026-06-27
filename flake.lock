@@ -58,23 +58,6 @@
         "type": "github"
       }
     },
-    "context-mode": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782466781,
-        "narHash": "sha256-dnFzje7osXgFegGAG3zC0AfH3H6aRGJC1frYkEEihMs=",
-        "owner": "mksglu",
-        "repo": "context-mode",
-        "rev": "bbeedad88550b09e77b09e6622689be7b5616c51",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mksglu",
-        "ref": "v1.0.167",
-        "repo": "context-mode",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -346,60 +329,8 @@
         "type": "github"
       }
     },
-    "pi-subagents": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782272183,
-        "narHash": "sha256-lvcf6VC6xfZ3j8oHpKoYPNQi8hKFLLhcQq5FxcjJaKk=",
-        "owner": "nicobailon",
-        "repo": "pi-subagents",
-        "rev": "e4f06282d0c95856b36b7ec2893f4fd294ebfefe",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nicobailon",
-        "ref": "v0.31.0",
-        "repo": "pi-subagents",
-        "type": "github"
-      }
-    },
-    "pi-web-access": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782373265,
-        "narHash": "sha256-TPtkurLY8Z9qxa597e0C5yWlNvgz4ywv2GdQstTB33A=",
-        "owner": "nicobailon",
-        "repo": "pi-web-access",
-        "rev": "7bdc30a65cf77273eb9c0034647b373bda4060d7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nicobailon",
-        "ref": "v0.13.0",
-        "repo": "pi-web-access",
-        "type": "github"
-      }
-    },
-    "ponytail": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782268332,
-        "narHash": "sha256-4ZT89GA5xnomNBIzY8Kh1yYP0AC9SeVhv406DEKpE3A=",
-        "owner": "DietrichGebert",
-        "repo": "ponytail",
-        "rev": "025da371cd7539c3eb0ad859b08b3ca55e695f16",
-        "type": "github"
-      },
-      "original": {
-        "owner": "DietrichGebert",
-        "ref": "v4.8.3",
-        "repo": "ponytail",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "context-mode": "context-mode",
         "home-manager": "home-manager",
         "llm-agents": "llm-agents",
         "mattpocock-skills": "mattpocock-skills",
@@ -408,9 +339,6 @@
         "nixos-generators": "nixos-generators",
         "nixos-lima": "nixos-lima",
         "nixpkgs": "nixpkgs",
-        "pi-subagents": "pi-subagents",
-        "pi-web-access": "pi-web-access",
-        "ponytail": "ponytail",
         "sops-nix": "sops-nix"
       }
     },

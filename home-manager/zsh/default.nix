@@ -106,6 +106,7 @@ in {
     "opencode/skills/domain-modeling".source = "${inputs.mattpocock-skills}/skills/engineering/domain-modeling";
     "opencode/skills/implement".source = "${inputs.mattpocock-skills}/skills/engineering/implement";
     "opencode/skills/handoff".source = "${inputs.mattpocock-skills}/skills/productivity/handoff";
+
     "fence/fence.jsonc" = {
       source = ./fence/fence.jsonc;
     };
@@ -118,10 +119,12 @@ in {
     ".pi/agent/mcp.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/mcp.json";
     ".pi/agent/models.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/models.json";
     ".pi/agent/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/zsh/pi/agent/settings.json";
-    ".pi/agent/git/github.com/mksglu/context-mode".source = inputs.context-mode;
-    ".pi/agent/git/github.com/nicobailon/pi-subagents".source = inputs.pi-subagents;
-    ".pi/agent/git/github.com/nicobailon/pi-web-access".source = inputs.pi-web-access;
-    ".pi/agent/git/github.com/DietrichGebert/ponytail".source = inputs.ponytail;
+    # NOTE: for updating extensions, check for the latest tagged version and pin by commit hash.
+    # current extensions: (since settings.json can't have inline comment)
+    # "git:github.com/mksglu/context-mode@bbeedad88550b09e77b09e6622689be7b5616c51",     # https://github.com/mksglu/context-mode/releases/tag/v1.0.167
+    # "git:github.com/DietrichGebert/ponytail@025da371cd7539c3eb0ad859b08b3ca55e695f16", # https://github.com/DietrichGebert/ponytail/releases/tag/v4.8.3
+    # "git:github.com/nicobailon/pi-subagents@e4f06282d0c95856b36b7ec2893f4fd294ebfefe", # https://github.com/nicobailon/pi-subagents/releases/tag/v0.31.0
+    # "git:github.com/nicobailon/pi-web-access@7bdc30a65cf77273eb9c0034647b373bda4060d7" # https://github.com/nicobailon/pi-web-access/releases/tag/v0.13.0
   };
 
   sops = {

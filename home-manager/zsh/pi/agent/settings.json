@@ -7,10 +7,10 @@
     "~/.config/opencode/skills"
   ],
   "packages": [
-    "./git/github.com/mksglu/context-mode",
-    "./git/github.com/nicobailon/pi-subagents",
-    "./git/github.com/nicobailon/pi-web-access",
-    "./git/github.com/DietrichGebert/ponytail"
+    "git:github.com/mksglu/context-mode@bbeedad88550b09e77b09e6622689be7b5616c51",
+    "git:github.com/DietrichGebert/ponytail@025da371cd7539c3eb0ad859b08b3ca55e695f16",
+    "git:github.com/nicobailon/pi-subagents@e4f06282d0c95856b36b7ec2893f4fd294ebfefe",
+    "git:github.com/nicobailon/pi-web-access@7bdc30a65cf77273eb9c0034647b373bda4060d7"
   ],
   "theme": "dark"
 }
