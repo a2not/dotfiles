@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/@aliou/pi-guardrails@0.15.0/schema.json",
+  "version": "0.13.0-20260619",
+  "applyBuiltinDefaults": true,
+  "onboarding": {
+    "completed": true,
+    "completedAt": "2026-06-27T03:40:30.132Z",
+    "version": "0.13.0-20260619"
+  },
+  "permissionGate": {
+    "patterns": [
+      {
+        "pattern": "rm .*",
+        "description": "removing of any files.",
+        "regex": true
+      }
+    ]
+  }
+}
