@@ -14,7 +14,10 @@ in {
     ripgrep
     fastfetch
     jq
+
     gh
+    lefthook
+    betterleaks
 
     devenv
 
