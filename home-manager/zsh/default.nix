@@ -8,7 +8,6 @@
 in {
   home.packages = with pkgs; [
     fzf
-    eza
     starship
     zoxide
     ripgrep
@@ -51,8 +50,7 @@ in {
     oh-my-zsh.enable = true;
 
     shellAliases = {
-      ls = "eza --icons";
-      ll = "eza -lah --icons";
+      ls = "eza";
       opencode = "fence opencode";
       pi = "fence pi";
     };
@@ -101,6 +99,12 @@ in {
       "work/zshrc" = {};
       "openai/api_key" = {};
     };
+  };
+
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+    icons = "always";
   };
 
   programs.starship = {
