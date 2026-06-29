@@ -42,6 +42,7 @@
     ]
   },
   "command": {
+    "runtimeExecPolicy": "argv",
     "acceptSharedBinaryCannotRuntimeDeny": [
       "chroot"
     ]
