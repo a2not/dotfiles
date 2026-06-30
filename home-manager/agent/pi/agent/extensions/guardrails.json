@@ -14,6 +14,33 @@
         "description": "removing of any files.",
         "regex": true
       }
+    ],
+    "autoDenyPatterns": [
+      {
+        "pattern": "git config"
+      },
+      {
+        "pattern": "git commit"
+      },
+      {
+        "pattern": "git branch -(d|D)",
+        "regex": true
+      },
+      {
+        "pattern": "sudo"
+      },
+      {
+        "pattern": "git add"
+      },
+      {
+        "pattern": "git commit"
+      },
+      {
+        "pattern": "git push"
+      },
+      {
+        "pattern": "git reset"
+      }
     ]
   }
 }
