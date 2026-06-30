@@ -68,7 +68,6 @@ return {
           'Trouble',
           'trouble',
           'lazy',
-          'mason',
           'notify',
           'toggleterm',
           'lazyterm',

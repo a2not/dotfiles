@@ -1,14 +1,7 @@
 return {
   {
-    'mason-org/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
     dependencies = {
-      'neovim/nvim-lspconfig',
-      {
-        'mason-org/mason.nvim',
-        opts = {},
-      },
-
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
       'saghen/blink.cmp',
 
       {
@@ -97,41 +90,32 @@ return {
               focus = false,
             })
           end,
-      })
-
-      -- NOTE: for installing non-LSP tools such as `stylua`, `goimports`
-      require('mason-tool-installer').setup({
-        ensure_installed = {
-          'copilot',
-          'eslint',
-          'jsonls',
-          'ts_ls',
-          'gopls',
-          'goimports',
-          'gofumpt',
-          'golangci_lint_ls',
-          'zls',
-          'html',
-          'templ',
-          'terraformls',
-          'tflint',
-          'intelephense',
-          'astro',
-          'tsp_server',
         },
       })
 
-      require('mason-lspconfig').setup()
+      -- Load nvim-lspconfig defaults, then enable nix-managed servers.
+      require('lspconfig')
 
-      -- NOTE: LSPs installed by nix
       vim.lsp.enable({
         'lua_ls',
-        'stylua',
         'rust_analyzer',
+        'copilot',
+        'eslint',
+        'jsonls',
+        'ts_ls',
+        'gopls',
+        'goimports',
+        'gofumpt',
+        'golangci_lint_ls',
+        'zls',
+        'html',
+        'templ',
+        'terraformls',
+        'tflint',
+        'intelephense',
+        'tsp_server',
         'basedpyright',
         'ruff',
-        'nil_ls',
-        'alejandra',
       })
     end,
   },

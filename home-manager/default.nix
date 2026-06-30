@@ -34,6 +34,8 @@ in {
         config.allowUnfreePredicate = pkg:
           builtins.elem (inputs.nixpkgs.lib.getName pkg) [
             "terraform"
+            "copilot-language-server"
+            "intelephense"
           ];
       };
     };

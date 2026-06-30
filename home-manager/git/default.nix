@@ -8,6 +8,7 @@
     ignores = [
       "node_modules/"
       "docs/superpowers/"
+      ".superpowers/"
     ];
   };
   programs.delta = {

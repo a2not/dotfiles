@@ -29,6 +29,8 @@
       gnumake
       unzip
 
+      copilot-language-server
+
       alejandra
       nil
       nixd
@@ -36,7 +38,11 @@
       lua-language-server
 
       go
+      gopls
+      gotools
+      gofumpt
       golangci-lint
+      golangci-lint-langserver
       cargo
       rust-analyzer
       rustfmt
@@ -44,6 +50,16 @@
       basedpyright
       ruff
       terraform
+      terraform-ls
+      tflint
+      templ
+
+      zls
+      typespec
+      intelephense
+
+      vscode-langservers-extracted
+      typescript-language-server
 
       fd
       fzf
