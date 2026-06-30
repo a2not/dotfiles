@@ -3,11 +3,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       'saghen/blink.cmp',
-
-      {
-        'j-hui/fidget.nvim',
-        opts = {},
-      },
     },
 
     config = function()
@@ -92,9 +87,6 @@ return {
           end,
         },
       })
-
-      -- Load nvim-lspconfig defaults, then enable nix-managed servers.
-      require('lspconfig')
 
       vim.lsp.enable({
         'lua_ls',
