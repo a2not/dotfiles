@@ -43,16 +43,6 @@ Installed skills to reach for:
 - `/skill:librarian` — library internals and source-code research with GitHub permalinks.
 - `/skill:confluence` — Confluence page operations (loaded from `~/.config/opencode/skills`).
 
-### Context Management (`ctx-*`)
-- `/skill:context-mode` — large outputs, logs, indexing, search, stats, doctor, purge, upgrade.
-- `/skill:ctx-doctor` — run context-mode diagnostics (runtimes, hooks, FTS5, versions).
-- `/skill:ctx-index` — index files/directories into the persistent FTS5 knowledge base.
-- `/skill:ctx-search` — search the indexed knowledge base for focused snippets.
-- `/skill:ctx-stats` — show token savings and consumption for this session.
-- `/skill:ctx-purge` — wipe the context-mode knowledge base permanently.
-- `/skill:ctx-upgrade` — update context-mode from GitHub and fix hooks/settings.
-- `/skill:ctx-insight` — open the hosted analytics dashboard for AI-assisted engineering teams.
-
 ### Ponytail (`ponytail:*`)
 - `/skill:ponytail` — minimal, lazy solutions. YAGNI, stdlib-first, shortest diff wins.
 - `/skill:ponytail-review` — code review focused on over-engineering and what to delete.
@@ -70,6 +60,5 @@ Installed Pi extensions that may affect behavior or provide additional capabilit
 - **guardrails** (aliou/pi-guardrails) — file protection policies, onboarding, and examples.
 - **path-access** (aliou/pi-guardrails) — controls access outside the current workspace.
 - **permission-gate** (aliou/pi-guardrails) — confirms or blocks risky shell commands.
-- **context-mode** (mksglu/context-mode) — session continuity and context window protection.
 - **ponytail** (DietrichGebert/ponytail) — enforces ponytail mode constraints and shortcuts.
 
