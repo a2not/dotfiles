@@ -48,5 +48,10 @@ return {
       typescriptreact = { 'prettierd', 'prettier', 'biome', stop_after_first = true },
       -- typescriptreact = { 'biome', 'eslint', 'prettierd', 'prettier', stop_after_first = true },
     },
+    formatters = {
+      ruff_format = {
+        prepend_args = { '--line-length', '120' },
+      },
+    },
   },
 }
