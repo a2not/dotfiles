@@ -52,7 +52,6 @@
       terraform
       terraform-ls
       tflint
-      templ
 
       zls
       typespec

@@ -1,8 +1,10 @@
 ---@type vim.lsp.Config
 return {
+  filetypes = { 'go', 'gomod', 'gowork' },
   settings = {
     gopls = {
       gofumpt = true,
+      formatTool = 'goimports',
       buildFlags = { '-tags=integration,database,simplemq' },
       codelenses = {
         gc_details = false,
