@@ -106,27 +106,25 @@ return {
           'zls',
           'html',
           'templ',
-          'nil_ls',
-          'alejandra',
           'terraformls',
           'tflint',
           'intelephense',
           'astro',
           'tsp_server',
-          -- 'ocaml-lsp',
         },
       })
 
       require('mason-lspconfig').setup()
 
-      -- NOTE: installed by nix. manually enable here.
-      -- > "Could not start dynamically linked executable: stylua
-      --    NixOS cannot run dynamically linked executables intended for generic linux environments out of the box.
-      --    For more information, see:\nhttps://nix.dev/permalink/stub-ld"
+      -- NOTE: LSPs installed by nix
       vim.lsp.enable({
         'lua_ls',
         'stylua',
         'rust_analyzer',
+        'basedpyright',
+        'ruff',
+        'nil_ls',
+        'alejandra',
       })
     end,
   },

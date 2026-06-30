@@ -13,6 +13,9 @@
       8080
     ],
     "allowedDomains": [
+      // NixOS
+      "search.nixos.org",
+      "home-manager-options.extranix.com",
       // Sakura Internet
       "*.sakura.ad.jp",
       // Terraform

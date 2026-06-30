@@ -41,6 +41,8 @@
       rust-analyzer
       rustfmt
       python3
+      basedpyright
+      ruff
       terraform
 
       fd

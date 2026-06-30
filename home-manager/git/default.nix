@@ -6,7 +6,8 @@
   programs.git = {
     enable = true;
     ignores = [
-      "node_modules"
+      "node_modules/"
+      "docs/superpowers/"
     ];
   };
   programs.delta = {
