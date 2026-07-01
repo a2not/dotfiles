@@ -10,6 +10,14 @@
   "permissionGate": {
     "patterns": [
       {
+        "pattern": "git add",
+        "description": "git add"
+      },
+      {
+        "pattern": "git commit",
+        "description": "git commit"
+      },
+      {
         "pattern": "rm .*",
         "description": "removing of any files.",
         "regex": true
@@ -20,20 +28,11 @@
         "pattern": "git config"
       },
       {
-        "pattern": "git commit"
-      },
-      {
         "pattern": "git branch -(d|D)",
         "regex": true
       },
       {
         "pattern": "sudo"
-      },
-      {
-        "pattern": "git add"
-      },
-      {
-        "pattern": "git commit"
       },
       {
         "pattern": "git push"
