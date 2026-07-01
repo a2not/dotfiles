@@ -28,6 +28,10 @@
     ],
     "autoDenyPatterns": [
       {
+        "pattern": "git -c",
+        "description": "inline override of git config"
+      },
+      {
         "pattern": "git branch -(d|D)",
         "regex": true
       },
