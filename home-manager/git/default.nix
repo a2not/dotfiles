@@ -41,7 +41,7 @@
       };
       "allowed_signers" = {
         content = ''
-          31874975+a2not@users.noreply.github.com namespace="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z
+          31874975+a2not@users.noreply.github.com namespaces="git" ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z
           ${config.sops.placeholder."work/allowed_signers"}
         '';
         path = "${config.home.homeDirectory}/.ssh/allowed_signers";

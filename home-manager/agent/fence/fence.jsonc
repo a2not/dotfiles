@@ -29,6 +29,8 @@
     "allowGitConfig": true,
     "allowRead": [
       ".",
+      "~/.ssh/agent/**", // git commit sign auth sock
+      "~/.gitconfig*",
       "~/dotfiles/**",
       "~/.config/**",
       "~/.pi/**", // pi configurations and skills
