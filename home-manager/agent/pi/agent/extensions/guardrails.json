@@ -18,15 +18,15 @@
         "description": "git commit"
       },
       {
+        "pattern": "git config"
+      },
+      {
         "pattern": "rm .*",
         "description": "removing of any files.",
         "regex": true
       }
     ],
     "autoDenyPatterns": [
-      {
-        "pattern": "git config"
-      },
       {
         "pattern": "git branch -(d|D)",
         "regex": true
