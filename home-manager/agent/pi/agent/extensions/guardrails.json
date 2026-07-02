@@ -18,6 +18,10 @@
         "description": "git commit"
       },
       {
+        "pattern": "git tag",
+        "description": "git tag"
+      },
+      {
         "pattern": "git config"
       },
       {
