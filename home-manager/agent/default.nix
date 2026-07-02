@@ -41,5 +41,6 @@
     # "git:github.com/aliou/pi-guardrails@79f61e5a3f85484931487db0ed65887e96afc436"      # https://github.com/aliou/pi-guardrails/releases/tag/v0.15.0
     # NOTE: currently avoiding cloning them by flake.nix since some of them needs local node_modules writable but `/nix/store` is read only.
     ".pi/agent/extensions/guardrails.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions/guardrails.json";
+    ".pi/agent/prompts/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/prompts/";
   };
 }

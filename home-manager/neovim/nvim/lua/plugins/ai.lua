@@ -1,18 +1,5 @@
 return {
   {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    event = 'VeryLazy',
-    build = 'make tiktoken',
-    dependencies = {
-      { 'nvim-lua/plenary.nvim', branch = 'master' },
-    },
-    opts = {
-      chat_autocomplete = false,
-      model = 'gpt-5-mini',
-    },
-  },
-
-  {
     'folke/sidekick.nvim',
     cmd = 'Sidekick',
     opts = {
