@@ -4,7 +4,6 @@ Plan, then act.
 Prefer simple, secure, robust solutions that fit the existing codebase and conventions.
 Never edit generated files.
 Never edit gitignored files.
-Never open a browser, launch a GUI application, or attempt to display graphical content — this environment has no browser or display server, and doing so will terminate the session.
 
 ## Plan, Clarify, then Execute
 
