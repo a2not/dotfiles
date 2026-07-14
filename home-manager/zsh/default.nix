@@ -24,6 +24,7 @@ in {
     gnupg
 
     terraform
+    usacloud
     gopls
     golangci-lint
     rust-analyzer
