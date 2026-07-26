@@ -40,5 +40,7 @@
       ];
       options = "--delete-older-than 7d";
     };
+
+    linux-builder.enable = true;
   };
 }
