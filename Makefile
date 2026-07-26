@@ -39,9 +39,10 @@ update:
 nixos-rebuild:
 	sudo nixos-rebuild switch --flake .#lima
 
+# -E (--preserve-env) is needed to preserve env vars like USER and HOME
 .PHONY: darwin-rebuild
 darwin-rebuild:
-	sudo nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mac
+	sudo -E nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mac --impure
 
 # TODO: build it on darwin;
 .PHONY: img
