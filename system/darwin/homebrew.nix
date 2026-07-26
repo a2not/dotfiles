@@ -1,7 +1,7 @@
 {...}: {
   # NOTE: install homebrew beforehand
   homebrew = {
-    enable = true;
+    enable = false;
 
     onActivation = {
       autoUpdate = true;
@@ -17,7 +17,6 @@
     casks = [
       "1password"
       "1password-cli"
-      "discord"
       "ghostty"
       "gitify"
       "google-chrome"
