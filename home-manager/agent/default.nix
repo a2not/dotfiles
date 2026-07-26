@@ -2,8 +2,56 @@
   inputs,
   pkgs,
   config,
+  lib,
   ...
-}: {
+}: let
+  fenceConfig =
+    {
+      "$schema" = "https://raw.githubusercontent.com/fencesandbox/fence/main/docs/schema/fence.schema.json";
+      extends = "code-strict";
+      network = {
+        allowLocalBinding = true;
+        allowLocalOutbound = true;
+        allowLocalOutboundPorts = [3000 5173 5432 6379 8000 8080];
+        allowedDomains = [
+          # NixOS
+          "search.nixos.org"
+          "home-manager-options.extranix.com"
+          # Sakura Internet
+          "*.sakura.ad.jp"
+          # Terraform
+          "registry.terraform.io"
+          # Go
+          "*.pkg.go.dev"
+        ];
+      };
+      filesystem = {
+        defaultDenyRead = true;
+        allowGitConfig = true;
+        allowRead = [
+          "."
+          "~/.ssh/agent/**" # git commit sign auth sock
+          "~/.gitconfig*"
+          "~/dotfiles/**"
+          "~/.config/**"
+          "~/.pi/**" # pi configurations and skills
+          "/nix/**"
+          "~/.nix-profile/**"
+          "~/.cache/opencode/**"
+        ];
+        allowExecute = [
+          "~/.nix-profile/**"
+        ];
+      };
+      allowPty = true;
+    }
+    // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
+      command = {
+        runtimeExecPolicy = "argv";
+        acceptSharedBinaryCannotRuntimeDeny = ["chroot"];
+      };
+    };
+in {
   home.packages = with pkgs; [
     llm-agents.opencode
     llm-agents.fence
@@ -23,8 +71,8 @@
     "opencode/skills/implement".source = "${inputs.mattpocock-skills}/skills/engineering/implement";
     "opencode/skills/handoff".source = "${inputs.mattpocock-skills}/skills/productivity/handoff";
 
-    "fence/fence.jsonc" = {
-      source = ./fence/fence.jsonc;
+    "fence/fence.json" = {
+      text = builtins.toJSON fenceConfig;
     };
   };
 
