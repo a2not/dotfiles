@@ -23,6 +23,8 @@
           "registry.terraform.io"
           # Go
           "*.pkg.go.dev"
+          "proxy.golang.org"
+          "sum.golang.org"
         ];
       };
       filesystem = {
@@ -38,6 +40,12 @@
           "/nix/**"
           "~/.nix-profile/**"
           "~/.cache/opencode/**"
+          "~/go/**" # Go module/source cache
+          "~/.cache/go-build/**" # Go build cache
+        ];
+        allowWrite = [
+          "~/go/**"
+          "~/.cache/go-build/**"
         ];
         allowExecute = [
           "~/.nix-profile/**"
