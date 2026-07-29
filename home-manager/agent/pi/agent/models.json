@@ -6,7 +6,7 @@
       "apiKey": "$OPENAI_API_KEY",
       "models": [
         {
-          "id": "preview/Kimi-K2.6"
+          "id": "preview/Kimi-K2.7-Code"
         }
       ]
     }
