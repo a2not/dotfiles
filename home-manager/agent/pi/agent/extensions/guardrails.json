@@ -47,6 +47,9 @@
       },
       {
         "pattern": "git reset"
+      },
+      {
+        "pattern": "terraform apply"
       }
     ]
   }
