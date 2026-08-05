@@ -32,6 +32,7 @@
         allowGitConfig = true;
         allowRead = [
           "."
+          "**/.git/hooks/**"
           "~/.ssh/agent/**" # git commit sign auth sock
           "~/.gitconfig*"
           "~/dotfiles/**"
@@ -49,6 +50,7 @@
         ];
         allowExecute = [
           "~/.nix-profile/**"
+          "**/.git/hooks/**"
         ];
       };
       allowPty = true;
