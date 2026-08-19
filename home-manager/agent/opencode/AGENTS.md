@@ -10,7 +10,7 @@ Never edit gitignored files.
 For any non-trivial task:
 
 1. **Clarify first.** Ask the user any necessary clarifying questions to resolve ambiguity, confirm assumptions, and surface missing requirements. If the task references a ticket or PR, read it in full first. Never write a plan with unknowns unaddressed.
-2. **Write the plan.** After clarity, write a concise plan as markdown in `PLAN.md` at the current project root. If the plan is intended for a fresh agent to pick up, use `/skill:handoff` instead. Pause after writing. Do not execute until the user approves it.
+2. **Write the plan.** After clarity, write a concise plan as markdown in `PLAN.md` at the current project root. If the plan is intended for a fresh agent to pick up, write it as a handoff document. Pause after writing. Do not execute until the user approves it.
 3. **Execute.** After approval, implement the plan. Update `PLAN.md` to mark completed items if useful.
 
 A plan is markdown with:
@@ -28,15 +28,7 @@ opencode loads skills automatically, but full instructions are fetched on-demand
 
 Installed skills to reach for:
 
-### Engineering
-- `/skill:codebase-design` — shared vocabulary for designing deep modules, seams, and testable interfaces.
-- `/skill:domain-modeling` — build and sharpen a project's domain model and ubiquitous language.
-- `/skill:tdd` — test-driven development with tracer bullets and vertical slicing.
-- `/skill:implement` — implement work from a PRD or issues; uses `/tdd` and `/review`.
-- `/skill:grill-with-docs` — interview-style session to sharpen plans and produce ADRs / glossary.
-
 ### Workflow & Productivity
-- `/skill:handoff` — compact the current conversation into a handoff document for a fresh agent.
 - `/skill:pi-subagents` — delegation and multi-step workflows via subagents, chains, and parallel tasks.
 - `/skill:librarian` — library internals and source-code research with GitHub permalinks.
 - `/skill:confluence` — Confluence page operations (loaded from `~/.config/opencode/skills`).
