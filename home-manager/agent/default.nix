@@ -5,62 +5,7 @@
   lib,
   ...
 }: let
-  fenceConfig =
-    {
-      "$schema" = "https://raw.githubusercontent.com/fencesandbox/fence/main/docs/schema/fence.schema.json";
-      extends = "code-strict";
-      network = {
-        allowLocalBinding = true;
-        allowLocalOutbound = true;
-        allowLocalOutboundPorts = [3000 5173 5432 6379 8000 8080];
-        allowedDomains = [
-          # NixOS
-          "search.nixos.org"
-          "home-manager-options.extranix.com"
-          # Sakura Internet
-          "*.sakura.ad.jp"
-          # Terraform
-          "registry.terraform.io"
-          # Go
-          "*.pkg.go.dev"
-          "proxy.golang.org"
-          "sum.golang.org"
-        ];
-      };
-      filesystem = {
-        defaultDenyRead = true;
-        allowGitConfig = true;
-        allowRead = [
-          "."
-          "**/.git/hooks/**"
-          "~/.ssh/agent/**" # git commit sign auth sock
-          "~/.gitconfig*"
-          "~/dotfiles/**"
-          "~/.config/**"
-          "~/.pi/**" # pi configurations and skills
-          "/nix/**"
-          "~/.nix-profile/**"
-          "~/.cache/opencode/**"
-          "~/go/**" # Go module/source cache
-          "~/.cache/go-build/**" # Go build cache
-        ];
-        allowWrite = [
-          "~/go/**"
-          "~/.cache/go-build/**"
-        ];
-        allowExecute = [
-          "~/.nix-profile/**"
-          "**/.git/hooks/**"
-        ];
-      };
-      allowPty = true;
-    }
-    // lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
-      command = {
-        runtimeExecPolicy = "argv";
-        acceptSharedBinaryCannotRuntimeDeny = ["chroot"];
-      };
-    };
+  fenceConfig = import ./fence.nix {inherit pkgs lib;};
 in {
   home.packages = with pkgs; [
     llm-agents.opencode
@@ -74,12 +19,6 @@ in {
       source = ./opencode;
       recursive = true;
     };
-    "opencode/skills/grill-with-docs".source = "${inputs.mattpocock-skills}/skills/engineering/grill-with-docs";
-    "opencode/skills/tdd".source = "${inputs.mattpocock-skills}/skills/engineering/tdd";
-    "opencode/skills/codebase-design".source = "${inputs.mattpocock-skills}/skills/engineering/codebase-design";
-    "opencode/skills/domain-modeling".source = "${inputs.mattpocock-skills}/skills/engineering/domain-modeling";
-    "opencode/skills/implement".source = "${inputs.mattpocock-skills}/skills/engineering/implement";
-    "opencode/skills/handoff".source = "${inputs.mattpocock-skills}/skills/productivity/handoff";
 
     "fence/fence.json" = {
       text = builtins.toJSON fenceConfig;

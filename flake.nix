@@ -26,10 +26,6 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mattpocock-skills = {
-      url = "github:mattpocock/skills";
-      flake = false;
-    };
     nixos-lima = {
       url = "github:nixos-lima/nixos-lima";
       inputs.nixpkgs.follows = "nixpkgs";
