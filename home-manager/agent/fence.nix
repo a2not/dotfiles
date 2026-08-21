@@ -49,7 +49,7 @@
   };
   allowPty = true;
 }
-// lib.optionalAttrs (!pkgs.stdenv.isDarwin) {
+// lib.optionalAttrs (!pkgs.stdenv.hostPlatform.isDarwin) {
   command = {
     runtimeExecPolicy = "argv";
     acceptSharedBinaryCannotRuntimeDeny = ["chroot"];

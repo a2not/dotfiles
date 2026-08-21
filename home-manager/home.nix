@@ -69,7 +69,7 @@
 
   # HACK: workaround for sops-nix file missing.
   # see https://github.com/Mic92/sops-nix/issues/890
-  launchd.agents.sops-nix = pkgs.lib.mkIf pkgs.stdenv.isDarwin {
+  launchd.agents.sops-nix = pkgs.lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
     enable = true;
     config = {
       EnvironmentVariables = {

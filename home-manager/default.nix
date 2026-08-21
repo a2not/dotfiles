@@ -22,7 +22,7 @@ in {
           # see https://github.com/NixOS/nix/issues/13106
           # (self: super: {
           #   nix =
-          #     if self.stdenv.isDarwin
+          #     if self.stdenv.hostPlatform.isDarwin
           #     then
           #       super.nix.overrideAttrs (oldAttrs: {
           #         doCheck = false;
