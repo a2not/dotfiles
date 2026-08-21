@@ -1,57 +1,7 @@
 # Agent Instructions
 
-Plan, then act.
-Prefer simple, secure, robust solutions that fit the existing codebase and conventions.
-Never edit generated files.
-Never edit gitignored files.
+Prefer simple, secure, robust solutions that fit the existing codebase.
+Never edit generated files or gitignored files.
 
-## Plan, Clarify, then Execute
-
-For any non-trivial task:
-
-1. **Clarify first.** Ask the user any necessary clarifying questions to resolve ambiguity, confirm assumptions, and surface missing requirements. If the task references a ticket or PR, read it in full first. Never write a plan with unknowns unaddressed.
-   *Exception:* If the task is obviously trivial, fully specified, or a one-line fix, skip clarifications and proceed directly to execution (step 3).
-2. **Write the plan.** After clarity, write a concise plan as markdown in `PLAN.md` at the current project root. If the plan is intended for a fresh agent to pick up, write it as a handoff document. Pause after writing. Do not execute until the user approves it.
-   *Exception:* For trivial tasks, skip the written plan and execute directly.
-3. **Execute.** After approval, implement the plan. Update `PLAN.md` to mark completed items if useful.
-
-A plan is markdown with:
-
-- Goal (one sentence)
-- Files to change
-- Steps in order
-- Open questions, if any
-
-Keep plans short. Delete `PLAN.md` when the task is done if the user prefers a clean tree.
-
-## Skills
-
-Pi loads skills automatically, but full instructions are fetched on-demand. Use `/skill:name` to force-load a skill when a task matches its trigger.
-
-Installed skills to reach for:
-
-### Workflow & Productivity
-- `/skill:pi-subagents` — delegation and multi-step workflows via subagents, chains, and parallel tasks.
-- `/skill:librarian` — library internals and source-code research with GitHub permalinks.
-- `/skill:confluence` — Confluence page operations (loaded from `~/.config/opencode/skills`).
-- `/skill:handoff` — Compact the current conversation into a handoff document for another agent to pick up.
-
-### Ponytail (`ponytail:*`)
-- `/skill:ponytail` — minimal, lazy solutions. YAGNI, stdlib-first, shortest diff wins.
-- `/skill:ponytail-review` — code review focused on over-engineering and what to delete.
-- `/skill:ponytail-audit` — whole-repo audit for over-engineering and bloat.
-- `/skill:ponytail-debt` — harvest `ponytail:` shortcut comments into a debt ledger.
-- `/skill:ponytail-gain` — show ponytail's measured impact (code/cost/speed scoreboard).
-- `/skill:ponytail-help` — quick-reference card for all ponytail modes and commands.
-
-Use skills instead of reimplementing their behavior.
-
-## Extensions
-
-Installed Pi extensions that may affect behavior or provide additional capabilities:
-
-- **guardrails** (aliou/pi-guardrails) — file protection policies, onboarding, and examples.
-- **path-access** (aliou/pi-guardrails) — controls access outside the current workspace.
-- **permission-gate** (aliou/pi-guardrails) — confirms or blocks risky shell commands.
-- **ponytail** (DietrichGebert/ponytail) — enforces ponytail mode constraints and shortcuts.
-
+For non-trivial tasks, write a brief `PLAN.md`, pause for approval, then execute.
+Use `/skill:name` when a task matches an installed skill.
