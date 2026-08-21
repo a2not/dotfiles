@@ -2,7 +2,7 @@
   "defaultProvider": "sakura",
   "defaultModel": "preview/Kimi-K2.7-Code",
   "defaultThinkingLevel": "high",
-  "lastChangelogVersion": "0.82.1",
+  "lastChangelogVersion": "0.84.2",
   "skills": [
     "~/.config/opencode/skills"
   ],
