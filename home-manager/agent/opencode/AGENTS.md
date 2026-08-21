@@ -32,6 +32,7 @@ Installed skills to reach for:
 - `/skill:pi-subagents` — delegation and multi-step workflows via subagents, chains, and parallel tasks.
 - `/skill:librarian` — library internals and source-code research with GitHub permalinks.
 - `/skill:confluence` — Confluence page operations (loaded from `~/.config/opencode/skills`).
+- `/skill:handoff` — Compact the current conversation into a handoff document for another agent to pick up.
 
 ### Ponytail (`ponytail:*`)
 - `/skill:ponytail` — minimal, lazy solutions. YAGNI, stdlib-first, shortest diff wins.
