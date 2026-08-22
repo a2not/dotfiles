@@ -8,6 +8,8 @@ config.color_scheme = "tokyonight_night"
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
 
+config.cursor_blink_rate = 0
+
 wezterm.on("gui-startup", function()
 	local _, _, window = mux.spawn_window({})
 	window:gui_window():maximize()
