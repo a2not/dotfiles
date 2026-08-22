@@ -19,7 +19,6 @@
     sideloadInitLua = true;
 
     plugins = with pkgs.vimPlugins; [
-      nvim-treesitter.withAllGrammars
       lazy-nvim
     ];
 
@@ -28,6 +27,7 @@
       cmake
       gnumake
       unzip
+      tree-sitter
 
       copilot-language-server
 
