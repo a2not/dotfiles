@@ -23,6 +23,7 @@ config.window_padding = {
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = true
 config.hide_tab_bar_if_only_one_tab = true
+config.scrollback_lines = 10000
 
 config.font = wezterm.font_with_fallback({
 	"UDEV Gothic 35NF",
