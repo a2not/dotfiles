@@ -14,8 +14,15 @@ home-darwin:
 
 .PHONY: sops-age
 sops-age:
-	mkdir -p ~/.config/sops/age/
-	vim ~/.config/sops/age/keys.txt
+	@if [ -f /var/lib/sops-nix/keys.txt ]; then \
+		echo "age key already exists at /var/lib/sops-nix/keys.txt"; \
+	else \
+		sudo mkdir -p /var/lib/sops-nix; \
+		sudo touch /var/lib/sops-nix/keys.txt; \
+		sudo chown root:$$(id -gn) /var/lib/sops-nix/keys.txt; \
+		sudo chmod 640 /var/lib/sops-nix/keys.txt; \
+		sudo vim /var/lib/sops-nix/keys.txt; \
+	fi
 
 .PHONY: cleanup
 cleanup:
@@ -58,9 +65,9 @@ lima-vm:
 
 .PHONY: init-lima
 init-lima:
-	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/dotfiles ] || git clone git@codeberg.org:a2not/dotfiles.git ~/dotfiles"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; git pull"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; make nixos-rebuild"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/.config/sops/age ] || (mkdir -p ~/.config/sops/age/ && vim ~/.config/sops/age/keys.txt)" # put age key
-	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles ; make home-linux"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/dotfiles ] || git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && git pull"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && make sops-age"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && make nixos-rebuild"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && make home-linux"
 

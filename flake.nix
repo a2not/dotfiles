@@ -26,6 +26,7 @@
       url = "github:numtide/llm-agents.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     nixos-lima = {
       url = "github:nixos-lima/nixos-lima";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,6 +40,7 @@
   outputs = inputs @ {
     self,
     nixpkgs,
+    sops-nix,
     nix-darwin,
     nixos-lima,
     nixos-generators,
@@ -65,8 +67,9 @@
 
     nixosConfigurations."lima" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = {inherit nixos-lima;};
+      specialArgs = {inherit inputs nixos-lima;};
       modules = [
+        sops-nix.nixosModules.sops
         ./system/nixos
       ];
     };
@@ -78,8 +81,9 @@
     # but I am a 'aarch64-darwin' with features {apple-virt, benchmark, big-parallel, nixos-test}
     img = nixos-generators.nixosGenerate {
       pkgs = import nixpkgs {system = "aarch64-linux";};
-      specialArgs = {inherit nixos-lima;};
+      specialArgs = {inherit inputs nixos-lima;};
       modules = [
+        sops-nix.nixosModules.sops
         ./system/nixos
       ];
       format = "qcow-efi";

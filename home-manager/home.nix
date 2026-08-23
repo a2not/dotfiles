@@ -51,7 +51,7 @@
   xdg.enable = true;
 
   sops = {
-    age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt"; # set keys on new host
+    age.keyFile = "/var/lib/sops-nix/keys.txt";
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
   };

@@ -12,6 +12,7 @@ in {
     llm-agents.fence
     llm-agents.pi
     bash # AI agent needs this
+    ketch # for pi web-search
   ];
 
   xdg.configFile = {
@@ -23,6 +24,16 @@ in {
     "fence/fence.json" = {
       text = builtins.toJSON fenceConfig;
     };
+
+    "ketch/config.json" = {
+      text = builtins.toJSON {
+        backend = "searxng";
+        searxng_url = "http://127.0.0.1:18188";
+        available_backends = ["searxng"];
+        available_code_backends = [];
+        available_doc_backends = [];
+      };
+    };
   };
 
   home.file = {
@@ -33,11 +44,10 @@ in {
     # current extensions: (since settings.json can't have inline comment)
     # "git:github.com/DietrichGebert/ponytail@0a4dd63ad4541f4f655c4108a295916f3c1d8fda", # https://github.com/DietrichGebert/ponytail/releases/tag/v4.9.0
     # "git:github.com/nicobailon/pi-subagents@c91f4de5ea956f0d1fcab9e44eba079fa2f917dd", # https://github.com/nicobailon/pi-subagents/releases/tag/v0.53.0
-    # "git:github.com/nicobailon/pi-web-access@3b875f574840eebae39e5fede0d99a5f7c71f482" # https://github.com/nicobailon/pi-web-access/releases/tag/v0.24.0
     # "git:github.com/aliou/pi-guardrails@a3da058432e33999ed368b7a2ec5c72cc2187de2"      # https://github.com/aliou/pi-guardrails/releases/tag/v0.17.0
     # NOTE: currently avoiding cloning them by flake.nix since some of them needs local node_modules writable but `/nix/store` is read only.
     ".pi/agent/extensions/guardrails.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions/guardrails.json";
-    ".pi/web-search.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/web-search.json";
     ".pi/agent/prompts/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/prompts/";
+    ".pi/agent/skills/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/skills";
   };
 }

@@ -9,7 +9,6 @@
   "packages": [
     "git:github.com/DietrichGebert/ponytail@0a4dd63ad4541f4f655c4108a295916f3c1d8fda",
     "git:github.com/nicobailon/pi-subagents@c91f4de5ea956f0d1fcab9e44eba079fa2f917dd",
-    "git:github.com/nicobailon/pi-web-access@3b875f574840eebae39e5fede0d99a5f7c71f482",
     "git:github.com/aliou/pi-guardrails@a3da058432e33999ed368b7a2ec5c72cc2187de2"
   ],
   "theme": "dark"
