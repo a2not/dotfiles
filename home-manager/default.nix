@@ -18,6 +18,10 @@ in {
         overlays = [
           inputs.llm-agents.overlays.shared-nixpkgs
           inputs.neovim-nightly-overlay.overlays.default
+          # NOTE: addressing ketch check issue on darwin.
+          (self: super: {
+            ketch = super.callPackage ../pkgs/ketch {};
+          })
           # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.
           # see https://github.com/NixOS/nix/issues/13106
           # (self: super: {
