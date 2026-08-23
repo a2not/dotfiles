@@ -10,16 +10,7 @@
     allowLocalOutbound = true;
     allowLocalOutboundPorts = [3000 5173 5432 6379 8000 8080 18188];
     allowedDomains = [
-      # NixOS
-      "search.nixos.org"
-      "home-manager-options.extranix.com"
-      # Sakura Internet
-      "*.sakura.ad.jp"
-      # Terraform
-      "registry.terraform.io"
-      # Go
-      "*.golang.org"
-      "*.pkg.go.dev"
+      "*"
     ];
   };
   filesystem = {
