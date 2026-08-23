@@ -18,7 +18,7 @@
       # Terraform
       "registry.terraform.io"
       # Go
-      "*.golang.org",
+      "*.golang.org"
       "*.pkg.go.dev"
     ];
   };
