@@ -1,5 +1,7 @@
-{ pkgs, lib }:
-
+{
+  pkgs,
+  lib,
+}:
 {
   "$schema" = "https://raw.githubusercontent.com/fencesandbox/fence/main/docs/schema/fence.schema.json";
   extends = "code-strict";
@@ -17,8 +19,6 @@
       "registry.terraform.io"
       # Go
       "*.pkg.go.dev"
-      "proxy.golang.org"
-      "sum.golang.org"
     ];
   };
   filesystem = {
