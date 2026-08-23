@@ -14,23 +14,13 @@
   "lsp": true,
   "permission": {
     "bash": {
-      "*": "ask",
-      "which *": "allow",
-      "grep *": "allow",
-      "find *": "allow",
-      "ls *": "allow",
-      "cat *": "allow",
-      "git branch *": "allow",
-      "git branch -d *": "deny",
-      "git status *": "allow",
-      "git log *": "allow",
-      "git diff *": "allow",
-      "git show *": "allow",
-      "git rev-parse *": "allow",
+      "*": "allow",
       "git push": "deny",
       "git push *": "deny",
       "sudo *": "deny",
-      "rm *": "deny"
+      "git add *": "ask",
+      "git commit *": "ask",
+      "rm *": "ask"
     },
     "read": {
       "*": "allow",

@@ -1,6 +1,5 @@
 {
   "$schema": "https://opencode.ai/tui.json",
-  "theme": "everforest",
   "keybinds": {
     "leader": "ctrl+o"
   },
