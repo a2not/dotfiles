@@ -13,6 +13,7 @@ in {
     llm-agents.pi
     bash # AI agent needs this
     ketch # for pi web-search
+    chromium # for ketch scrape for JS-rendered pages
   ];
 
   xdg.configFile = {
@@ -30,8 +31,7 @@ in {
         backend = "searxng";
         searxng_url = "http://127.0.0.1:18188";
         available_backends = ["searxng"];
-        available_code_backends = [];
-        available_doc_backends = [];
+        browser = "${config.home.homeDirectory}/.nix-profile/bin/chromium";
       };
     };
   };
