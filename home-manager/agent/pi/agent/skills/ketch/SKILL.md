@@ -17,6 +17,22 @@ ketch search "<query>" --json [--limit N]
 
 Default limit is 5. Use `--limit 5` for quick checks, `--limit 20` for broader research.
 
+## Fetch full content from a result
+
+```sh
+ketch scrape "<url>" --json --max-chars 6000 --trim
+```
+
+Set `max_chars` based on expected page length (4000–8000 is usually enough). Always use `--trim`.
+
+## Search and scrape in one call
+
+```sh
+ketch search "<query>" --scrape --json [--limit N]
+```
+
+Returns results with full extracted content. Use when you need to answer from multiple sources.
+
 ## Verify the setup
 
 If search fails:
@@ -43,4 +59,5 @@ Expected: `backend: searxng`, `searxng_url: http://127.0.0.1:18188`. If not, rep
 - Prefer `ketch search` over `webfetch` for broad research with multiple sources.
 - Always cite the source URL for every claim.
 - Use `--json` on every call.
+- Bound every fetch with `--max-chars` and `--trim`.
 - Do not run `ketch config set` or install software without explicit user confirmation.
