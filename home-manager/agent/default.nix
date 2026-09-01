@@ -7,14 +7,17 @@
 }: let
   fenceConfig = import ./fence.nix {inherit pkgs lib;};
 in {
-  home.packages = with pkgs; [
-    llm-agents.opencode
-    llm-agents.fence
-    llm-agents.pi
-    bash # AI agent needs this
-    ketch # for pi web-search
-    chromium # for ketch scrape for JS-rendered pages
-  ];
+  home.packages = with pkgs;
+    [
+      llm-agents.opencode
+      llm-agents.fence
+      llm-agents.pi
+      bash # AI agent needs this
+      ketch # for pi web-search
+    ]
+    ++ lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
+      chromium # for ketch scrape for JS-rendered pages
+    ];
 
   xdg.configFile = {
     "opencode" = {

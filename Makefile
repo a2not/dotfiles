@@ -67,7 +67,7 @@ lima-vm:
 init-lima:
 	limactl shell $(LIMA_VM_NAME) -- bash -c "[ -d ~/dotfiles ] || git clone git@github.com:a2not/dotfiles.git ~/dotfiles"
 	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && git pull"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && make sops-age"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && make nixos-rebuild"
-	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && make home-linux"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && nix-shell -p gnumake -p vim --run 'make sops-age'"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && nix-shell -p gnumake -p vim --run 'make nixos-rebuild'"
+	limactl shell $(LIMA_VM_NAME) -- bash -c "cd ~/dotfiles && nix-shell -p gnumake -p vim --run 'make home-linux'"
 
