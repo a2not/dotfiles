@@ -14,6 +14,9 @@ in {
         forwardAgent = true;
         identitiesOnly = true;
         identityFile = "~/.ssh/default.pub";
+        controlMaster = "auto";
+        controlPersist = "10m";
+        controlPath = "~/.ssh/controlmasters/%r@%h:%p";
       };
     };
 
@@ -35,6 +38,12 @@ in {
   };
 
   home.file.".ssh/default.pub".text = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z";
+
+  # Ensure the socket directory exists
+  home.activation.createSshSocketsDir = ''
+    mkdir -p ~/.ssh/controlmasters
+    chmod 700 ~/.ssh/controlmasters
+  '';
 
   sops = {
     secrets."ssh_config/cloud" = {};
