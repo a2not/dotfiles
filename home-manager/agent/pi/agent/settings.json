@@ -8,8 +8,8 @@
   ],
   "packages": [
     "git:github.com/DietrichGebert/ponytail@0a4dd63ad4541f4f655c4108a295916f3c1d8fda",
-    "git:github.com/nicobailon/pi-subagents@c91f4de5ea956f0d1fcab9e44eba079fa2f917dd",
-    "git:github.com/aliou/pi-guardrails@a3da058432e33999ed368b7a2ec5c72cc2187de2"
+    "git:github.com/nicobailon/pi-subagents@57fda3f9c66e961ae0bba26496ce6459226f886e",
+    "git:github.com/aliou/pi-guardrails@bec4c8be8ed93cf9ba28e3034ec8553e0b5cea6c"
   ],
   "theme": "dark"
 }

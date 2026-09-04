@@ -34,6 +34,14 @@
     device = "nodev";
     efiSupport = true;
     efiInstallAsRemovable = true;
+    # NOTE: workaround for /boot partition too small
+    # ```
+    # cannot copy /nix/store/6b9mqhkmhz2lbi4qamh0qpm3mdl731zj-linux-7.1.5/Image to
+    #   /boot/kernels/6b9mqhkmhz2lbi4qamh0qpm3mdl731zj-linux-7.1.5-Image.tmp: No space left on device
+    # Failed to install bootloader
+    # ```
+    # copyKernels = false; # Kernels live in /nix/store, not the small ESP.
+    # configurationLimit = 10;
   };
   fileSystems."/boot" = {
     device = lib.mkForce "/dev/vda1"; # /dev/disk/by-label/ESP
