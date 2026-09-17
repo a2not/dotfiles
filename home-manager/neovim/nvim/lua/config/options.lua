@@ -12,7 +12,8 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.g.errorbells = false
-vim.opt.mouse = ''
+vim.opt.mouse = 'a'
+vim.opt.mousescroll = { 'ver:1', 'hor:1' }
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
