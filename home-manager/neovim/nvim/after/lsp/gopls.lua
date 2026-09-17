@@ -5,7 +5,7 @@ return {
     gopls = {
       gofumpt = true,
       formatTool = 'goimports',
-      buildFlags = { '-tags=integration,database,simplemq' },
+      buildFlags = { '-tags=integration,database,simplemq,docker' },
       codelenses = {
         gc_details = false,
         generate = true,
