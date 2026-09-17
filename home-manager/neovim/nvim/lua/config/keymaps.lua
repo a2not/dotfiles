@@ -22,21 +22,6 @@ vim.keymap.set(
 vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]]) -- move selected line down
 vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]]) -- move selected line up
 
--- Center buffer while navigating
-vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
-vim.keymap.set('n', '{', '{zz', { noremap = true, silent = true })
-vim.keymap.set('n', '}', '}zz', { noremap = true, silent = true })
-vim.keymap.set('n', 'N', 'Nzz', { noremap = true, silent = true })
-vim.keymap.set('n', 'n', 'nzz', { noremap = true, silent = true })
-vim.keymap.set('n', 'G', 'Gzz', { noremap = true, silent = true })
-vim.keymap.set('n', 'gg', 'ggzz', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-i>', '<C-i>zz', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-o>', '<C-o>zz', { noremap = true, silent = true })
-vim.keymap.set('n', '%', '%zz', { noremap = true, silent = true })
-vim.keymap.set('n', '*', '*zz', { noremap = true, silent = true })
-vim.keymap.set('n', '#', '#zz', { noremap = true, silent = true })
-
 -- quickfix list
 vim.keymap.set('n', '<leader>q', function()
   -- cclose if open, return immediately
