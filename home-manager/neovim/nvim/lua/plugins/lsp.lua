@@ -1,0 +1,111 @@
+return {
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'saghen/blink.cmp',
+    },
+
+    config = function()
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+        callback = function(event)
+          local bufnr = event.buf
+          local map = function(keys, func, desc, mode)
+            mode = mode or 'n'
+            vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = 'LSP: ' .. desc })
+          end
+
+          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+          map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+          map('K', vim.lsp.buf.hover, 'Hover Documentation')
+
+          -- with picker
+          map('gd', Snacks.picker.lsp_definitions, '[G]oto [D]efinition')
+          map('gD', Snacks.picker.lsp_declarations, '[G]oto [D]eclaration')
+          map('gt', Snacks.picker.lsp_type_definitions, '[G]oto [T]ype Definition')
+          map('gi', Snacks.picker.lsp_implementations, '[G]oto [I]mplementation')
+          map('gr', Snacks.picker.lsp_references, '[G]oto [R]eferences')
+          map('<leader>ss', Snacks.picker.lsp_symbols, '[S]earch LSP [S]ymbols')
+          map('<leader>ws', Snacks.picker.lsp_workspace_symbols, '[W]orkspace LSP [S]ymbols')
+
+          -- Enable inline completion if supported by the LSP server. Mainly for copilot.
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client ~= nil and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlineCompletion) then
+            -- only enable inline completion when cmp menu is not visible
+            vim.api.nvim_create_autocmd('User', {
+              pattern = 'BlinkCmpMenuOpen',
+              callback = function()
+                vim.lsp.inline_completion.enable(false)
+              end,
+            })
+            vim.api.nvim_create_autocmd('User', {
+              pattern = 'BlinkCmpMenuClose',
+              callback = function()
+                vim.lsp.inline_completion.enable(true)
+              end,
+            })
+
+            vim.keymap.set('i', '<Tab>', function()
+              if not vim.lsp.inline_completion.get() then
+                return '<Tab>'
+              end
+            end, {
+              expr = true,
+              silent = true,
+              replace_keycodes = true,
+              buffer = bufnr,
+              desc = 'Confirm inline_completion',
+            })
+
+            vim.keymap.set('i', '<C-n>', function()
+              vim.lsp.inline_completion.select()
+            end, { silent = true, buffer = bufnr })
+            vim.keymap.set('i', '<C-p>', function()
+              vim.lsp.inline_completion.select({ count = -1 * vim.v.count1 })
+            end, { silent = true, buffer = bufnr })
+          end
+        end,
+      })
+
+      -- Diagnostic Config
+      -- See :help vim.diagnostic.Opts
+      vim.diagnostic.config({
+        severity_sort = true,
+        float = {
+          border = 'rounded',
+          source = true,
+        },
+        underline = true,
+        jump = {
+          on_jump = function(_, bufnr)
+            vim.diagnostic.open_float({
+              bufnr = bufnr,
+              scope = 'cursor',
+              focus = false,
+            })
+          end,
+        },
+      })
+
+      vim.lsp.enable({
+        'lua_ls',
+        'rust_analyzer',
+        'copilot',
+        'eslint',
+        'jsonls',
+        'ts_ls',
+        'gopls',
+        'golangci_lint_ls',
+        'zls',
+        'html',
+        'terraformls',
+        'tflint',
+        'intelephense',
+        'tsp_server',
+        'basedpyright',
+        'ruff',
+      })
+    end,
+  },
+}

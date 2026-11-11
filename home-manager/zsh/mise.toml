@@ -1,0 +1,9 @@
+[settings]
+
+[settings.node]
+compile = false
+
+[tools]
+go = "latest"
+uv = "latest"
+usage = "latest"

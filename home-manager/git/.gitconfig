@@ -1,0 +1,50 @@
+[user]
+  name = a2not
+  email = 31874975+a2not@users.noreply.github.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJwngyM1+KxNLaSFhSYuilEgS36eqwaC8LV3GWd5Pu/z
+
+[includeIf "gitdir:~/work/"]
+  path = ~/.gitconfig_work
+
+[includeIf "gitdir:/Users/"]
+  path = ~/.gitconfig_mac
+
+[core]
+  pager = delta
+  editor = nvim
+  quotepath = false
+[color]
+  ui = auto
+
+[init]
+  defaultBranch = main
+[fetch]
+  prune = true
+[pull]
+  rebase = false
+[push]
+  autoSetupRemote = true
+[merge]
+  conflictstyle = zdiff3
+  tool = nvimdiff
+[mergetool "nvimdiff"]
+  layout = "LOCAL,BASE,REMOTE / MERGED"
+
+[rerere]
+  enabled = True
+
+[commit]
+  gpgsign = True
+[tag]
+  gpgsign = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  allowedSignersFile = ~/.ssh/allowed_signers
+
+[delta]
+  nagivate = True
+[diff]
+  colorMoved = default
+[interactive]
+  diffFilter = delta --color-only

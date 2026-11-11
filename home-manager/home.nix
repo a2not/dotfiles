@@ -1,0 +1,80 @@
+{
+  inputs,
+  username,
+  homeDirectory,
+}: {
+  pkgs,
+  config,
+  ...
+}: {
+  _module.args.inputs = inputs;
+
+  home.stateVersion = "25.05";
+  # TODO: next time we build new NixOS
+  # home.stateVersion = "25.11";
+
+  home.username = username;
+  home.homeDirectory = homeDirectory;
+
+  # NOTE: non-NixOS GPU access is annoying. I'm using this only on NixOS anyway, so it's okay to disable genericLinux.
+  # https://github.com/nix-community/home-manager/commit/d8efc4bfa764676af1fec08f99ce9450d21f2d47
+  # targets.genericLinux.enable = isLinux;
+
+  home.packages = with pkgs; [
+    nixVersions.latest
+    sops
+    htop
+
+    just
+    go
+  ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    MANPAGER = "nvim +Man!";
+  };
+
+  imports = [
+    ./zsh
+    ./git
+    ./ssh
+    ./tmux
+    ./neovim
+    ./agent
+
+    ./gui
+  ];
+
+  home.shell.enableZshIntegration = true;
+
+  xdg.enable = true;
+
+  sops = {
+    age.keyFile = "/var/lib/sops-nix/keys.txt";
+    defaultSopsFile = ../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+  };
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    persistent = true;
+  };
+
+  # HACK: workaround for sops-nix file missing.
+  # see https://github.com/Mic92/sops-nix/issues/890
+  launchd.agents.sops-nix = pkgs.lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
+    enable = true;
+    config = {
+      EnvironmentVariables = {
+        PATH = pkgs.lib.mkForce "/usr/bin:/bin:/usr/sbin:/sbin";
+      };
+    };
+  };
+}

@@ -1,0 +1,168 @@
+return {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
+    build = ':TSUpdate',
+  },
+
+  {
+    'MeanderingProgrammer/treesitter-modules.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {
+      ensure_installed = {
+        'bash',
+        'gitcommit',
+        'c',
+        'cmake',
+        'css',
+        'go',
+        'gomod',
+        'gosum',
+        'html',
+        'javascript',
+        'json',
+        'lua',
+        'luadoc',
+        'make',
+        'markdown',
+        'markdown_inline',
+        'nix',
+        'php',
+        'python',
+        'query',
+        'regex',
+        'rust',
+        'hcl',
+        'toml',
+        'tsx',
+        'typescript',
+        'vim',
+        'vimdoc',
+        'yaml',
+        'zig',
+      },
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = '<C-S>',
+          node_incremental = '<C-S>',
+          scope_incremental = '<TAB>',
+          node_decremental = '<BS>',
+        },
+      },
+    },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
+
+  {
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    branch = 'main',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {
+      move = {
+        enable = true,
+        set_jumps = true, -- whether to set jumps in the jumplist
+        goto_next_start = {
+          [']m'] = '@function.outer',
+          [']]'] = '@class.outer',
+          [']b'] = '@block.outer',
+          [']a'] = '@parameter.inner',
+        },
+        goto_next_end = {
+          [']M'] = '@function.outer',
+          [']['] = '@class.outer',
+          [']B'] = '@block.outer',
+          [']A'] = '@parameter.inner',
+        },
+        goto_previous_start = {
+          ['[m'] = '@function.outer',
+          ['[['] = '@class.outer',
+          ['[b'] = '@block.outer',
+          ['[a'] = '@parameter.inner',
+        },
+        goto_previous_end = {
+          ['[M'] = '@function.outer',
+          ['[]'] = '@class.outer',
+          ['[B'] = '@block.outer',
+          ['[A'] = '@parameter.inner',
+        },
+      },
+      select = {
+        enable = true,
+        lookahead = true,
+        keymaps = {
+          ['af'] = '@function.outer',
+          ['if'] = '@function.inner',
+          ['ac'] = '@class.outer',
+          ['ic'] = '@class.inner',
+          ['ab'] = '@block.outer',
+          ['ib'] = '@block.inner',
+          ['al'] = '@loop.outer',
+          ['il'] = '@loop.inner',
+          ['a/'] = '@comment.outer',
+          ['i/'] = '@comment.outer', -- no inner for comment
+          ['aa'] = '@parameter.outer', -- parameter -> argument
+          ['ia'] = '@parameter.inner',
+        },
+      },
+    },
+  },
+
+  {
+    'm-demare/hlargs.nvim',
+    config = true,
+  },
+
+  {
+    'andymass/vim-matchup',
+  },
+
+  {
+    'windwp/nvim-ts-autotag',
+    config = true,
+  },
+
+  {
+    'RRethy/vim-illuminate',
+    lazy = true,
+    config = function()
+      require('illuminate').configure({
+        under_cursor = false,
+        delay = 200,
+        large_file_cutoff = 2000,
+        large_file_overrides = {
+          providers = {
+            'lsp',
+            'treesitter',
+          },
+        },
+      })
+    end,
+    keys = {
+      {
+        '<leader>n',
+        function()
+          require('illuminate').goto_next_reference()
+        end,
+        mode = 'n',
+        desc = 'illuminate goto_next_reference',
+      },
+      {
+        '<leader>N',
+        function()
+          require('illuminate').goto_prev_reference()
+        end,
+        mode = 'n',
+        desc = 'illuminate goto_prev_reference',
+      },
+    },
+  },
+}

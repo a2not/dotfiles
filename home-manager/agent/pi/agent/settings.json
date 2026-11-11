@@ -1,0 +1,19 @@
+{
+  "defaultProvider": "sakura",
+  "defaultModel": "preview/Kimi-K2.7-Code",
+  "defaultThinkingLevel": "high",
+  "enabledModels": [
+    "github-copilot/gpt-6.1-sol",
+    "github-copilot/gpt-6-luna",
+    "sakura/preview/Kimi-K2.7-Code"
+  ],
+  "hideThinkingBlock": false,
+  "lastChangelogVersion": "1.5.0",
+  "packages": [
+    {
+      "source": "~/.config/nono/packages/nolabs-ai/pi"
+    }
+  ],
+  "theme": "dark",
+  "tuiMode": "regular"
+}

@@ -1,0 +1,43 @@
+images:
+  - location: "https://github.com/nixos-lima/nixos-lima/releases/download/v0.2.2/nixos-lima-v0.2.2-aarch64.qcow2"
+    arch: "aarch64"
+    digest: "sha512:bfcb703cdbad28cfd27438dc009408a859f3c4f575d3598d9627ea712c66128e0fa015de2010ce42bb724abc49f45029a4fc81891fb1a04c567378a6fdf31903"
+
+# TODO: with locally-built images.
+# images:
+#   - location: "./result-aarch64/nixos.qcow2"
+#     arch: "aarch64"
+
+mounts:
+  - location: "~"
+    writable: false
+  # /tmp/lima is no longer mounted by default since Lima v2.0.
+  - location: "{{.GlobalTempDir}}/lima/{{.Name}}"
+    mountPoint: "/tmp/lima/{{.Name}}"
+    writable: true
+  - location: "~/Library/Caches/op-forward"
+    mountPoint: "/mnt/op-forward-host"
+    writable: false
+
+portForwards:
+  # Tell Lima's port-forwarding to ignore port 68 to prevent interception of host DHCP packets
+  # Apparently this is an issue with NixOS that does not occur on other Linux distros
+  # See: https://github.com/nixos-lima/nixos-lima/issues/50
+  - proto: udp
+    guestPort: 68
+    guestIP: 0.0.0.0
+    ignore: true
+
+containerd:
+  system: false
+  user: false
+
+## NOTE: user defined below
+memory: 16GiB
+disk: 200GiB
+ssh:
+  forwardAgent: true
+
+# NOTE: to enable desktop
+# video:
+#   display: default

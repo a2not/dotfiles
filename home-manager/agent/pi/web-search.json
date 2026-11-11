@@ -1,0 +1,6 @@
+{
+  "workflow": "none",
+  "ssrf": {
+    "trustEnvProxy": true
+  }
+}

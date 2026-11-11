@@ -1,0 +1,5 @@
+pre-commit:
+  commands:
+    betterleaks:
+      run: betterleaks git --pre-commit --staged --verbose --config ~/.config/sops-nix/secrets/betterleaks/config
+      # NOTE: update whenever sops gen file path is changed
