@@ -9,13 +9,21 @@ images:
 #     arch: "aarch64"
 
 mounts:
-  - location: "~"
+mounts:
+  - location: "~/Downloads/"
     writable: false
+
+  # TODO: new VM style
+  # - location: "~/src/"
+  #   mountPoint: "{{.Home}}/src/"
+  # - location: "~/work/"
+  #   mountPoint: "{{.Home}}/work/"
+
   # /tmp/lima is no longer mounted by default since Lima v2.0.
-  - location: "{{.GlobalTempDir}}/lima/{{.Name}}"
+  - location: "{{.GlobalTempDir}}/lima/{{.Name}}/"
     mountPoint: "/tmp/lima/{{.Name}}"
     writable: true
-  - location: "~/Library/Caches/op-forward"
+  - location: "~/Library/Caches/op-forward/"
     mountPoint: "/mnt/op-forward-host"
     writable: false
 
