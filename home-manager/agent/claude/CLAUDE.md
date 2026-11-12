@@ -1,2 +1,0 @@
-@~/.claude/pstack-models.md
-
