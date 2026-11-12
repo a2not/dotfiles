@@ -182,7 +182,13 @@
   scannerSandbox =
     builtins.removeAttrs hookSandbox ["exec_paths" "unsafe_macos_seatbelt_rules"]
     // {
-      fs_read = hookSandbox.fs_read ++ [scannerCache];
+      fs_read =
+        hookSandbox.fs_read
+        ++ [
+          scannerCache
+          # Betterleaks reads its sops-nix-managed config from this symlinked path.
+          "$HOME/.config/sops-nix/secrets/betterleaks"
+        ];
       fs_write = hookSandbox.fs_write ++ [scannerCache];
     };
   gitReadSandbox =
