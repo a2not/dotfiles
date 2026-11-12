@@ -11,6 +11,7 @@ in {
     [
       llm-agents.pi
       llm-agents.nono
+      llm-agents.grok
       bash # AI agent needs this
       ketch # for pi web-search
       graphify
@@ -44,5 +45,7 @@ in {
     # disabling ask-user-question extension since it conflicts with pstack's extension with the same name
     # ".pi/agent/extensions/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions";
     ".pi/agent/pstack-models.md".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/pstack-models.md";
+
+    ".grok/config.toml".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/grok/config.toml";
   };
 }
