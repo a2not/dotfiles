@@ -12,6 +12,9 @@
   "packages": [
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
+    },
+    {
+      "source": "git:github.com/michael-denyer/pstack-claude@v0.9.136"
     }
   ],
   "theme": "dark",
