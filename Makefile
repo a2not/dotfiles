@@ -23,8 +23,8 @@ sops-age:
 	else \
 		sudo mkdir -p /var/lib/sops-nix; \
 		sudo touch /var/lib/sops-nix/keys.txt; \
-		sudo chown root:$$(id -gn) /var/lib/sops-nix/keys.txt; \
-		sudo chmod 640 /var/lib/sops-nix/keys.txt; \
+		sudo chown "$(id -un):$(id -gn)" /var/lib/sops-nix/keys.txt \
+		sudo chmod 600 /var/lib/sops-nix/keys.txt \
 		sudo vim /var/lib/sops-nix/keys.txt; \
 	fi
 
