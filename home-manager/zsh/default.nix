@@ -92,6 +92,8 @@ in {
     PNPM_HOME = pnpmHome;
     # Disable usacloud version checks on every invocation.
     USACLOUD_NO_VERSION_CHECK = "true";
+    # Share the sops-nix age key location with the `sops` CLI.
+    SOPS_AGE_KEY_FILE = config.sops.age.keyFile;
   };
   home.sessionPath = [
     "${pnpmHome}/bin/"
