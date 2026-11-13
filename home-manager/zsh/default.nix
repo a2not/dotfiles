@@ -111,7 +111,6 @@ in {
       {
         ls = "eza";
         pi = "nono run --profile sandbox --allow-cwd --strict-broker-path -- pi";
-        grok = "nono run --profile sandbox --allow-cwd --strict-broker-path -- grok";
       }
       // pkgs.lib.optionalAttrs isDarwin {
         lima-default = mkLimaAlias "default";
