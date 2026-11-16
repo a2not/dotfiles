@@ -81,8 +81,7 @@
     fs_read_file = ["/etc/ssl/certs/ca-certificates.crt" "/etc/ssl/cert.pem"];
     # Output flags (for example repo read-file --output) cannot write files.
     fs_write = [];
-    # Dedicated proxy policy, not the session's broader domain/port grants.
-    # Extra Sigstore, OCI, and Enterprise hosts require explicit review.
+    # Direct outbound access, independent of the session's proxy.
     network = {
       allow_all = true;
     };
@@ -92,9 +91,10 @@
     };
     allow_launch_services = false;
     environment = {
-      # Do not inherit tokens, debug logging, editors, pagers, browser commands,
-      # or alternate GH_CONFIG_DIR/GH_HOST settings from the session.
-      allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM" "SSL_CERT_FILE" "NIX_SSL_CERT_FILE"];
+      # Do not inherit the session proxy CA path: gh connects directly.
+      # Also strip tokens, debug logging, editors, pagers, browser commands,
+      # and alternate GH_CONFIG_DIR/GH_HOST settings.
+      allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM"];
       set_vars = {
         GH_TELEMETRY = "false";
         GH_NO_UPDATE_NOTIFIER = "1";
