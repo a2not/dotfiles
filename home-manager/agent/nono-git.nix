@@ -84,13 +84,7 @@
     # Dedicated proxy policy, not the session's broader domain/port grants.
     # Extra Sigstore, OCI, and Enterprise hosts require explicit review.
     network = {
-      allow_all = false;
-      allow_domain = [
-        "api.github.com"
-        "github.com"
-        "raw.githubusercontent.com"
-        "gist.githubusercontent.com"
-      ];
+      allow_all = true;
     };
     open_urls = {
       allow_origins = [];
@@ -305,9 +299,12 @@ in {
                 "grep"
                 "check-ignore"
                 "check-attr"
-                # only options allowed for git state change
+                # Only these commands may change checkout or worktree state.
                 "add"
                 "commit"
+                "worktree"
+              ] ++ [
+                {argv.prefix = ["branch" "--list"];}
               ];
             };
           };
