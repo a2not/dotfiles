@@ -7,3 +7,4 @@ compile = false
 go = "latest"
 uv = "latest"
 usage = "latest"
+python = "latest"
