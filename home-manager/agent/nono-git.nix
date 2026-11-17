@@ -280,32 +280,37 @@ in {
               ];
               # -s adds Signed-off-by; commit.gpgsign=true also SSH-signs it.
               # Leading -c/--git-dir/-C options and aliases remain denied.
-              allow = map (command: {argv.prefix = [command];}) [
-                "status"
-                "diff"
-                "log"
-                "show"
-                "ls-files"
-                "ls-tree"
-                "rev-parse"
-                "rev-list"
-                "cat-file"
-                "diff-index"
-                "diff-files"
-                "describe"
-                "merge-base"
-                "for-each-ref"
-                "show-ref"
-                "grep"
-                "check-ignore"
-                "check-attr"
-                # Only these commands may change checkout or worktree state.
+              # Commands that mutate the checkout or worktree require explicit
+              # terminal approval.
+              approve = map (command: {argv.prefix = [command];}) [
                 "add"
                 "commit"
                 "worktree"
-              ] ++ [
-                {argv.prefix = ["branch" "--list"];}
               ];
+              allow =
+                map (command: {argv.prefix = [command];}) [
+                  "status"
+                  "diff"
+                  "log"
+                  "show"
+                  "ls-files"
+                  "ls-tree"
+                  "rev-parse"
+                  "rev-list"
+                  "cat-file"
+                  "diff-index"
+                  "diff-files"
+                  "describe"
+                  "merge-base"
+                  "for-each-ref"
+                  "show-ref"
+                  "grep"
+                  "check-ignore"
+                  "check-attr"
+                ]
+                ++ [
+                  {argv.prefix = ["branch" "--list"];}
+                ];
             };
           };
           # Leave the self edge implicit: nested Git helpers must retain the
