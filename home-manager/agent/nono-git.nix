@@ -104,7 +104,7 @@
         # Do not inherit the session proxy CA path, and strip tokens, debug
         # logging, editors, pagers, browser commands, and alternate GH_HOST.
         # GH_TOKEN is injected by the proxy credential.
-        allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM" "GH_TOKEN"];
+        allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM"];
         set_vars = {
           GH_TELEMETRY = "false";
           GH_NO_UPDATE_NOTIFIER = "1";

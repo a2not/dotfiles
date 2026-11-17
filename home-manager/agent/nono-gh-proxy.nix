@@ -40,8 +40,8 @@
     };
   };
 
-  # Proxy credential definition that intercepts api.github.com traffic and
-  # injects the captured token as an Authorization header.
+  # Intercept GitHub API traffic so L7 policy can enforce read-only access
+  # independent of which gh subcommand or alias is used.
   commandCredential = lib.optionalAttrs enableGitHubL7Proxy {
     github-api = {
       type = "proxy";
