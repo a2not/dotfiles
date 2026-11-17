@@ -1,9 +1,8 @@
 {
   pkgs,
   lib,
-  enableGitHubL7Proxy ? false,
 }: let
-  gitPolicy = import ./nono-git.nix {inherit pkgs lib enableGitHubL7Proxy;};
+  gitPolicy = import ./nono-git.nix {inherit pkgs lib;};
 in {
   extends = "nolabs-ai/pi";
   meta = {
@@ -183,7 +182,4 @@ in {
   };
 
   command_policies = gitPolicy.command_policies;
-
-  # Supervisor-side credential capture for gh's GitHub token.
-  credential_capture = gitPolicy.credential_capture or {};
 }

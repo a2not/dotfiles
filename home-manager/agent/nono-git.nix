@@ -1,14 +1,8 @@
 {
   pkgs,
   lib,
-  # Toggle read-only L7 proxy filtering for the gh GitHub CLI. When true, all
-  # gh API traffic is routed through a nono proxy credential that captures the
-  # host token and enforces read-only L7 policy. When false, gh connects
-  # directly with no L7 filtering.
-  enableGitHubL7Proxy ? false,
 }: let
   sshSigner = "${pkgs.openssh}/bin/ssh-keygen";
-  ghProxy = import ./nono-gh-proxy.nix {inherit pkgs lib enableGitHubL7Proxy;};
   gitContext = ["GIT_DIR" "GIT_WORK_TREE" "GIT_INDEX_FILE" "GIT_PREFIX"];
   # Root flags must match exactly: trailing flags could turn help/version off
   # and dispatch a different command. Bare auth status cannot expose its token.
@@ -20,9 +14,7 @@
   ];
   # Non-mutating GitHub operations, with no child filesystem write grants.
   # Match specific leaf subcommands, not arbitrary arguments or command groups.
-  # Prefix rules still accept flags; filesystem/exec gates are essential.
-  # The real read-only enforcement is the L7 endpoint policy on the proxy,
-  # so this list is defense-in-depth and controls error messages/UX.
+  # Prefix rules still accept flags; filesystem/network/exec gates are essential.
   ghAllowRules = [
     ["status"]
     ["pr" "list"]
@@ -78,51 +70,46 @@
     ["attestation" "verify"]
     ["attestation" "trusted-root"]
   ];
-  ghSandbox =
-    {
-      fs_read = [
-        "."
-        "/nix/store"
-        "~/.config/gh"
-        "~/.config/git"
-      ];
-      # CA bundles for Linux and macOS; missing paths are skipped.
-      fs_read_file = ["/etc/ssl/certs/ca-certificates.crt" "/etc/ssl/cert.pem"];
-      # gh may write temporary files/caches; the config directory stays read-only.
-      fs_write = ["/tmp"];
-      fs_write_file = [];
-      # When L7 proxying is enabled, all GitHub API traffic is routed through the
-      # nono proxy credential. L7 endpoint policy allows only read operations,
-      # regardless of argv. When disabled, gh gets direct outbound access.
-      credentials = ghProxy.ghSandboxCredential;
-      open_urls = {
-        allow_origins = [];
-        allow_localhost = false;
-      };
-      allow_launch_services = false;
-      environment = {
-        # Do not inherit the session proxy CA path, and strip tokens, debug
-        # logging, editors, pagers, browser commands, and alternate GH_HOST.
-        # GH_TOKEN is injected by the proxy credential.
-        allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM"];
-        set_vars = {
-          GH_TELEMETRY = "false";
-          GH_NO_UPDATE_NOTIFIER = "1";
-          GH_NO_EXTENSION_UPDATE_NOTIFIER = "1";
-          GH_PROMPT_DISABLED = "1";
-          GH_PAGER = "cat";
-          # Also neutralize browser flag variants that token matchers cannot catch.
-          GH_BROWSER = "${pkgs.coreutils}/bin/false";
-          BROWSER = "${pkgs.coreutils}/bin/false";
-        };
-      };
-      # Authentication uses the host's gh config for github.com. When the L7
-      # proxy is enabled, the proxy credential captures the active token via
-      # supervisor-side 'gh auth token' and injects it.
-    }
-    // lib.optionalAttrs (!enableGitHubL7Proxy) {
-      network.allow_all = true;
+  ghSandbox = {
+    fs_read = [
+      "."
+      "/nix/store"
+      "~/.config/gh"
+      "~/.config/git"
+    ];
+    # CA bundles for Linux and macOS; missing paths are skipped.
+    fs_read_file = ["/etc/ssl/certs/ca-certificates.crt" "/etc/ssl/cert.pem"];
+    # gh may write temporary files/caches; the config directory stays read-only.
+    fs_write = ["/tmp"];
+    fs_write_file = [];
+    # Direct outbound access, independent of the session's proxy.
+    network = {
+      allow_all = true;
     };
+    open_urls = {
+      allow_origins = [];
+      allow_localhost = false;
+    };
+    allow_launch_services = false;
+    environment = {
+      # Do not inherit the session proxy CA path: gh connects directly.
+      # Also strip tokens, debug logging, editors, pagers, browser commands,
+      # and alternate GH_CONFIG_DIR/GH_HOST settings.
+      allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM"];
+      set_vars = {
+        GH_TELEMETRY = "false";
+        GH_NO_UPDATE_NOTIFIER = "1";
+        GH_NO_EXTENSION_UPDATE_NOTIFIER = "1";
+        GH_PROMPT_DISABLED = "1";
+        GH_PAGER = "cat";
+        # Also neutralize browser flag variants that token matchers cannot catch.
+        GH_BROWSER = "${pkgs.coreutils}/bin/false";
+        BROWSER = "${pkgs.coreutils}/bin/false";
+      };
+    };
+    # Authentication still uses the host's gh config: provision a read-only,
+    # minimally scoped token outside Pi; argv filtering cannot reduce its scope.
+  };
   # Scanner subprocesses get read-only checkout access and temporary storage.
   # Direct Git and Lefthook's Git manage the checkout; Lefthook refreshes hooks.
   hookSandbox = {
@@ -235,10 +222,6 @@ in {
   # The session must grant this cache as well as the scanner's child sandbox.
   inherit scannerCache;
 
-  # Supervisor-side credential capture: reads the active GitHub token from
-  # gh's own config without exposing the config file to the sandboxed child.
-  credential_capture = ghProxy.credentialCapture;
-
   command_policies = {
     approval_backends = {
       terminal = {
@@ -248,17 +231,13 @@ in {
     approval_defaults = {
       backend = "terminal";
     };
-    credentials =
-      {
-        ssh-signing-agent = {
-          type = "local-socket";
-          # Resolved from the supervisor's host environment, not passed to Pi.
-          path = "$SSH_AUTH_SOCK";
-          mode = "connect";
-          env_var = "SSH_AUTH_SOCK";
-        };
-      }
-      // ghProxy.commandCredential;
+    credentials.ssh-signing-agent = {
+      type = "local-socket";
+      # Resolved from the supervisor's host environment, not passed to Pi.
+      path = "$SSH_AUTH_SOCK";
+      mode = "connect";
+      env_var = "SSH_AUTH_SOCK";
+    };
     commands = {
       sudo.from.session = "deny";
 
