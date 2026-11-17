@@ -116,6 +116,7 @@ in {
             nono run --profile sandbox \
               --allow-cwd \
               --strict-broker-path \
+              --silent \
               -- pi'';
       }
       // pkgs.lib.optionalAttrs isDarwin {
