@@ -110,7 +110,13 @@ in {
     shellAliases =
       {
         ls = "eza";
-        pi = "nono run --profile sandbox --allow-cwd --strict-broker-path -- pi";
+        # Add mise-installed Go tools to PATH so nono permits executing them on commands like `go test`
+        pi = ''
+          PATH="$(go env GOTOOLDIR):$PATH" \
+            nono run --profile sandbox \
+              --allow-cwd \
+              --strict-broker-path \
+              -- pi'';
       }
       // pkgs.lib.optionalAttrs isDarwin {
         lima-default = mkLimaAlias "default";
