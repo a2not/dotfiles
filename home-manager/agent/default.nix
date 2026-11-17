@@ -5,44 +5,58 @@
   lib,
   ...
 }: let
-  nonoConfig = import ./nono.nix {inherit pkgs lib;};
+  cfg = config.programs.nono-agent;
+  nonoConfig = import ./nono.nix {
+    inherit pkgs lib;
+    enableGitHubL7Proxy = cfg.enableGitHubL7Proxy;
+  };
 in {
-  home.packages = with pkgs;
-    [
-      llm-agents.pi
-      llm-agents.nono
-      bash # AI agent needs this
-      ketch # for pi web-search
-      graphify
-      fd # nono needs this
-    ]
-    ++ lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
-      chromium # for ketch scrape for JS-rendered pages
-    ];
-
-  xdg.configFile = {
-    "ketch/config.json" = {
-      text = builtins.toJSON {
-        backend = "searxng";
-        searxng_url = "http://127.0.0.1:18188";
-        available_backends = ["searxng"];
-        browser = "${config.home.homeDirectory}/.nix-profile/bin/chromium";
-      };
-    };
-
-    "nono/profiles/sandbox.json" = {
-      text = builtins.toJSON nonoConfig;
+  options.programs.nono-agent = {
+    enableGitHubL7Proxy = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      description = "Enable read-only L7 proxy filtering for the gh GitHub CLI.";
     };
   };
 
-  home.file = {
-    ".pi/agent/AGENTS.md".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/AGENTS.md";
-    ".pi/agent/models.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/models.json";
-    ".pi/agent/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/settings.json";
-    ".pi/agent/prompts/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/prompts/";
-    ".pi/agent/skills/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/skills";
-    # disabling ask-user-question extension since it conflicts with pstack's extension with the same name
-    # ".pi/agent/extensions/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions";
-    ".pi/agent/pstack-models.md".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/pstack-models.md";
+  config = {
+    home.packages = with pkgs;
+      [
+        llm-agents.pi
+        llm-agents.nono
+        bash # AI agent needs this
+        ketch # for pi web-search
+        graphify
+        fd # nono needs this
+      ]
+      ++ lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
+        chromium # for ketch scrape for JS-rendered pages
+      ];
+
+    xdg.configFile = {
+      "ketch/config.json" = {
+        text = builtins.toJSON {
+          backend = "searxng";
+          searxng_url = "http://127.0.0.1:18188";
+          available_backends = ["searxng"];
+          browser = "${config.home.homeDirectory}/.nix-profile/bin/chromium";
+        };
+      };
+
+      "nono/profiles/sandbox.json" = {
+        text = builtins.toJSON nonoConfig;
+      };
+    };
+
+    home.file = {
+      ".pi/agent/AGENTS.md".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/AGENTS.md";
+      ".pi/agent/models.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/models.json";
+      ".pi/agent/settings.json".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/settings.json";
+      ".pi/agent/prompts/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/prompts/";
+      ".pi/agent/skills/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/skills";
+      # disabling ask-user-question extension since it conflicts with pstack's extension with the same name
+      # ".pi/agent/extensions/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions";
+      ".pi/agent/pstack-models.md".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/pstack-models.md";
+    };
   };
 }
