@@ -18,13 +18,6 @@ in {
         overlays = [
           inputs.llm-agents.overlays.shared-nixpkgs
           inputs.neovim-nightly-overlay.overlays.default
-          # TODO: waiting for next version of ketch to fix check failure on darwin.
-          # https://github.com/NixOS/nixpkgs/pull/547994#issuecomment-5306321643
-          (self: super: {
-            ketch = super.ketch.overrideAttrs (oldAttrs: {
-              doCheck = !self.stdenv.hostPlatform.isDarwin;
-            });
-          })
           # HACK: temporary workaround for nix-functional-tests failing on aarch64-darwin. enable this when it starts to fail.
           # see https://github.com/NixOS/nix/issues/13106
           # (self: super: {
