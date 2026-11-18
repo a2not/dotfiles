@@ -8,7 +8,7 @@
     "sakura/preview/Kimi-K2.7-Code"
   ],
   "hideThinkingBlock": false,
-  "lastChangelogVersion": "1.5.0",
+  "lastChangelogVersion": "1.5.2",
   "packages": [
     {
       "source": "~/.config/nono/packages/nolabs-ai/pi"
