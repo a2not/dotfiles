@@ -1,10 +1,12 @@
 {
   "defaultProvider": "sakura",
-  "defaultModel": "preview/Kimi-K2.7-Code",
+  "defaultModel": "preview/DeepSeek-V4.1-Flash-1017",
   "defaultThinkingLevel": "high",
   "enabledModels": [
     "github-copilot/gpt-6.1-sol",
     "github-copilot/gpt-6-luna",
+    "sakura/preview/GLM-5.3-Flash",
+    "sakura/preview/DeepSeek-V4.1-Flash-1017",
     "sakura/preview/Kimi-K2.7-Code"
   ],
   "hideThinkingBlock": false,
