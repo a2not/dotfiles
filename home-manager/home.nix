@@ -16,10 +16,6 @@
   home.username = username;
   home.homeDirectory = homeDirectory;
 
-  # NOTE: non-NixOS GPU access is annoying. I'm using this only on NixOS anyway, so it's okay to disable genericLinux.
-  # https://github.com/nix-community/home-manager/commit/d8efc4bfa764676af1fec08f99ce9450d21f2d47
-  # targets.genericLinux.enable = isLinux;
-
   home.packages = with pkgs; [
     nixVersions.latest
     sops
