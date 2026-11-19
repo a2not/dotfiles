@@ -2,6 +2,7 @@
   "defaultProvider": "sakura",
   "defaultModel": "preview/DeepSeek-V4.1-Flash-1017",
   "defaultThinkingLevel": "high",
+  "defaultTools": ["+codemode"],
   "enabledModels": [
     "github-copilot/gpt-6.1-sol",
     "github-copilot/gpt-6-luna",
