@@ -21,7 +21,6 @@
     sops
     htop
 
-    just
     go
   ];
 

@@ -77,7 +77,9 @@ in {
     gnupg
 
     terraform
+    ansible
     usacloud
+
     gopls
     golangci-lint
     rust-analyzer
