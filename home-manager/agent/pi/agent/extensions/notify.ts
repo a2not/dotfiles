@@ -6,8 +6,7 @@
  * (OSC 777) too. So Pi emits OSC 777 itself and wraps it in tmux's DCS
  * passthrough (`set -g allow-passthrough all`, see home-manager/tmux/tmux.conf).
  *
- * Covers a settled run inside tmux only, since outside tmux Ghostty's own
- * notify-on-command-finish already does, and any prompt Pi blocks on.
+ * Covers a settled run and any prompt Pi blocks on, inside or outside tmux.
  */
 
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
@@ -34,9 +33,8 @@ function notify(body: string): void {
 
 export default function terminalNotify(pi: ExtensionAPI) {
 	pi.on("agent_settled", (event, ctx) => {
-		// Outside tmux Ghostty already notifies, and Escape means the user
-		// aborted from the keyboard, so they already know.
-		if (!inTmux || ctx.mode !== "tui" || event.aborted) return;
+		// Escape means the user aborted from the keyboard, so they already know.
+		if (ctx.mode !== "tui" || event.aborted) return;
 		notify("Ready for input");
 	});
 
