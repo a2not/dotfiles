@@ -10,8 +10,7 @@
       ssh -F ~/.lima/${vmName}/ssh.config \
       -o ExitOnForwardFailure=yes \
       -R 18340:127.0.0.1:18340 \
-      lima-${vmName} \
-      && limactl stop ${vmName}
+      lima-${vmName}
   '';
   seedOpForwardToken = ''
     # Seed op-forward on login; never overwrite the guest's rotated token.
