@@ -290,15 +290,6 @@ in {
                 {argv.prefix = ["commit" "-n"];}
                 {argv.contains = ["--no-gpg-sign"];}
               ];
-              # -s adds Signed-off-by; commit.gpgsign=true also SSH-signs it.
-              # Leading -c/--git-dir/-C options and aliases remain denied.
-              # Commands that mutate the checkout or worktree require explicit
-              # terminal approval.
-              approve = map (command: {argv.prefix = [command];}) [
-                "add"
-                "commit"
-                "worktree"
-              ];
               allow =
                 map (command: {argv.prefix = [command];}) [
                   "status"

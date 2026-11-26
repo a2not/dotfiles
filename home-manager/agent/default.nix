@@ -43,6 +43,7 @@ in {
     ".pi/agent/skills/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/skills";
     # disabling ask-user-question extension since it conflicts with pstack's extension with the same name
     # ".pi/agent/extensions/".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions";
+    ".pi/agent/extensions/notify.ts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/extensions/notify.ts";
     ".pi/agent/pstack-models.md".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/home-manager/agent/pi/agent/pstack-models.md";
   };
 }
