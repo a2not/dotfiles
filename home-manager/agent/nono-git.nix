@@ -239,8 +239,6 @@ in {
       env_var = "SSH_AUTH_SOCK";
     };
     commands = {
-      sudo.from.session = "deny";
-
       gh = {
         # Pin the real executable; ghSandbox restores the wrapper's telemetry opt-out.
         executable = "${pkgs.gh}/bin/.gh-wrapped";
