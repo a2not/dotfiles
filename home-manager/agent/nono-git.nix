@@ -70,46 +70,59 @@
     ["attestation" "verify"]
     ["attestation" "trusted-root"]
   ];
-  ghSandbox = {
-    fs_read = [
-      "."
-      "/nix/store"
-      "~/.config/gh"
-      "~/.config/git"
-    ];
-    # CA bundles for Linux and macOS; missing paths are skipped.
-    fs_read_file = ["/etc/ssl/certs/ca-certificates.crt" "/etc/ssl/cert.pem"];
-    # gh may write temporary files/caches; the config directory stays read-only.
-    fs_write = ["/tmp"];
-    fs_write_file = [];
-    # Direct outbound access, independent of the session's proxy.
-    network = {
-      allow_all = true;
-    };
-    open_urls = {
-      allow_origins = [];
-      allow_localhost = false;
-    };
-    allow_launch_services = false;
-    environment = {
-      # Do not inherit the session proxy CA path: gh connects directly.
-      # Also strip tokens, debug logging, editors, pagers, browser commands,
-      # and alternate GH_CONFIG_DIR/GH_HOST settings.
-      allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM"];
-      set_vars = {
-        GH_TELEMETRY = "false";
-        GH_NO_UPDATE_NOTIFIER = "1";
-        GH_NO_EXTENSION_UPDATE_NOTIFIER = "1";
-        GH_PROMPT_DISABLED = "1";
-        GH_PAGER = "cat";
-        # Also neutralize browser flag variants that token matchers cannot catch.
-        GH_BROWSER = "${pkgs.coreutils}/bin/false";
-        BROWSER = "${pkgs.coreutils}/bin/false";
+  ghSandbox =
+    {
+      fs_read = [
+        "."
+        "/nix/store"
+        "~/.config/gh"
+        "~/.config/git"
+      ];
+      # CA bundles for Linux and macOS; missing paths are skipped.
+      fs_read_file = ["/etc/ssl/certs/ca-certificates.crt" "/etc/ssl/cert.pem"];
+      # gh may write temporary files/caches; the config directory stays read-only.
+      fs_write = ["/tmp"];
+      fs_write_file = [];
+      # Direct outbound access, independent of the session's proxy.
+      network = {
+        allow_all = true;
       };
+      open_urls = {
+        allow_origins = [];
+        allow_localhost = false;
+      };
+      allow_launch_services = false;
+      environment = {
+        # Do not inherit the session proxy CA path: gh connects directly.
+        # Also strip tokens, debug logging, editors, pagers, browser commands,
+        # and alternate GH_CONFIG_DIR/GH_HOST settings.
+        allow_vars = ["HOME" "USER" "LOGNAME" "LANG" "LC_*" "TZ" "TERM"];
+        set_vars = {
+          GH_TELEMETRY = "false";
+          GH_NO_UPDATE_NOTIFIER = "1";
+          GH_NO_EXTENSION_UPDATE_NOTIFIER = "1";
+          GH_PROMPT_DISABLED = "1";
+          GH_PAGER = "cat";
+          # Also neutralize browser flag variants that token matchers cannot catch.
+          GH_BROWSER = "${pkgs.coreutils}/bin/false";
+          BROWSER = "${pkgs.coreutils}/bin/false";
+        };
+      };
+      # Authentication uses the host's gh config, or the login keychain on macOS
+      # (see the Darwin-only grants below). Provision a minimally scoped token
+      # outside Pi; argv filtering cannot reduce its scope.
+    }
+    // lib.optionalAttrs pkgs.stdenv.hostPlatform.isDarwin {
+      # gh keeps its token in the login keychain, and its keyring backend reads it
+      # by running /usr/bin/security. A command sandbox denies the keychain
+      # (deny_keychains_macos) and child execs by default, so an authenticated gh
+      # otherwise sends unauthenticated requests and fails with HTTP 401.
+      # keychain_access opens only the login keychain; the session keeps the deny.
+      keychain_access = "read";
+      unsafe_macos_seatbelt_rules = [
+        ''(allow process-exec* (literal "/usr/bin/security"))''
+      ];
     };
-    # Authentication still uses the host's gh config: provision a read-only,
-    # minimally scoped token outside Pi; argv filtering cannot reduce its scope.
-  };
   # Scanner subprocesses get read-only checkout access and temporary storage.
   # Direct Git and Lefthook's Git manage the checkout; Lefthook refreshes hooks.
   hookSandbox = {
