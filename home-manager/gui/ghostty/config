@@ -33,7 +33,6 @@ mouse-scroll-multiplier = 1.0
 
 # notifications
 desktop-notifications = true
-notify-on-command-finish = always
-notify-on-command-finish-action = bell,notify
+notify-on-command-finish-action = no-bell,notify
 
 custom-shader = ~/.config/ghostty/shaders/cursor_tail.glsl
