@@ -3,14 +3,23 @@ GREEN  := \033[0;32m
 ORANGE := \033[0;33m
 NC     := \033[0m # No Color
 
-# NOTE: to use env vars like USER and HOME, use `--impure`
-.PHONY: home-linux
-home-linux:
-	nix run nixpkgs#home-manager -- switch --flake ".#aarch64-linux" --impure
+UNAME_S := $(shell uname -s)
+UNAME_M := $(shell uname -m)
+# nix spells arm64 as aarch64; everything else matches uname.
+NIX_ARCH := $(if $(filter arm64,$(UNAME_M)),aarch64,$(UNAME_M))
+DETECTED_SYSTEM := $(NIX_ARCH)-$(if $(filter Darwin,$(UNAME_S)),darwin,linux)
 
-.PHONY: home-darwin
-home-darwin:
-	nix run nixpkgs#home-manager -- switch --flake ".#aarch64-darwin" --impure
+# NOTE: to use env vars like USER and HOME, use `--impure`
+# A bare `make` switches whatever host it runs on; the explicit goals pin the
+# system, so they can target the other platform on purpose.
+.PHONY: home home-linux home-darwin
+.DEFAULT_GOAL := home
+home: SYSTEM := $(DETECTED_SYSTEM)
+home-linux: SYSTEM := aarch64-linux
+home-darwin: SYSTEM := aarch64-darwin
+home home-linux home-darwin:
+	@echo -e "$(GREEN)-> home-manager switch for $(SYSTEM)$(NC)"
+	nix run nixpkgs#home-manager -- switch --flake ".#$(SYSTEM)" --impure
 
 .PHONY: init
 init:
