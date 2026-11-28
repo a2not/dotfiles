@@ -143,6 +143,10 @@ in {
           eval "$(/opt/homebrew/bin/brew shellenv)"
         fi
 
+        if [ -n "$REX_BIN_DIR" ]; then
+          export PATH="$REX_BIN_DIR:$PATH"
+        fi
+
         op_load() {
           local resolved_env
           resolved_env=$(op inject --in-file "${config.sops.secrets."work/zsh/env".path}") || return
