@@ -290,6 +290,9 @@ in {
                 {argv.prefix = ["commit" "-n"];}
                 {argv.contains = ["--no-gpg-sign"];}
               ];
+              # -s adds Signed-off-by; commit.gpgsign=true also SSH-signs it.
+              # Leading -c/--git-dir/-C options and aliases remain denied, as
+              # do the hook and signature bypasses denied above.
               allow =
                 map (command: {argv.prefix = [command];}) [
                   "status"
@@ -310,6 +313,10 @@ in {
                   "grep"
                   "check-ignore"
                   "check-attr"
+                  # commands that mutate state
+                  "add"
+                  "commit"
+                  "worktree"
                 ]
                 ++ [
                   {argv.prefix = ["branch" "--list"];}
